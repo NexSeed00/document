@@ -30,7 +30,8 @@ Xcodeのインストールは少し通信が重くなるため、時間に余裕
 	![Swiftロゴ](./img/check_version.png)
 	
 3. 以下のリンクのページを開き、GMsチェックボックスをオンにしてください。  
-「2」で確認したVersionとXcode Releaseページに表示されているトップのVersionが同じであればOKです。
+「2」で確認したVersionとXcode Releaseページに表示されているトップのVersionが同じであればOKです。  
+	https://xcodereleases.com/
 	![Swiftロゴ](./img/xcodereleases.png)
 	
 > Xcodeのバージョンによっては、MacOSのアップデートが必要になる場合があります。  
