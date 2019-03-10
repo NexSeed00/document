@@ -15,9 +15,9 @@ Webアプリケーション(日記アプリ)を作成します。
 - プロジェクトの作成
   - 任意のフォルダに移動
     - 例
-      - mkdir ~/Desktop/NexSeed/Laravel
-      - cd ~/Desktop/NexSeed/Laravel
-  - composer create-project laravel/laravel --prefer-dist Diary 5.7
+      - `mkdir ~/Desktop/NexSeed/Laravel`
+      - `cd ~/Desktop/NexSeed/Laravel`
+  - `composer create-project laravel/laravel --prefer-dist Diary 5.7`
 - .envファイルの編集
   ```
   DB_DATABASE=Diary
