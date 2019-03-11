@@ -177,6 +177,19 @@ create.blade.phpのformタグの上に以下追加
 ```
 $errorsという変数にエラーの内容が入っている
 
+#### 入力内容の保持
+エラーで元の画面に戻った後に、
+一から入力するのは面倒です。
+そのため、入力内容を保持できるようにします。
+create.blade.phpの入力欄を以下のように編集
+```
+<input type="text" class="form-control" name="title" id="title" value="{{ old('title') }}">
+
+<textarea class="form-control" name="body" id="body">{{ old('body') }}</textarea>
+
+```
+
+### おまけ(授業では実施しない)
 #### エラーメッセージの日本語化
 - `/resources/lang/jp`ディレクトリを作成
 - `/resources/lang/en/validation.php`を`/resources/lang/jp/`にコピー
@@ -204,15 +217,3 @@ $errorsという変数にエラーの内容が入っている
     }
     ```
     エラー内容が日本語になってることを確認
-
-#### 入力内容の保持
-エラーで元の画面に戻った後に、
-一から入力するのは面倒です。
-そのため、入力内容を保持できるようにします。
-create.blade.phpの入力欄を以下のように編集
-```
-<input type="text" class="form-control" name="title" id="title" value="{{ old('title') }}">
-
-<textarea class="form-control" name="body" id="body">{{ old('body') }}</textarea>
-
-```

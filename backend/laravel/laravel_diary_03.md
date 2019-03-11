@@ -25,27 +25,6 @@ class DiaryController extends Controller
 }
 ```
 
-### Viewの作成
-- viewsディレクトリにdiariesディレクトリ作成
-- diariesに`index.blade.php`を作成
-
-index.blade.phpを編集
-```
-Hello View
-```
-
-上記viewを表示するため、
-DiaryController.phpを編集
-```
-    public function index()
-    {
-        return view('diaries.index');
-    }
-```
-
-画面を確認
-これでrouting -> controller -> view
-次はmodel
 
 ### Modelの作成
 `php artisan make:model Diary`
@@ -110,10 +89,9 @@ public function run()
 }
 ```
 
-``
+
 `php artisan db:seed --class=DiariesTableSeeder`
 データが挿入されているか確認
-
 
 
 ### Controllerにロジックの追加
@@ -125,13 +103,43 @@ public function index()
 {
     $diaries = Diary::all(); //diariesテーブルのデータを全件取得
 
+    dd($diaries);
+}
+```
+
+### Viewの作成
+- viewsディレクトリにdiariesディレクトリ作成
+- diariesに`index.blade.php`を作成
+
+index.blade.phpを編集
+```
+Hello View
+```
+
+上記viewを表示するため、
+DiaryController.phpを編集
+```
+public function index()
+{
+    $diaries = Diary::all(); //diariesテーブルのデータを全件取得
+
+    return view('diaries.index');
+}
+```
+
+Viewが表示されることが確認できたら、
+Modelから取得したデータをViewで表示します。
+```
+public function index()
+{
+    $diaries = Diary::all(); //diariesテーブルのデータを全件取得
+
     return view('diaries.index',[
         'diaries' => $diaries,
     ]);
 }
 ```
 
-### Viewの編集
 ```
 <!DOCTYPE html>
 <html lang="en">
@@ -153,8 +161,6 @@ public function index()
 </body>
 </html>
 ```
-
-
 
 ### まとめ
 

@@ -1,12 +1,10 @@
-## リファクタリング + α
-### 今回学ぶこと
-
-### viewファイルの編集
+## Viewファイルの編集
 今viewファイルはheadなどが全て同じです。
 全く同じ処理を何度も書いてる状態を改善します。
 共通部分を切り出し、ページ毎に異なる部分だけを
 各ページのファイルに記述するようにします。
 
+### 共通部分を記述するファイルを作成 
 - layout.blade.phpを作成
 ```
 <!DOCTYPE html>
@@ -24,7 +22,8 @@
 </html>
 ```
 
-index.blade.php
+### ページごとに内容が変わる部分を修正
+- index.blade.php
 ```
 @extends('layout')
 
@@ -52,4 +51,4 @@ index.blade.php
 @endsection
 ```
 
-同じ要領で、create.blade.phpとedit.blade.phpも実施
+同じ要領で、create.blade.phpとedit.blade.phpも実施してみましょう。
