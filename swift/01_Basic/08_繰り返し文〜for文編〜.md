@@ -77,4 +77,46 @@ for i in 1...10 {
 ```
 
 ### 練習問題
-あとで考える
+1. 1から100まで出力するプログラムを書いてください。
+	
+	<details><summary>回答例</summary><div>
+	
+	```
+	for i in 1...100 {
+	    print(i)
+	}
+	```
+	
+	</div></details>
+	
+2. 1から100まで出力するプログラムを書いてください。  
+ただし、50を出力したらbreakを使って、処理を中断するようにしてください。  
+（1から50まで出力するようにしてください。）
+
+	<details><summary>回答例</summary><div>
+	
+	```
+	for i in 1...100 {
+	    if i > 50 {
+	        break
+	    }
+	    print(i)
+	}
+	```
+	
+	</div></details>
+	
+3. 1から100までの奇数のみ出力するプログラムを書いてください。  
+	<details><summary>回答例</summary><div>
+	
+	```
+	for i in 1...100 {
+	    if i % 2 == 0 {
+	        continue
+	    }
+	    print(i)
+	}
+	
+	```
+	
+	</div></details>

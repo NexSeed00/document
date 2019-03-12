@@ -38,4 +38,56 @@ while count <= 10 {
 ```
 
 ### 練習問題
-あとで考える
+1. 1から100まで出力するプログラムを書いてください。
+	
+	<details><summary>回答例</summary><div>
+	
+	```
+	var num = 1
+	
+	while num <= 100 {
+	    print(num)
+	    num = num + 1
+	}
+	```
+	
+	</div></details>
+	
+2. 1から100まで出力するプログラムを書いてください。  
+ただし、50を出力したらbreakを使って、処理を中断するようにしてください。  
+（1から50まで出力するようにしてください。）
+
+	<details><summary>回答例</summary><div>
+	
+	```
+	var num = 1
+	
+	while num <= 100 {
+	    if num > 50 {
+	        break
+	    }
+	    print(num)
+	    num = num + 1
+	}
+	```
+	
+	</div></details>
+	
+3. 1から100までの奇数のみ出力するプログラムを書いてください。  
+	<details><summary>回答例</summary><div>
+	
+	```
+	var num = 1
+	
+	while num <= 100 {
+	    if num % 2 == 0 {
+	        num = num + 1
+	        continue
+	    }
+	    print(num)
+	    num = num + 1
+	}
+	
+	```
+	
+	</div></details>
