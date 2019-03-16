@@ -9,7 +9,7 @@
 ### 導入の仕方
 - fileのダウンロード
 - CDN
-  - contents delivery Networkのこと
+  - Contents Delivery Networkのこと
     - 世界中にサーバがある
     - クライアントと物理的に距離が近いサーバにアクセスするため、レスポンスが速い
 
