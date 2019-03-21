@@ -27,7 +27,7 @@
 		![Swiftロゴ](./img/place_label_button.gif)
 
 3. 配置した画面の部品をプログラムで扱えるよう設定する
-	1. 画面と対になるプログラムファイルを開く。
+	1. 画面と対になるプログラムファイルを開く。  
 		プログラムファイルを開きたい画面を選択し、右上の∞に似たアイコンをクリックする。
 		ViewController.swiftが開かれれば成功です。
 		![Swiftロゴ](./img/open_viewController.gif)
@@ -39,7 +39,7 @@
 		![Swiftロゴ](./img/connect_label.gif)
 
 
-	4. ButtonをViewController.swiftに接続する。
+	4. ButtonをViewController.swiftに接続する。  
 	接続のためのウィンドウが表示されたら、Connection欄で「Action」を選択し、Name欄に「didClickButton」、Type欄に「UIButton」と入力し、「Connect」を選択。
 
 	![Swiftロゴ](./img/connect_button.gif)
