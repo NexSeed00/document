@@ -47,7 +47,7 @@
   5. TextFieldをViewController.swiftに接続する。  
 	接続のためのウィンドウが表示されたら、Connection欄で「Outlet」を選択し、Name欄に「textField」と入力し、「Connect」を選択。
 
-	![Swiftロゴ](./img/connect_button.gif)
+	![Swiftロゴ](./img/connect_textField.gif)
 
 
 4. Buttonが押された時の処理を書く  
@@ -61,19 +61,19 @@
 
 	```
 	@IBAction func didClickButton(_ sender: UIButton) {
-        label.text = "ボタンが押されました" 
+        label.text = textField.text  
 	}
 	```
 	
 5. プロジェクトを実行する。
 	以下のように実行されれば成功です。
-	![Swiftロゴ](./img/buttonProject.gif)
+	![Swiftロゴ](./img/textFieldProject.gif)
 
 ## 解説
 
-### ConnectionのIBOutletとIBActionの違いとは？
+``` 
+label.text = textField.text 
+```
 
-|Connection|説明|
-|---|---|
-|IBOutlet|ラベルの文字を変えたり、色を変えるなどのプロパティに対して操作する場合に使う|
-|IBAction|「ボタンがクリックされた時に〇〇をする」などのように処理を書きたい時に使用する|
+上記のコードはlabelの文字に、画面で入力された値を設定しています。
+TextFieldに入力された値は、TextFieldのtextプロパティに保存されています。
