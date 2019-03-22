@@ -48,7 +48,8 @@ Windowsの場合は、Cドライブ直下に、
 どこから起動するか説明します。
 
 ### Mac
-XAMPPディレクトリの中にある「manager-osx.app」をダブルクリック
+Launchpadを起動→画面上部の検索boxで「manager-osx」と検索→表示された
+manager-osx.appをダブルクリック
 
 ### Windows
 XAMPPディレクトリの中にある「xampp-control.exe」をダブルクリック
@@ -66,7 +67,7 @@ XAMPPディレクトリの中にある「xampp-control.exe」をダブルクリ�
 XAMPP環境を使う時は、表示したいページをXAMPPのhtdocsディレクトリに保存します。
 また、ページにアクセスする際はURLのドメインが「localhost」になります。
 
-例えば、htdocsフォルダの直下に「test.html」というHTMLファイルを作って表示させたい場合は、「http://localhost/test.html」とアクセスすることになります。
+例えば、htdocsフォルダの直下に「test.html」というHTMLファイルを作って表示させたい場合は、「http://localhost/test.html」 とアクセスすることになります。
 
 以下の内容でtest.htmlというファイルを作成して、htdocs直下に保存した後、
 上記URLにアクセスしてください。
