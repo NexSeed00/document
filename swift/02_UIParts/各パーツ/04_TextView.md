@@ -57,7 +57,7 @@
   5. TextViewをViewController.swiftに接続する。  
 	接続のためのウィンドウが表示されたら、Connection欄で「Outlet」を選択し、Name欄に「textView」と入力し、「Connect」を選択。
 
-	![Swiftロゴ](./img/connect_textview.gif)
+		![Swiftロゴ](./img/connect_textview.gif)
 
 
 4. Buttonが押された時の処理を書く  
@@ -86,11 +86,11 @@
 label.text = textView.text 
 ```
 
-上記のコードはlabelの文字に、画面で入力された値を設定しています。
+上記のコードはlabelの文字に、画面で入力された値を設定しています。  
 TextViewに入力された値は、TextViewのtextプロパティに保存されています。
 
 ### LabelのLinesについて
-Labelはデフォルトでは1行のみしか表示できません。
-ですが、属性インスペクタ内のLinesの値を変更すれば、その値分の行数表示できます。
-例えば、Linesを3にすれば3行表示することが可能です。
+Labelはデフォルトでは1行のみしか表示できません。  
+ですが、属性インスペクタ内のLinesの値を変更すれば、その値分の行数表示できます。  
+例えば、Linesを3にすれば3行表示することが可能です。  
 また、0行に設定すると表示できるだけ複数行表示してくれます。
