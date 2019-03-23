@@ -47,7 +47,7 @@
 		|UITextView|didClickSwitch|
 		|UISlider|didChangeValue|
 
-		![Swiftロゴ](./img/connect_ImageViewAndSwitchAndSlider)
+		![Swiftロゴ](./img/connect_ImageViewAndSwitchAndSlider.png)
 
 4. ImageViewにデフォルト画像を設定する
 	1. 以下のようにする。
@@ -69,17 +69,17 @@
 
 	<details><summary>回答例</summary><div>
 	
-		```
-		@IBAction func didClickSwitch(_ sender: UISwitch) {
-        if sender.isOn {
-            let dogImage = UIImage(named: "dog")
-            imageView.image = dogImage
-        } else {
-            let catImage = UIImage(named: "cat")
-            imageView.image = catImage
-        }
-    }
-		```
+	```
+	@IBAction func didClickSwitch(_ sender: UISwitch) {
+	    if sender.isOn {
+	        let dogImage = UIImage(named: "dog")
+	        imageView.image = dogImage
+	    } else {
+	        let catImage = UIImage(named: "cat")
+	        imageView.image = catImage
+	    }
+   }
+	```
 	</div></details>
 
 6. 「表示」ボタンが押下された時、以下のようになるようdidClickButtonを修正してください。
