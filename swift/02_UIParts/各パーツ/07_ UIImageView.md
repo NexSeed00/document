@@ -74,7 +74,7 @@
 	}
 	```
 
-5. プロジェクトを実行する。
+6. プロジェクトを実行する。
 	以下のように実行されれば成功です。
 	![Swiftロゴ](./img/ImageViewProject.gif)
 
@@ -90,3 +90,16 @@ imageView.image = catImage
 1行目の部分で、画像名が「cat」の画像を探し、結果を定数catImageに保存しています。  
 そして、その画像をImageViewのimageプロパティに設定しています。  
 その結果、画面の画像が犬から猫に変わっています。
+
+ImageViewにはimage以外にもプロパティが存在します。
+画像の透明度の設定にはalphaプロパティを使用します。
+0（透明）から1（不透明）の間で透明度を設定できます。
+didClickButtonメソッドを以下のように修正して実行してみてください。
+
+```
+@IBAction func didClickButton(_ sender: UIButton) {
+	let catImage = UIImage(named: "cat")
+	imageView.image = catImage  
+	imageView.alpha = 0.1
+}
+```
