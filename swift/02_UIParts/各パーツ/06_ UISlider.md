@@ -70,3 +70,28 @@ sender.value
 
 この部分でスライダーの値を取得しています。  
 スライダーの最小値と最大値は、デフォルトでそれぞれ 0.0 と 1.0 となっています。
+
+また、スライダーの初期値を設定することもできます。
+以下のようにSliderをIBOutletで接続して、```sender.value```に値を設定してください。
+
+```
+class ViewController: UIViewController {
+
+	@IBOutlet weak var label: UILabel!
+	
+	// 追加
+	@IBOutlet weak var slider: UISlider!
+	
+	override func viewDidLoad() {
+			super.viewDidLoad()
+
+			// 追加
+			slider.value = 1
+	}
+	
+	@IBAction func didChangeValue(_ sender: UISlider) {
+			label.text = "\(sender.value)"
+	}
+    
+}
+```
