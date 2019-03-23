@@ -76,7 +76,7 @@
 
 5. プロジェクトを実行する。
 	以下のように実行されれば成功です。
-	![Swiftロゴ](./img/ImageViewroject.gif)
+	![Swiftロゴ](./img/ImageViewProject.gif)
 
 ## 解説
 
