@@ -52,7 +52,7 @@
 4. ImageViewにデフォルト画像を設定する
 	1. 以下のようにする。
 
-	![Swiftロゴ](./img/set_dog_image.png)
+	<img src="./img/set_dog_image.png" width="300px">
 
 	> 参考  
 	> [07_UIImageView.md](./各パーツ/07_UIImageView.md)  
@@ -82,17 +82,16 @@
 	```
 	</div></details>
 
-6. 「表示」ボタンが押下された時、以下のようになるようdidClickButtonを修正してください。
+6. Sliderが押されたときのプログラムを書く
+  以下のような動きになるようプログラムを書いてください。
 
-	![Swiftロゴ](./img/TextFieldViewAndButton.gif)
-
+	<img src="./img/slider_logic.gif" width="300px">
 
 	<details><summary>回答例</summary><div>
 	
 	```
-	@IBAction func didClickButton(_ sender: UIButton) {
-        labelForTextField.text = textField.text
-        labelForTextView.text = textView.text
-    }
+	@IBAction func didChangeValue(_ sender: UISlider) {
+        imageView.alpha = CGFloat(sender.value)
+   }
 	```
 	</div></details>
