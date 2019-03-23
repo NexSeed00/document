@@ -60,7 +60,7 @@
 5. Switchが押されたときのプログラムを書く
 	以下のような動きになるようプログラムを書いてください。
 
-	![Swiftロゴ](./img/switch_logic.gif)
+	<img src="./img/switch_logic.gif" width="300px">
 
 	> 参考  
 	> [05_UISwitch.md](./各パーツ/05_UISwitch.md)  
