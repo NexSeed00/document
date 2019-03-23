@@ -83,14 +83,14 @@ class ViewController: UIViewController {
 	@IBOutlet weak var slider: UISlider!
 	
 	override func viewDidLoad() {
-			super.viewDidLoad()
+		super.viewDidLoad()
 
-			// 追加
-			slider.value = 1
+		// 追加
+		slider.value = 1
 	}
 	
 	@IBAction func didChangeValue(_ sender: UISlider) {
-			label.text = "\(sender.value)"
+		label.text = "\(sender.value)"
 	}
     
 }
