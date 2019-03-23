@@ -1,7 +1,7 @@
 # TextField&TextViewLabel&Button
 
 ## 目標
-	- TextField, TextView, Button, Labelが使えるようになうる
+- TextField, TextView, Button, Labelが使えるようになる
 
 ## 開発の流れ
 
@@ -11,7 +11,9 @@
 	- Labelの設置
 	- Buttonの設置
 2. 配置した画面の部品をプログラムで扱えるよう設定する
-3. 表示ボタンが押されたときのプログラムを書く
+3. TextViewのデフォルト値を削除する
+4. TextView用のLabelを複数行表示できるよう設定する
+5. 表示ボタンが押されたときのプログラムを書く
 
 ## 部品の説明
 
@@ -25,7 +27,7 @@
 ## 開発しよう
 
 1. プロジェクトを作成する  
-	[01_はじめてのアプリ開発](./01_はじめてのアプリ開発.md)と同じように新規プロジェクトを作成する。  
+	[01_はじめてのアプリ開発](./01_はじめてのアプリ開発.md)と同じように新規プロジェクトを作成する。  
 	アプリ名：TextFieldViewAndButton
 	
 2. 画面の部品を配置する
@@ -36,8 +38,8 @@
 		> 参考  
 		> [01_UILabel.md](./各パーツ/01_UILabel.md)  
 		> [02_UIButton.md](./各パーツ/02_UIButton.md)  
-		> [03_UITextField.md](./各パーツ/03_UITextField.md)  
-		> [04_UITextView.md](./各パーツ/04_UITextView.md)
+		> [03_UITextField.md](./各パーツ/03_TextField.md)  
+		> [04_UITextView.md](./各パーツ/04_TextView.md)
 
 
 3. 配置した画面の部品をプログラムで扱えるよう設定する
@@ -59,11 +61,11 @@
 	![Swiftロゴ](./img/empty_textView.png)
 
 	> 参考  
-	> [04_UITextView.md](./各パーツ/04_UITextView.md)
+	> [04_UITextView.md](./各パーツ/04_TextView.md)
 
 5. TextView用のLabelを複数行表示できるよう設定する。
 	> 参考  
-	> [04_UITextView.md](./各パーツ/04_UITextView.md)
+	> [04_UITextView.md](./各パーツ/04_TextView.md)
 
 6. 「表示」ボタンが押下された時、以下のようになるようdidClickButtonを修正してください。
 
