@@ -38,22 +38,6 @@
 		> [06_UISlider.md](./各パーツ/06_UISlider.md)  
 		> [07_UIImageView.md](./各パーツ/07_UIImageView.md)  
 
-
-		<details><summary>回答例</summary><div>
-	
-		```
-		@IBAction func didClickSwitch(_ sender: UISwitch) {
-        if sender.isOn {
-            let dogImage = UIImage(named: "dog")
-            imageView.image = dogImage
-        } else {
-            let catImage = UIImage(named: "cat")
-            imageView.image = catImage
-        }
-    }
-		```
-		</div></details>
-
 3. 配置した画面の部品をプログラムで扱えるよう設定する
 	1. 配置したImageView, Switch, SliderをViewController.swiftに接続する。
 
@@ -81,6 +65,22 @@
 	> 参考  
 	> [05_UISwitch.md](./各パーツ/05_UISwitch.md)  
 	> [07_UIImageView.md](./各パーツ/07_UIImageView.md)  
+
+
+	<details><summary>回答例</summary><div>
+	
+		```
+		@IBAction func didClickSwitch(_ sender: UISwitch) {
+        if sender.isOn {
+            let dogImage = UIImage(named: "dog")
+            imageView.image = dogImage
+        } else {
+            let catImage = UIImage(named: "cat")
+            imageView.image = catImage
+        }
+    }
+		```
+	</div></details>
 
 6. 「表示」ボタンが押下された時、以下のようになるようdidClickButtonを修正してください。
 
