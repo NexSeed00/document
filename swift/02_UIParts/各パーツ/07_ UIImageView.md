@@ -70,8 +70,8 @@
 	```
 	@IBAction func didClickButton(_ sender: UIButton) {
 		let catImage = UIImage(named: "cat")
-		imageView.image = catImage
-  }
+		imageView.image = catImage  
+	}
 	```
 
 5. プロジェクトを実行する。
