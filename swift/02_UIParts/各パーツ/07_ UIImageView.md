@@ -61,8 +61,8 @@
   ViewController内のdidClickButtonメソッドに以下のプログラムを追記する。
 
 	``` 
-	let catImage = UIImage(named: "cat")
-  imageView.image = catImage
+	let catImage = UIImage(named: "cat")  
+	imageView.image = catImage  
 	```
   
 	didClickButtonの完成形
