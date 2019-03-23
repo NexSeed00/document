@@ -8,7 +8,8 @@
 1. 画面の部品を配置する
 	- UIImageView, UIButtonの設置
 2. 配置した画面の部品をプログラムで扱えるよう設定する
-3. UIButtonが変更された時の処理を書く
+3. プロジェクトに画像を追加する
+4. UIButtonが変更された時の処理を書く
 
 ## 部品の説明
 
@@ -23,7 +24,7 @@
 	アプリ名：ImageViewProject
 	
 2. 画面の部品を配置する
-	1. Slider, Labelを配置する
+	1. UIImageView, Buttonを配置する
 		![Swiftロゴ](./img/place_imageview.gif)
 
 3. 配置した画面の部品をプログラムで扱えるよう設定する
@@ -48,24 +49,34 @@
 
 	2. [配布](./配布)フォルダから「cat.jpg」、「dog.jpg」をダウンロードする。
 
-4. Switchが押された時の処理を書く  
-  ViewController内のdidChangeValueメソッドに以下のプログラムを追記する。
+	3. ダウンロードした「cat.jpg」、「dog.jpg」をAssets.xcassetsに追加する。
+		![Swiftロゴ](./img/add_images.gif)	
+
+	4. ImageViewに画像を表示する。  
+		ImageViewを選択し、ユーティリティエリア内の属性インスペクタを選択する。  
+		Image欄に「dog」と入力する。
+		![Swiftロゴ](./img/set_dog_image.gif)	
+
+5. Buttonが押された時の処理を書く  
+  ViewController内のdidClickButtonメソッドに以下のプログラムを追記する。
 
 	``` 
-	label.text = "\(sender.value)"
+	let catImage = UIImage(named: "cat")
+  imageView.image = catImage
 	```
   
-	didChangeValueの完成形
+	didClickButtonの完成形
 
 	```
-	@IBAction func didChangeValue(_ sender: UISlider) {
-        label.text = "\(sender.value)"
-    }
+	@IBAction func didClickButton(_ sender: UIButton) {
+		let catImage = UIImage(named: "cat")
+		imageView.image = catImage
+  }
 	```
 
 5. プロジェクトを実行する。
 	以下のように実行されれば成功です。
-	![Swiftロゴ](./img/SliderProject.gif)
+	![Swiftロゴ](./img/ImageViewroject.gif)
 
 ## 解説
 
