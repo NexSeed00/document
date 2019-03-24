@@ -1,7 +1,7 @@
 # UIDatePicker
 
 ## 目標
-- UIDatePickerが使えるようになうる
+- UIDatePickerが使えるようになる
 
 ## 開発の流れ
 
@@ -9,13 +9,13 @@
 	- UIDatePickerの設置
 2. 配置した画面の部品をプログラムで扱えるよう設定する
 3. プロジェクトに画像を追加する
-4. UIButtonが変更された時の処理を書く
+4. UIDatePickerが変更された時の処理を書く
 
 ## 部品の説明
 
 |部品名|概要|
 |---|---|
-| UIImageView |画像を表示できる|
+| UIDatePicker |日付の選択ができる|
 
 ## 開発しよう
 
@@ -24,8 +24,8 @@
 	アプリ名：DatePickerProject
 	
 2. 画面の部品を配置する
-	1. UIImageView, Buttonを配置する
-		<img src="./img/place_datepicker.gif" width="300px">
+	1. UIDatePickerを配置する
+	<img src="./img/place_datepicker.gif" width="300px">
 
 3. 配置した画面の部品をプログラムで扱えるよう設定する
 	1. 画面と対になるプログラムファイルを開く。  
