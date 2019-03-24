@@ -210,7 +210,7 @@
 	![Swiftロゴ](./img/PickerViewProject.gif)
 
 ## 追加学習
-1. PickerViewが選択された時の、選択値を出力する
+1. PickerViewが選択された時の、選択値を出力する  
 	```func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int)```の下に以下のプログラムを追記してください。
 
 	```
@@ -220,7 +220,7 @@
     }
 	```
 
-	```func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)``  
+	```func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)```  
 	この部分は補完入力をすると簡単に書けます。
 	![Swiftロゴ](./img/completion_didselectrow.gif)	
 
