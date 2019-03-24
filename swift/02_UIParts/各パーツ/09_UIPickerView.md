@@ -36,7 +36,8 @@
 
 	![Swiftロゴ](./img/connect_pickerView.gif)
 
-4. UIPickerViewの設定を書く  
+4. UIPickerViewの設定を書く
+
   1. ViewController.swiftにPickerViewを使うためのプロトコルを追加する。
 
 		> プロトコルとは**約束事**のことです。  
