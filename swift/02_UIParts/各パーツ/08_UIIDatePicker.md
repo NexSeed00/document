@@ -25,7 +25,7 @@
 	
 2. 画面の部品を配置する
 	1. UIDatePickerを配置する
-	<img src="./img/place_datepicker.gif" width="300px">
+	![Swiftロゴ](./img/place_datepicker.gif)
 
 3. 配置した画面の部品をプログラムで扱えるよう設定する
 	1. 画面と対になるプログラムファイルを開く。  
@@ -35,7 +35,7 @@
 	2. DatePickerをViewController.swiftに接続する。  
 	接続のためのウィンドウが表示されたら、Connection欄で「Action」を選択し、Name欄に「didChangeValue」、Type欄に「UIDatePicker」と入力し、「Connect」を選択。
 
-	<img src="./img/connect_datepicker.gif" width="300px">
+	![Swiftロゴ](./img/connect_datepicker.gif)
 
 4. DatePickerの値が変更された時の処理を書く  
   ViewController内のdidChangeValueメソッドに以下のプログラムを追記する。
