@@ -66,19 +66,13 @@
 
 			```
 			func numberOfComponents(in pickerView: UIPickerView) -> Int {
-						<#code#>
-				}
+				<#code#>
+			}
 			
-				func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-						<#code#>
-				}
+			func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+				<#code#>
+			}
 			```
-
-			|メソッド名|概要|
-			|---|---|
-			|numberOfComponents|PickerViewの列数を設定する|
-			|func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int)|PickerVIewの行数を設定する|
-			|func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int)|PickerViewに表示する内容を設定する|
 
 			追加後のViewController
 
@@ -100,6 +94,13 @@
 					}
 			}
 			```
+
+			|メソッド名|概要|
+			|---|---|
+			|numberOfComponents|PickerViewの列数を設定する|
+			|func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int)|PickerVIewの行数を設定する|
+			|func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int)|PickerViewに表示する内容を設定する|
+
 		2. PickerViewに表示する内容を保持した配列を追加する。
 			以下のような配列を作成し、下記のプログラムの下に定義してください。  
 			```@IBOutlet weak var pickerView: UIPickerView!```  
