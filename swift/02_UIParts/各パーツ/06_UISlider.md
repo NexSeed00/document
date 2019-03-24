@@ -1,7 +1,7 @@
 # UISlider
 
 ## 目標
-- UISliderが使えるようになうる
+- UISliderが使えるようになる
 
 ## 開発の流れ
 

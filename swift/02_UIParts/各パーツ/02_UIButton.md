@@ -1,7 +1,7 @@
 # UIButton
 
 ## 目標
-- UIButtonが使えるようになうる
+- UIButtonが使えるようになる
 
 ## 開発の流れ
 

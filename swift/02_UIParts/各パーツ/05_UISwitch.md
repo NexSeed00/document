@@ -1,7 +1,7 @@
 # UISwitch
 
 ## 目標
-- UISwitchが使えるようになうる
+- UISwitchが使えるようになる
 
 ## 開発の流れ
 

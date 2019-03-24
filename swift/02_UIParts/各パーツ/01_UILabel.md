@@ -1,7 +1,7 @@
 # UILabel  
 
 ## 目標
-- UILabelが使えるようになうる
+- UILabelが使えるようになる
 
 ## 開発の流れ
 

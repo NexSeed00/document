@@ -13,6 +13,7 @@
 3. ImageViewにデフォルト画像を設定する
 4. Switchが押されたときのプログラムを書く
 5. Sliderが押されたときのプログラムを書く
+6. Sliderの初期値を設定する
 
 ## 部品の説明
 
@@ -31,7 +32,7 @@
 2. 画面の部品を配置する
 	1. TextField, TextView, Button, Labelを以下のように配置する。
 
-		![Swiftロゴ](./img/ImageViewAndSwitchAndSlider.png)
+		<img src="./img/ImageViewAndSwitchAndSlider.png" width="300px">
 
 		> 参考  
 		> [05_UISwitch.md](./各パーツ/05_UISwitch.md)  
@@ -52,12 +53,12 @@
 4. ImageViewにデフォルト画像を設定する
 	1. 以下のようにする。
 
-	<img src="./img/set_dog_image.png" width="300px">
+	![Swiftロゴ](./img/set_dog_image.png)
 
 	> 参考  
 	> [07_UIImageView.md](./各パーツ/07_UIImageView.md)  
 
-5. Switchが押されたときのプログラムを書く
+5. Switchが押されたときのプログラムを書く。  
 	以下のような動きになるようプログラムを書いてください。
 
 	<img src="./img/switch_logic.gif" width="300px">
@@ -82,10 +83,14 @@
 	```
 	</div></details>
 
-6. Sliderが押されたときのプログラムを書く
+6. Sliderが押されたときのプログラムを書く。  
   以下のような動きになるようプログラムを書いてください。
 
 	<img src="./img/slider_logic.gif" width="300px">
+
+	> 参考  
+	> [06_UISlider.md](./各パーツ/06_UISlider.md)  
+	> [07_UIImageView.md](./各パーツ/07_UIImageView.md)  
 
 	<details><summary>回答例</summary><div>
 	
@@ -94,4 +99,30 @@
         imageView.alpha = CGFloat(sender.value)
    }
 	```
+
+	> ```CGFloat(sender.value)```について
+	> Swiftでは別の型同士は扱えないと習いました。[12_型とは.md](../01_Basic/12_型とは.md)   
+	> imageView.alphaの型はCGFloatで、sender.valueの型はFloatです。  
+	> ですので、  
+	> ```imageView.alpha = sender.value```  
+	> このように書くと別の型同士のためエラーが発生してしまいます。  
+	> そこで、エラーを回避するために、  
+	> ```CGFloat(sender.value)```  
+	> というように書き、sender.valueの値を使って、新しくCGFloatのデータを作るという処理を書いています。
+
+	</div></details>
+
+7. Sliderの初期値を設定する。
+  初期表示時、画像は不透明なのに対し、スライダーは0.5の値になっています。  
+	スライダーの初期値を1に変更してください。
+
+	<img src="./img/set_slider_default.png" width="300px">
+
+	<details><summary>ヒント1</summary><div>
+	Sliderの値はvalueプロパティです。  
+	プロパティを操作したい場合はOutletでつなぐ必要があります。
+	</div></details>
+
+	<details><summary>ヒント2</summary><div>
+	ViewControllerにあるviewDidLoadメソッドは画面が表示される前に実行されます。
 	</div></details>
