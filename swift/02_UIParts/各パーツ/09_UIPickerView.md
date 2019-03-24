@@ -151,11 +151,11 @@
 
 			```
 			func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        			return fruits.count
-    			}
+        		return fruits.count
+    		}
 			```
 
-			> 解説
+			> 解説  
 			> PickerViewには配列に格納されたフルーツ名を順番に全て表示するので、  
 			> 配列の要素数を返すcountメソッドを使ってPickerViewの行数を設定しています。
 
