@@ -191,18 +191,18 @@
 
 			```
 			pickerView.delegate = self
-      pickerView.dataSource = self
+      		pickerView.dataSource = self
 			```
 
 			viewDidLoadの完成形
 
 			```
 			override func viewDidLoad() {
-        super.viewDidLoad()
+        		super.viewDidLoad()
         
-        pickerView.delegate = self
-        pickerView.dataSource = self
-    	}
+        		pickerView.delegate = self
+        		pickerView.dataSource = self
+    		}
 			```
 
 5. プロジェクトを実行する。
