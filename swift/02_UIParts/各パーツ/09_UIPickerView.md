@@ -209,15 +209,21 @@
 	以下のように実行されれば成功です。
 	![Swiftロゴ](./img/PickerViewProject.gif)
 
-## 解説
+## 追加学習
+1. PickerViewが選択された時の、選択値を出力する
+	```func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int)```の下に以下のプログラムを追記してください。
 
-### DatePickerについて
-1. 値の取得方法
-DatePickerの日付の値はdateプロパティが保持しています。  
-```print(sender.date)```  
-この部分でDatePickerのdateプロパティの日付を取得し、コンソールに出力しています。
+	```
+	func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let selectedFruit = fruits[row]
+        print(selectedFruit)
+    }
+	```
 
-2. DatePickerのフォーマット変更方法
-Main.storyboardの属性インスペクタからDatePickerのフォーマットを変更できます。
+	```func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)``  
+	この部分は補完入力をすると簡単に書けます。
+	![Swiftロゴ](./img/completion_didselectrow.gif)	
 
-![Swiftロゴ](./img/edit_datepicker.gif)
+2. プロジェクトを実行する。
+	以下のように実行されれば成功です。
+	![Swiftロゴ](./img/PickerViewProject+a.gif)
