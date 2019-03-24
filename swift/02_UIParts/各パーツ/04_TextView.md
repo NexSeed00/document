@@ -1,7 +1,7 @@
 # UITextView
 
 ## 目標
-- UITextViewが使えるようになうる
+- UITextViewが使えるようになる
 
 ## 開発の流れ
 

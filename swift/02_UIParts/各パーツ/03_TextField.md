@@ -1,7 +1,7 @@
 # UITextField
 
 ## 目標
-- UITextFieldが使えるようになうる
+- UITextFieldが使えるようになる
 
 ## 開発の流れ
 

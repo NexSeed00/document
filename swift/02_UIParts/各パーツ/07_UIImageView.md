@@ -1,7 +1,7 @@
 # UIImageView
 
 ## 目標
-- UIImageViewが使えるようになうる
+- UIImageViewが使えるようになる
 
 ## 開発の流れ
 
