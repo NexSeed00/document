@@ -52,7 +52,7 @@ for i in 1...10 {
 例
 
 ```
-for i in 1...10 {
+for i in 1...100 {
     print(i)
     if i >= 10 {
         break
@@ -68,7 +68,7 @@ for i in 1...10 {
 例
 
 ```
-for i in 1...10 {
+for i in 1...100 {
     if i == 10 {
         continue
     }
