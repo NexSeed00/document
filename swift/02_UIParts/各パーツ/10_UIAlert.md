@@ -144,26 +144,26 @@
 
 			```
 			@IBAction func didClickButton(_ sender: UIButton) {
-        let alert = UIAlertController(title: "タイトル", message: "選択してください", preferredStyle: .alert)
-        
-        let yesAction = UIAlertAction(title: "はい", style: .default) { (UIAlertAction) in
-            print("はいが押されました")
-        }
-        
-        let noAction = UIAlertAction(title: "いいえ", style: .destructive) { (UIAlertAction) in
-            print("いいえが押されました")
-        }
-        
-        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel) { (UIAlertAction) in
-            print("キャンセルが押されました")
-        }
-        
-        alert.addAction(yesAction)
-        alert.addAction(noAction)
-        alert.addAction(cancelAction)
-        
-        present(alert, animated: true, completion: nil)
-    }
+				let alert = UIAlertController(title: "タイトル", message: "選択してください", preferredStyle: .alert)
+
+				let yesAction = UIAlertAction(title: "はい", style: .default) { (UIAlertAction) in
+				    print("はいが押されました")
+				}
+
+				let noAction = UIAlertAction(title: "いいえ", style: .destructive) { (UIAlertAction) in
+				    print("いいえが押されました")
+				}
+
+				let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel) { (UIAlertAction) in
+				    print("キャンセルが押されました")
+				}
+
+				alert.addAction(yesAction)
+				alert.addAction(noAction)
+				alert.addAction(cancelAction)
+
+				present(alert, animated: true, completion: nil)
+			}
 			```
 			</div></details>
 
