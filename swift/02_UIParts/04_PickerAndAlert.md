@@ -71,10 +71,10 @@
 		let regions = ["北海道地方", "東北地方", "関東地方", "中部地方", "近畿地方", "中国地方", "四国地方", "九州・沖縄地方    "]
 		
 		override func viewDidLoad() {
-				super.viewDidLoad()
+			super.viewDidLoad()
 				
-				picker.dataSource = self
-				picker.delegate = self
+			picker.dataSource = self
+			picker.delegate = self
 		}
 		
 		@IBAction func didClickButton(_ sender: UIButton) {
@@ -82,15 +82,15 @@
 		}
 		
 		func numberOfComponents(in pickerView: UIPickerView) -> Int {
-				return 1
+			return 1
 		}
 		
 		func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-				return regions.count
+			return regions.count
 		}
 		
 		func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-				return regions[row]
+			return regions[row]
 		}
 	}
 	```
