@@ -82,3 +82,46 @@
 
 			<img src="./img/AlertProject_2.gif" width="300px">
 			
+	5. 否定の選択肢を作成し、追加する。
+		1. 否定の選択肢を作成する
+
+			```
+			let noAction = UIAlertAction(title: "いいえ", style: .destructive) { (UIAlertAction) in
+				print("いいえが押されました")
+			}
+			```
+
+		2. 作成した選択肢をアラート画面に追加する
+
+			```
+			alert.addAction(noAction)
+			```
+
+			<details><summary>ここまでで出来上がったdidClickButton</summary><div>
+
+			```
+			@IBAction func didClickButton(_ sender: UIButton) {
+				let alert = UIAlertController(title: "タイトル", message: "選択してください", preferredStyle: .alert)
+			
+				let yesAction = UIAlertAction(title: "はい", style: .default) { (UIAlertAction) in
+					print("はいが押されました")
+				}
+			
+				let noAction = UIAlertAction(title: "いいえ", style: .destructive) { (UIAlertAction) in
+					print("いいえが押されました")
+				}
+			
+				alert.addAction(yesAction)
+				alert.addAction(noAction)
+			
+			
+				present(alert, animated: true, completion: nil)
+			}
+			```
+			</div></details>
+
+		3. 実行してみる。  
+			以下のように実行されればOKです。  
+
+			<img src="./img/AlertProject_3.gif" width="300px">
+		
