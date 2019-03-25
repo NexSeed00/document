@@ -64,9 +64,9 @@
 	}
 	```
 
-5. プロジェクトを実行する。
-	以下のように実行されれば成功です。
-	![Swiftロゴ](./img/SwitchProject.gif)
+5. プロジェクトを実行する。  
+	以下のように実行されれば成功です。  
+	<img src="./img/SwitchProject.gif" width="300px">
 
 ## 解説
 
