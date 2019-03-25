@@ -57,3 +57,28 @@
 		以下のように実行されればOKです。  
 		<img src="./img/AlertProject_1.gif" width="300px">
 	
+	4. 通常の選択肢を作成し、追加する。
+
+		1. 通常の選択肢を作成する
+
+			```
+			let yesAction = UIAlertAction(title: "はい", style: .default) { (UIAlertAction) in
+							print("はいが押されました")
+					}
+			```
+
+			[Swiftロゴ](./img/create_yes_action.gif)
+
+		2. 作成した選択肢をアラート画面に追加する
+
+			```
+			alert.addAction(yesAction)
+			```
+
+			[Swiftロゴ](./img/add_yes_action.gif)
+
+		3. 実行してみる。  
+			以下のように実行されればOKです。  
+
+			<img src="./img/AlertProject_2.gif" width="300px">
+			
