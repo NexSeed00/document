@@ -63,8 +63,8 @@
 
 			```
 			let yesAction = UIAlertAction(title: "はい", style: .default) { (UIAlertAction) in
-							print("はいが押されました")
-					}
+				print("はいが押されました")
+			}
 			```
 
 			[Swiftロゴ](./img/create_yes_action.gif)
