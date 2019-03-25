@@ -54,10 +54,47 @@
 	|内容|"北海道地方", "東北地方", "関東地方", "中部地方", "近畿地方", "中国地方", "四国地方", "九州・沖縄地方"|
 	|---|---|
 
-	![Swiftロゴ](./img/add_picker_content.png)
+	<img src="./img/add_picker_content.png" width="300px">
 
 	> 参考  
 	> [09_UIPickerView.md](./各パーツ/09_UIPickerView.md)  
+
+	<details><summary>回答例</summary><div>
+	
+	```
+		class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+			
+			@IBOutlet weak var datePicker: UIDatePicker!
+			
+			@IBOutlet weak var picker: UIPickerView!
+			
+			let regions = ["北海道地方", "東北地方", "関東地方", "中部地方", "近畿地方", "中国地方", "四国地方", "九州・沖縄地方    "]
+			
+			override func viewDidLoad() {
+					super.viewDidLoad()
+					
+					picker.dataSource = self
+					picker.delegate = self
+			}
+			
+			@IBAction func didClickButton(_ sender: UIButton) {
+					
+			}
+			
+			func numberOfComponents(in pickerView: UIPickerView) -> Int {
+					return 1
+			}
+			
+			func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+					return regions.count
+			}
+			
+			func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+					return regions[row]
+			}
+	}
+	```
+	</div></details>
 
 5. Switchが押されたときのプログラムを書く。  
 	以下のような動きになるようプログラムを書いてください。
@@ -72,15 +109,37 @@
 	<details><summary>回答例</summary><div>
 	
 	```
-	@IBAction func didClickSwitch(_ sender: UISwitch) {
-	    if sender.isOn {
-	        let dogImage = UIImage(named: "dog")
-	        imageView.image = dogImage
-	    } else {
-	        let catImage = UIImage(named: "cat")
-	        imageView.image = catImage
-	    }
-   }
+	class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    @IBOutlet weak var datePicker: UIDatePicker!
+    
+    @IBOutlet weak var picker: UIPickerView!
+    
+    let regions = ["北海道地方", "東北地方", "関東地方", "中部地方", "近畿地方", "中国地方", "四国地方", "九州・沖縄地方    "]
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        picker.dataSource = self
+        picker.delegate = self
+    }
+    
+    @IBAction func didClickButton(_ sender: UIButton) {
+        
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return regions.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return regions[row]
+    }
+}
 	```
 	</div></details>
 
