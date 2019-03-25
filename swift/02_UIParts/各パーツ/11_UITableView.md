@@ -74,12 +74,12 @@
 
 			```
 			func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
-    	}
+        		<#code#>
+    		}
     
-    	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
-    	}
+    		func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        		<#code#>
+    		}
 			```
 
 			追加後のViewController
@@ -87,19 +87,19 @@
 			```
 			class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-		    @IBOutlet weak var tableView: UITableView!
+		   		@IBOutlet weak var tableView: UITableView!
     
-    		override func viewDidLoad() {
-        	super.viewDidLoad()
-    		}
+    			override func viewDidLoad() {
+        			super.viewDidLoad()
+    			}
 
-    		func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        	<#code#>
-    		}
+    			func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        			<#code#>
+    			}
     
-    		func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        	<#code#>
-    		}
+    			func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        			<#code#>
+    			}
 
 			}
 			```
@@ -157,21 +157,21 @@
 			```
 			let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath)
         
-      cell.textLabel?.text = fruits[indexPath.row]
+      		cell.textLabel?.text = fruits[indexPath.row]
         
-    	return cell
+    		return cell
 			```
 
 			func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath)の完成形
 
 			```
 			func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath)
+        		let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath)
         
-        cell.textLabel?.text = fruits[indexPath.row]
+        		cell.textLabel?.text = fruits[indexPath.row]
         
-        return cell
-    	}
+        		return cell
+    		}
 			```
 	
 			> 解説  
@@ -206,7 +206,7 @@
 
 				tableView.delegate = self
 				tableView.dataSource = self
-    	}
+    		}
 			```
 
 5. プロジェクトを実行する。
