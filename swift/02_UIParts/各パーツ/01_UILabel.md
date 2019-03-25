@@ -56,9 +56,9 @@
   	}
 	```
 	
-5. プロジェクトを実行する。
-	以下のように実行されれば成功です。
-	<img src="./img/labelProject.png" width="300px">
+5. プロジェクトを実行する。  
+以下のように実行されれば成功です。
+<img src="./img/labelProject.png" width="300px">
 
 ## 解説
 
