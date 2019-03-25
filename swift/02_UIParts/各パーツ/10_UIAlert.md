@@ -124,4 +124,59 @@
 			以下のように実行されればOKです。  
 
 			<img src="./img/AlertProject_3.gif" width="300px">
+
+	6. キャンセルの選択肢を作成し、追加する。
+		1. キャンセルの選択肢を作成する
+
+			```
+			let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel) { (UIAlertAction) in
+        print("キャンセルが押されました")
+      }
+			```
+
+		2. 作成した選択肢をアラート画面に追加する
+
+			```
+			alert.addAction(cancelAction)
+			```
+
+			<details><summary>ここまでで出来上がったdidClickButton</summary><div>
+
+			```
+			@IBAction func didClickButton(_ sender: UIButton) {
+        let alert = UIAlertController(title: "タイトル", message: "選択してください", preferredStyle: .alert)
+        
+        let yesAction = UIAlertAction(title: "はい", style: .default) { (UIAlertAction) in
+            print("はいが押されました")
+        }
+        
+        let noAction = UIAlertAction(title: "いいえ", style: .destructive) { (UIAlertAction) in
+            print("いいえが押されました")
+        }
+        
+        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel) { (UIAlertAction) in
+            print("キャンセルが押されました")
+        }
+        
+        alert.addAction(yesAction)
+        alert.addAction(noAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
+    }
+			```
+			</div></details>
+
+		3. 実行してみる。  
+			以下のように実行されればOKです。  
+
+			<img src="./img/AlertProject_4.gif" width="300px">
 		
+## 解説
+### Alert選択肢の種類
+アラートの選択肢には3つの種類があり、それぞれ以下のような特徴があります。
+|名称|特徴|
+|---|---|
+|default|通常の選択肢。複数個作成できる|
+|destructive|否定的な意味合いの選択肢。赤文字にある|
+|cancel|アラート内に1つしか作成できず、1番下に表示される|
