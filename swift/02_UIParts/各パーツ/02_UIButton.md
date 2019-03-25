@@ -60,9 +60,9 @@
 	}
 	```
 	
-5. プロジェクトを実行する。
-	以下のように実行されれば成功です。
-	![Swiftロゴ](./img/buttonProject.gif)
+5. プロジェクトを実行する。  
+	以下のように実行されれば成功です。  
+	<img src="./img/buttonProject.gif" width="300px">
 
 ## 解説
 
