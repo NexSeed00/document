@@ -67,7 +67,7 @@
 			}
 			```
 
-			[Swiftロゴ](./img/create_yes_action.gif)
+			![Swiftロゴ](./img/create_yes_action.gif)
 
 		2. 作成した選択肢をアラート画面に追加する
 
@@ -75,7 +75,7 @@
 			alert.addAction(yesAction)
 			```
 
-			[Swiftロゴ](./img/add_yes_action.gif)
+			![Swiftロゴ](./img/add_yes_action.gif)
 
 		3. 実行してみる。  
 			以下のように実行されればOKです。  
