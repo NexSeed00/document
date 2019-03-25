@@ -210,5 +210,5 @@
 			```
 
 5. プロジェクトを実行する。
-	以下のように実行されれば成功です。
-	![Swiftロゴ](./img/TableViewProject.png)
+	以下のように実行されれば成功です。  
+	<img src="./img/TableViewProject.png" width="300px">
