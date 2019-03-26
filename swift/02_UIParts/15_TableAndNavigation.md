@@ -10,6 +10,7 @@
 	- ViewController（次画面）の設置
 	- UINavigationControllerの設置
 2. TableViewの表示設定を行う
+3. TableViewCellがクリックされた時の処理を書く
 2. Top画面で画面遷移の処理を書く
 
 ## 開発しよう
@@ -53,14 +54,21 @@
 			ファイル名は「NextViewController.swift」
 
 			![Swiftロゴ](./img/create_next_vc.gif)
-			
-	2. 配置した画面の部品をプログラムで扱えるよう設定する
+
+		2. 作成したNextViewController.swiftをMain.storyboardで接続する。
+			![Swiftロゴ](./img/con_next_vc.gif)
+		
+	3. 配置した画面の部品をプログラムで扱えるよう設定する
 
 		|コントローラ|部品|接続時の名前|
-		|||
+		|---|---|---|
+		|ViewController|UITableView|tableView|
+		|NextViewController|UILabel|label|
 			
 3. TableViewの表示設定を行う
-
+	1. 以下のようになるよう各部品を配置・設定する。  
+		<img src="./img/TableAndNavigation_1.png" width="300px">
+		
 		<details><summary>回答例</summary><div>
 	
 		```
@@ -82,7 +90,7 @@
     		}
     
     		func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        		let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath)
+        		let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         		cell.textLabel?.text = languages[indexPath.row]
         
@@ -92,44 +100,89 @@
 		```
 		</div></details>
 
-	2. ViewControllerの設置
-		以下のようになるようViewControllerを配置する。
+	4. TableViewCellがクリックされた時の処理を書く
+		1. ViewControllerに ```func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)```メソッドを追記する。
 
-		![Swiftロゴ](./img/PageTransitionNextVC.png)
+			```
+			func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+				<#code#>
+			}
+			```
 
-3. 画面遷移の処理を書く
-	1. TOP画面と次画面を接続する。
-		TOP画面を選択し、Ctrlキーを押しながら、次画面までドラッグする。 
-		接続時に表示されたウィンドウで、「show」を選択する
+			![Swiftロゴ](./img/write_didsele.gif)
 
-		![Swiftロゴ](./img/connect_top_next.gif)
+		2. 画面で選択されたセルを値を取得する
+			以下のように修正する。
+			```
+			func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedValue = languages[indexPath.row]
+    	}
+			```
 
-	2. 画面遷移の接続を表す矢印に識別子（名前）を設定する
-		矢印を選択し、ユーティリティエリアの属性インスペクタを選択する。  
-		identifierに「toNextVC」と入力する。
+			> 引数indexPathのrowプロパティには何行目かの行番号が入っています。  
+			> 1行目の場合にはindexPath.rowに0が入っています。  
+			> rowプロパティの値を元に配列の要素を取得しています。
 
-		![Swiftロゴ](./img/set_identifier_to_arrow.gif)
-
-	3. TableViewのセルが選択された時の処理を追加する
-		ViewController.swiftに以下のプログラムを追加してください。
-		```
-		func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        <#code#>
-    }
-		```
-
-		![Swiftロゴ](./img/input_didselectrowat.gif)
-
-	4. 画面で選択されたセルのプログラミング言語を取得するプログラムを追記する。
-		```func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)```に以下のプログラムを追記してください。
-		```
-		let selectedLanguage = languages[indexPath.row]
-		```
-
-		修正後のdidSelectRowAt
+	5. NextViewControllerにテーブルで選択された値を受け取る変数を用意する。
+		```@IBOutlet weak var label: UILabel!```の下に変数valueを用意する。  
+		
+		変数valueを追加後のNextViewController
 
 		```
-		func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-      let selectedLanguage = languages[indexPath.row]
-    }
+		class NextViewController: UIViewController {
+
+				@IBOutlet weak var label: UILabel!
+				
+				var value = ""
+				
+				override func viewDidLoad() {
+						super.viewDidLoad()
+				}
+
+		}
 		```
+
+	6. ViewControllerのセルがクリックされた時、NextViewControllerに遷移する処理を書く。
+
+			以下のような動きになるようプログラムを書いてください。
+			<img src="./img/TableAndNavigation_2.gif" width="300px">
+
+			<details><summary>設定手順</summary><div>
+		
+			1. ViewControllerの設定
+				1. セルがクリックされた時に、画面遷移する処理を追記する。
+					```tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)```に、  
+					で画面遷移のメソッド```performSegue```を実行する。  
+					引数withIdentifierには矢印の名前「toNext」、  
+					引数senderには選択された文字を設定する。
+
+					```
+					func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        		let selectedValue = languages[indexPath.row]
+        		performSegue(withIdentifier: "toNext", sender: selectedValue)
+    			}
+					```
+
+				2. 次画面に渡す値を次画面のViewControllerの特定のプロパティ（変数）に設定する。
+					```prepare```メソッドを使って、画面の選択値をNextViewControllerの変数valueに設定する。
+
+					```
+					override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        		if segue.identifier == "toNext" {
+            	let nextVC = segue.destination as! NextViewController
+            	nextVC.value = sender as! String
+        		}
+    			}
+					```
+
+			2. NextViewControllerの設定
+				1. 画面が表示される時、Label.textに変数valueの値を設定する。
+
+				```
+				override func viewDidLoad() {
+        	super.viewDidLoad()
+        
+        	label.text = value
+    		}
+				```
+			</div></details>
