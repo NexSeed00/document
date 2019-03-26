@@ -42,7 +42,7 @@
   ViewController内のviewDidLoadメソッドに以下のプログラムを追記する。
 
 	```
-  label.text = "Hello World"
+  	label.text = "Hello World"
 
 	```
 
@@ -53,12 +53,12 @@
 		super.viewDidLoad()
 		
 		label.text = "Hello World"
-  }
+  	}
 	```
 	
-5. プロジェクトを実行する。
-	以下のように実行されれば成功です。
-	![Swiftロゴ](./img/labelProject.png)
+5. プロジェクトを実行する。  
+以下のように実行されれば成功です。
+<img src="./img/labelProject.png" width="300px">
 
 ## 解説
 

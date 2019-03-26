@@ -43,18 +43,18 @@
 		![Swiftロゴ](./img/open_viewController.gif)
 		
 
-	3. LabelをViewController.swiftに接続する。  
+	2. LabelをViewController.swiftに接続する。  
 		接続のためのウィンドウが表示されたら、Name欄に「label」と入力し、「Connect」を選択。
 		
 		![Swiftロゴ](./img/connect_label.gif)
 
 
-	4. ButtonをViewController.swiftに接続する。  
+	3. ButtonをViewController.swiftに接続する。  
 	接続のためのウィンドウが表示されたら、Connection欄で「Action」を選択し、Name欄に「didClickButton」、Type欄に「UIButton」と入力し、「Connect」を選択。
 
-	![Swiftロゴ](./img/connect_button.gif)
+		![Swiftロゴ](./img/connect_button.gif)
 
-  5. TextViewをViewController.swiftに接続する。  
+  	5. TextViewをViewController.swiftに接続する。  
 	接続のためのウィンドウが表示されたら、Connection欄で「Outlet」を選択し、Name欄に「textView」と入力し、「Connect」を選択。
 
 		![Swiftロゴ](./img/connect_textview.gif)
@@ -75,9 +75,9 @@
 	}
 	```
 
-5. プロジェクトを実行する。
-	以下のように実行されれば成功です。
-	![Swiftロゴ](./img/textViewProject.gif)
+5. プロジェクトを実行する。  
+	以下のように実行されれば成功です。  
+	<img src="./img/textViewProject.gif" width="300px">
 
 ## 解説
 
