@@ -9,6 +9,7 @@
 	- UITableViewの設置
 	- ViewController（次画面）の設置
 	- UINavigationControllerの設置
+2. TableViewの表示設定を行う
 2. Top画面で画面遷移の処理を書く
 
 ## 開発しよう
@@ -18,9 +19,15 @@
 	アプリ名：TableAndNavigation
 	
 2. 画面の部品を配置する
-	以下のようになるようTableViewを配置・設定する。
-		// TODO あとで画像追加
+	1. 以下のようになるよう各部品を配置・設定する。
+		![Swiftロゴ](./img/TableAndNavigation.png)
 
+		> 参考  
+		> [11_UITableView.md](./各パーツ/11_UITableView.md)  
+		> [12_UINavigationController.md](./各パーツ/12_UINavigationController.md)  
+		> [14_画面遷移.md](./各パーツ/14_画面遷移.md)  
+
+		<details><summary>設定手順</summary><div>
 		1. UINavigationControllerを配置する
 			![Swiftロゴ](./img/add_navi.gif)
 
@@ -33,9 +40,25 @@
 			
 		4. 次画面を配置する。同時にLabelも設置する
 			![Swiftロゴ](./img/place_next_vc.gif)
+		
+		5. Top画面から次画面への画面遷移の接続を行う
+			identifierに「toNext」を設定する
+			![Swiftロゴ](./img/con_top_to_next.gif)
+
+		</div></details>
+
+	2. 次画面のViewControllerを作成し、Main.storyboardで接続する。
+		1. ViewControllerを作成する
+			ファイル名は「NextViewController.swift」
+
+			![Swiftロゴ](./img/create_next_vc.gif)
 			
-		> 参考  
-		> [11_UITableView.md](./各パーツ/11_UITableView.md)  
+	2. 配置した画面の部品をプログラムで扱えるよう設定する
+
+		|コントローラ|部品|接続時の名前|
+		|||
+			
+3. TableViewの表示設定を行う
 
 		<details><summary>回答例</summary><div>
 	
