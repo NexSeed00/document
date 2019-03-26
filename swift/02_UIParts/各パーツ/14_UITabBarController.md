@@ -40,12 +40,12 @@
 
 		![Swiftロゴ](./img/add_vc_to_tabbar.gif)
 	
-5. 実行してみる。
+5. 実行してみる。  
 	以下のように実行されればOKです。  
 
 	<img src="./img/TabBarProject.gif" width="300px">
 
-6. TabBarにアイコンを設定してみる。
+6. TabBarにアイコンを設定してみる。  
 	アイコンを設定したいコントローラー内のタブを選択し、ユーティリティエリアの属性インスペクタを選択する。  
 	System Itemから任意のアイコンを選択する。
 
