@@ -28,8 +28,8 @@
 		> [14_画面遷移.md](./各パーツ/14_画面遷移.md)  
 
 		<details><summary>設定手順</summary><div>
+		
 		1. UINavigationControllerを配置する
-			
 			![Swiftロゴ](./img/add_navi.gif)
 
 		2. UITableViewを配置する
