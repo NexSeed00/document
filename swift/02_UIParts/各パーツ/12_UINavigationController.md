@@ -41,9 +41,9 @@
 		![Swiftロゴ](./img/connect_button_controller.gif)
 
 	2. 実行してみる。  
-		以下のように実行されればOKです。
+		以下のように実行されればOKです。  
 
-		![Swiftロゴ](./img/NavigationProject.gif)
+		<img src="./img/NavigationProject.gif" width="300px">
 
 4. UINavigationControllerの設置する
 	最初の画面を選択し、上のメニューから「Editor」→「Embed in」→ 「Navigation Controller」を選択する
@@ -51,6 +51,6 @@
 	![Swiftロゴ](./img/add_navigation.gif)
 	
 5. 実行してみる。
-	以下のように実行されればOKです。
+	以下のように実行されればOKです。  
 
-	![Swiftロゴ](./img/NavigationProject_2.gif)
+	<img src="./img/NavigationProject_2.gif" width="300px">
