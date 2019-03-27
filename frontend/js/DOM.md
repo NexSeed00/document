@@ -53,7 +53,7 @@ function 関数名 (引数) {
 こういった場合に、関数を実行する時に渡す値を**引数**といいます。
 ```JavaScript
 function plus(num1, num2) {
-  echo num1 + num2
+  console.log(num1 + num2);
 }
 
 plus(1, 5) //6
@@ -68,14 +68,14 @@ plus(8, 4) //12
 そういった場合に戻り値を使います。
 ```JavaScript
 function plus(num1, num2) {
-  return num1 + num2
+  return num1 + num2;
 }
 
 plus(1, 5) //何も表示されない
-$result = plus(1, 5)
-echo $result //6
+let result = plus(1, 5)
+console.log(result) //6
 
-echo plus($result, 3) //9
+console.log(plus($result, 3)) //9
 ```
 関数を実行した結果を後の処理で使用できる
 
