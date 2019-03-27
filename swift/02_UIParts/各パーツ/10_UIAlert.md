@@ -26,7 +26,7 @@
 	アプリ名：AlertProject
 	
 2. 画面の部品を配置する
-	1. UIAlertを配置する
+	1. UIButtonを配置する
 	![Swiftロゴ](./img/place_alert_button.gif)
 
 3. 配置した画面の部品をプログラムで扱えるよう設定する
