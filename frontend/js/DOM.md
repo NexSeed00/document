@@ -56,9 +56,9 @@ function plus(num1, num2) {
   console.log(num1 + num2);
 }
 
-plus(1, 5) //6
-plus(3, 4) //7
-plus(8, 4) //12
+plus(1, 5); //6
+plus(3, 4); //7
+plus(8, 4); //12
 ```
 関数実行時に指定したデータが関数の定義で指定した引数として使用される
 
@@ -71,11 +71,11 @@ function plus(num1, num2) {
   return num1 + num2;
 }
 
-plus(1, 5) //何も表示されない
-let result = plus(1, 5)
-console.log(result) //6
+plus(1, 5); //何も表示されない
+let result = plus(1, 5);
+console.log(result); //6
 
-console.log(plus($result, 3)) //9
+console.log(plus(result, 3)); //9
 ```
 関数を実行した結果を後の処理で使用できる
 
