@@ -3,6 +3,10 @@
 ## 目標
 - UITableView, UINavigationController, 画面遷移ができるようになる
 
+## 作成するアプリ  
+<img src="./img/TableAndNavigation_2.gif" width="300px">
+
+
 ## 開発の流れ
 
 1. 画面の部品を配置する
