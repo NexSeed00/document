@@ -3,6 +3,9 @@
 ## 目標
 - TextField, TextView, Button, Labelが使えるようになる
 
+## 作成するアプリ  
+<img src="./img/TextFieldViewAndButton.gif" width="300px">
+
 ## 開発の流れ
 
 1. 画面の部品を配置する
@@ -31,9 +34,8 @@
 	アプリ名：TextFieldViewAndButton
 	
 2. 画面の部品を配置する
-	1. TextField, TextView, Button, Labelを以下のように配置する。
-
-		![Swiftロゴ](./img/TextFieldViewAndButtonAndLabel.png)
+	1. TextField, TextView, Button, Labelを以下のように配置する。  
+		<img src="./img/TextFieldViewAndButtonAndLabel.png" width="300px">
 
 		> 参考  
 		> [01_UILabel.md](./各パーツ/01_UILabel.md)  
@@ -56,9 +58,8 @@
 		![Swiftロゴ](./img/connect_textFieldViewAndLabelAndButton.png)
 
 4. TextViewのデフォルト値を削除する。
-	1. 以下のようにする。
-
-	![Swiftロゴ](./img/empty_textView.png)
+	1. 以下のようにする。  
+		<img src="./img/empty_textView.png" width="300px">
 
 	> 参考  
 	> [04_UITextView.md](./各パーツ/04_TextView.md)
@@ -67,9 +68,9 @@
 	> 参考  
 	> [04_UITextView.md](./各パーツ/04_TextView.md)
 
-6. 「表示」ボタンが押下された時、以下のようになるようdidClickButtonを修正してください。
+6. 「表示」ボタンが押下された時、以下のようになるようdidClickButtonを修正してください。  
 
-	![Swiftロゴ](./img/TextFieldViewAndButton.gif)
+	<img src="./img/TextFieldViewAndButton.gif" width="300px">
 
 
 	<details><summary>回答例</summary><div>
