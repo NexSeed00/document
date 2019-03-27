@@ -3,6 +3,9 @@
 ## 目標
 - UITextFieldが使えるようになる
 
+## 作成するアプリ  
+<img src="./img/textFieldProject.gif" width="300px">
+
 ## 開発の流れ
 
 1. 画面の部品を配置する

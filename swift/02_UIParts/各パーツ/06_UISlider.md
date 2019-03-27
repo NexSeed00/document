@@ -3,6 +3,9 @@
 ## 目標
 - UISliderが使えるようになる
 
+## 作成するアプリ  
+<img src="./img/SliderProject.gif" width="300px">
+
 ## 開発の流れ
 
 1. 画面の部品を配置する
@@ -57,8 +60,8 @@
 	```
 
 5. プロジェクトを実行する。
-	以下のように実行されれば成功です。
-	![Swiftロゴ](./img/SliderProject.gif)
+	以下のように実行されれば成功です。  
+	<img src="./img/SliderProject.gif" width="300px">
 
 ## 解説
 

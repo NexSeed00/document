@@ -3,6 +3,9 @@
 ## 目標
 - UIImageViewが使えるようになる
 
+## 作成するアプリ  
+<img src="./img/ImageViewProject.gif" width="300px">
+
 ## 開発の流れ
 
 1. 画面の部品を配置する
@@ -75,8 +78,8 @@
 	```
 
 6. プロジェクトを実行する。
-	以下のように実行されれば成功です。
-	![Swiftロゴ](./img/ImageViewProject.gif)
+	以下のように実行されれば成功です。  
+	<img src="./img/ImageViewProject.gif" width="300px">
 
 ## 解説
 

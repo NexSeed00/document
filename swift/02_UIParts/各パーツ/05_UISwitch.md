@@ -3,6 +3,9 @@
 ## 目標
 - UISwitchが使えるようになる
 
+## 作成するアプリ  
+<img src="./img/SwitchProject.gif" width="300px">
+
 ## 開発の流れ
 
 1. 画面の部品を配置する

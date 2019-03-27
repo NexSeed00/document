@@ -3,6 +3,9 @@
 ## 目標
 - UIDatePickerが使えるようになる
 
+## 作成するアプリ  
+![Swiftロゴ](./img/DatePickerProject.gif)
+
 ## 開発の流れ
 
 1. 画面の部品を配置する

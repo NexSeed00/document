@@ -3,6 +3,9 @@
 ## 目標
 - UIPickerViewが使えるようになる
 
+## 作成するアプリ  
+<img src="./img/PickerViewProject.gif" width="300px">
+
 ## 開発の流れ
 
 1. 画面の部品を配置する
@@ -206,8 +209,8 @@
 			```
 
 5. プロジェクトを実行する。
-	以下のように実行されれば成功です。
-	![Swiftロゴ](./img/PickerViewProject.gif)
+	以下のように実行されれば成功です。  
+	<img src="./img/PickerViewProject.gif" width="300px">
 
 ## 追加学習
 1. PickerViewが選択された時の、選択値を出力する  
