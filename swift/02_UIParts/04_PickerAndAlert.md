@@ -3,6 +3,9 @@
 ## 目標
 - DatePicker, PickerView, Alertが使えるようになる
 
+## 作成するアプリ  
+![Swiftロゴ](./img/PickerAndAlertProject.gif)
+
 ## 開発の流れ
 
 1. 画面の部品を配置する
