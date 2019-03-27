@@ -129,3 +129,15 @@
 	<details><summary>ヒント2</summary><div>
 	ViewControllerにあるviewDidLoadメソッドは画面が表示される前に実行されます。
 	</div></details>
+	
+	<details><summary>回答例</summary><div>
+	
+	```
+	override func viewDidLoad() {
+   		super.viewDidLoad()
+        
+   		slider.value = 1
+   }
+	```
+	
+	</div></details>
