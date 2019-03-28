@@ -9,7 +9,7 @@
 1. 画面の部品を配置する
 2. カメラ・フォトライブラリのアクセス利用設定
 3. カメラ撮影機能
-4. フォトライブラリ表示
+4. フォトライブラリ表示機能
 5. 写真保存機能
 
 ## 開発しよう
@@ -111,3 +111,49 @@
 
       > ```present(cameraPicker, animated: true, completion: nil)```  
       > この部分で作成したカメラの画面を表示しています。
+
+5. フォトライブラリ表示機能
+
+    2. ```showAlbum```メソッドにフォトライブラリ動処理を追記する。
+      以下の処理を追記してください。
+
+      ```
+      if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+          let imagePicker = UIImagePickerController()
+          imagePicker.sourceType = .photoLibrary
+          imagePicker.delegate = self
+          present(imagePicker, animated: true, completion: nil)
+      } else {
+          print("フォトライブラリが使用できません")
+      }
+      ```
+
+      追記後の```showAlbum```メソッド
+
+      ```
+      @IBAction func showAlbum(_ sender: UIButton) {
+          if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+              let imagePicker = UIImagePickerController()
+              imagePicker.sourceType = .photoLibrary
+              imagePicker.delegate = self
+              present(imagePicker, animated: true, completion: nil)
+          } else {
+              print("フォトライブラリが使用できません")
+          }
+      }
+      ```
+
+      > 解説  
+      > ```if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {```  
+      > この部分でアプリがフォトライブラリを使用することを許可されているか確認しています。  
+      > 許可されている場合はtrue、それ以外はfalseが返却されます。  
+
+      > ```let imagePicker = UIImagePickerController()```  
+      > ```imagePicker.sourceType = .photoLibrary```  
+      > ```imagePicker.delegate = self```  
+      > この部分でフォトライブラリの画面を作成しています。
+      > ```imagePicker.sourceType = .photoLibrary``` と指定することにより、
+      > カメラではなく、フォトライブラリのみで起動するよう指定しています。
+
+      > ```present(imagePicker, animated: true, completion: nil)```  
+      > この部分で作成したフォトライブラリの画面を表示しています。
