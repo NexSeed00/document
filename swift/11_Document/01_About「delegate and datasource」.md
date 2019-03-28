@@ -1,6 +1,6 @@
 # DelegateとDatasourceについて
 
-![Swiftロゴ](./img/protocol.png)
+<img src="./img/protocol.png" width="300px">
 
 ## 概要
 UITableViewやUICollectionView, UIPickerViewを使うとき、  
