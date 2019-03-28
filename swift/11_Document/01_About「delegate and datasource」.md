@@ -1,5 +1,7 @@
 # DelegateとDatasourceについて
 
+![Swiftロゴ](./img/protocol.png)
+
 ## 概要
 UITableViewやUICollectionView, UIPickerViewを使うとき、  
 〇〇Delegateと〇〇Datasourceというのが出てきたと思います。  
@@ -35,3 +37,14 @@ UITableViewDelegateの約束事を簡単に説明すると、「テーブルの�
 |---|---|---|
 |セルが選択された時の処理|tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)|☓|
 |セルの高さの設定|tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat|☓|
+
+## 必須の約束事とは
+UIViewControllerにUITableViewDataSourceを追加すると以下のようなエラーが発生すると思います。  
+```Type 'ViewController' does not conform to protocol 'UITableViewDataSource'```  
+これは必須の約束事である、以下の設定がされていないからです。
+- tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+- tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+
+上記の設定はそれぞれ、「テーブルの行数の設定」、「1行1行のセルの内容の設定」です。  
+この２つの設定はテーブルを使うのであれば必ず設定されるべき項目です。  
+プロトコルは約束事を提供すると共に、設定忘れがないよう注意も呼びかけてくれます。
