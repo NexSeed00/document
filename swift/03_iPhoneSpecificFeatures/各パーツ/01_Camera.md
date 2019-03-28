@@ -13,24 +13,24 @@
 5. 写真保存機能
 
 ## 開発しよう
-1. プロジェクトを作成する
-
-  |アプリ名|CameraProject|
-  |---|---|
+1. プロジェクトを作成する  
+  アプリ名：CameraProject
 
 2. 画面の部品を配置する
-  1. 以下のような画面になるよう部品を配置する  
-    <img src="./img/CameraProjectUI.png" width="300px">
+    1. 以下のような画面になるよう部品を配置する  
+        <img src="./img/CameraProjectUI.png" width="300px">
   
-  2. 配置した部品をViewController.swiftに接続する。
-    |部品|接続時のName|
-    |---|---|
-    |UIImageView|imageView|
-    |UIButton（カメラ）|runCamera|
-    |UIButton（アルバム）|showAlbum|
-    |UIButton（保存）|savePhoto|
+    2. 配置した部品をViewController.swiftに接続する。
+    
+        |部品|接続時のName|
+        |---|---|
+        |UIImageView|imageView|
+        |UIButton（カメラ）|runCamera|
+        |UIButton（アルバム）|showAlbum|
+        |UIButton（保存）|savePhoto|
 
-    ![Swiftロゴ](./img/connect_parts.png)
+        ![Swiftロゴ](./img/connect_parts.png)
+
 
 3. ユーザー許可の設定をする
   Info.plistに以下のKeyとValueをを追加する
