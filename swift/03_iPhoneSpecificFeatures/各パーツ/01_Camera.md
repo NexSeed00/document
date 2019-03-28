@@ -31,6 +31,8 @@
 
         ![Swiftロゴ](./img/connect_parts.png)
 
+    3. デザインの制約を追加する。
+        ![Swiftロゴ](./img/add_containts.gif)
 
 3. ユーザー許可の設定をする
     Info.plistに以下のKeyとValueをを追加する
@@ -53,3 +55,59 @@
 
     3. 「Privacy – Photo Library Additions Usage Description」を追加する。
       ![Swiftロゴ](./img/add_photo_usage.gif)
+
+4. カメラ撮影機能
+    1. ViewControllerにDelegateを追加する
+      以下のDelegateを追加する。
+      - UIImagePickerControllerDelegate
+      - UINavigationControllerDelegate
+
+      Delegate追加後のViewController
+      
+      ```
+      class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+      ``` 
+
+    2. ```runCamera```メソッドにカメラ起動処理を追記する。
+      以下の処理を追記してください。
+
+      ```
+      if UIImagePickerController.isSourceTypeAvailable(.camera) {
+        	let cameraPicker = UIImagePickerController()
+        	cameraPicker.sourceType = .camera
+        	cameraPicker.delegate = self
+        	present(cameraPicker, animated: true, completion: nil)
+      } else {
+        	print("カメラが使用できません")
+      }
+      ```
+
+      追記後の```runCamera```メソッド
+
+      ```
+      @IBAction func runCamera(_ sender: UIButton) {
+        	if UIImagePickerController.isSourceTypeAvailable(.camera) {
+	            let cameraPicker = UIImagePickerController()
+	            cameraPicker.sourceType = .camera
+	            cameraPicker.delegate = self
+	            present(cameraPicker, animated: true, completion: nil)
+        	} else {
+        		print("カメラが使用できません")
+        	}
+    	}
+      ```
+
+      > 解説  
+      > ```if UIImagePickerController.isSourceTypeAvailable(.camera) {```  
+      > この部分でアプリがカメラを使用することを許可されているか確認しています。  
+      > 許可されている場合はtrue、それ以外はfalseが返却されます。  
+
+      > ```let cameraPicker = UIImagePickerController()```  
+      > ```cameraPicker.sourceType = .camera```  
+      > ```cameraPicker.delegate = self```  
+      > この部分でカメラの画面を作成しています。
+      > ```cameraPicker.sourceType = .camera``` と指定することにより、
+      > フォトライブラリではなく、カメラのみで起動するよう指定しています。
+
+      > ```present(cameraPicker, animated: true, completion: nil)```  
+      > この部分で作成したカメラの画面を表示しています。
