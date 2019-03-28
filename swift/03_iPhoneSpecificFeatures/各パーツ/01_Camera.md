@@ -33,23 +33,23 @@
 
 
 3. ユーザー許可の設定をする
-  Info.plistに以下のKeyとValueをを追加する
+    Info.plistに以下のKeyとValueをを追加する
 
-  - NSCameraUsageDescription
-    - Privacy – Camera Usage Description
-  - NSPhotoLibraryAddUsageDescription
-    - Privacy – Photo Library Additions Usage Description
+    - NSCameraUsageDescription
+      - Privacy – Camera Usage Description
+    - NSPhotoLibraryAddUsageDescription
+      - Privacy – Photo Library Additions Usage Description
 
-  |Key|内容|
-  |---|---|
-  |Privacy – Camera Usage Description|アプリがカメラを使用する許可設定|
-  |Privacy – Photo Library Additions Usage Description|アプリがフォトライブラリに追加する許可設定|
+    |Key|内容|
+    |---|---|
+    |Privacy – Camera Usage Description|アプリがカメラを使用する許可設定|
+    |Privacy – Photo Library Additions Usage Description|アプリがフォトライブラリに追加する許可設定|
 
-  1. 左のナビゲータ領域からInfo.plistを選択する。
-    ![Swiftロゴ](./img/Info_plist.png)
+    1. 左のナビゲータ領域からInfo.plistを選択する。
+      ![Swiftロゴ](./img/Info_plist.png)
 
-  2. 「Privacy – Camera Usage Description」を追加する。
-    ![Swiftロゴ](./img/add_camera_usage.gif)
-  
-  3. 「Privacy – Photo Library Additions Usage Description」を追加する。
-    ![Swiftロゴ](./img/add_photo_usage.gif)
+    2. 「Privacy – Camera Usage Description」を追加する。
+      ![Swiftロゴ](./img/add_camera_usage.gif)
+
+    3. 「Privacy – Photo Library Additions Usage Description」を追加する。
+      ![Swiftロゴ](./img/add_photo_usage.gif)
