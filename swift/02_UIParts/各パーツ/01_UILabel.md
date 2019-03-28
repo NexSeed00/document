@@ -36,7 +36,9 @@
 
 		![Swiftロゴ](./img/open_viewController.gif)
 
-	3. LabelをViewController.swiftに接続する。  
+	3. LabelをViewController.swiftに接続する。   
+		Main.storyboardに配置したUILabelを選択し、Ctrlキーを押しながら、ViewController.swiftまでドラッグ＆ドロップする。  
+		
 		接続のためのウィンドウが表示されたら、Name欄に「label」と入力し、「Connect」を選択。
 
 		![Swiftロゴ](./img/connect_label.gif)

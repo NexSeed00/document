@@ -15,7 +15,7 @@
 	- UINavigationControllerの設置
 2. TableViewの表示設定を行う
 3. TableViewCellがクリックされた時の処理を書く
-2. Top画面で画面遷移の処理を書く
+4. Top画面で画面遷移の処理を書く
 
 ## 開発しよう
 

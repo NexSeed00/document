@@ -65,7 +65,7 @@
 		> これからその約束事をそれぞれ定義していきましょう。
 
 		1. 設定に必要な関数を追加する。
-			以下の２つの関数をviewDidLoadの下に追加してください。
+			以下の3つの関数をviewDidLoadの下に追加してください。
 
 			```
 			func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -75,6 +75,10 @@
 			func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
 				<#code#>
 			}
+
+			func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        		<#code#>
+    		}
 			```
 
 			追加後のViewController
@@ -95,6 +99,10 @@
 					func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
 							<#code#>
 					}
+
+					func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        					<#code#>
+    				}
 			}
 			```
 
