@@ -6,16 +6,16 @@ UITableViewやUICollectionView, UIPickerViewを使うとき、
 ここでは、この2つについて解説していきます。
 
 ## Delegate, Datasource = プロトコル
-プロトコルという言葉を聞いたことがありますか？
-プロトコルは**約束事**という意味があります。 
+プロトコルという言葉を聞いたことがありますか？  
+プロトコルは**約束事**という意味があります。  
 実は、DelegateとDatasourceは2つともプロトコルです。  
 では、一体どんな約束事がDelegateとDatasourceには含まれているのでしょうか。  
 ここから、UITableViewを例に取り上げて、DelegateとDatasourceについて更に学習していきます。
 
-### UITableViewDataSource
+## UITableViewDataSource
 UITableViewDataSourceの約束事を簡単に説明すると、「テーブルの表示に関する約束事」です。
 
-#### UITableViewDataSourceに含まれる約束事
+### UITableViewDataSourceに含まれる約束事
 以下にUITableViewDataSourceに含まれる約束事をいくつか紹介します。
 
 |内容|メソッド|必須（○：必須、☓：任意）|
@@ -25,10 +25,10 @@ UITableViewDataSourceの約束事を簡単に説明すると、「テーブル�
 |ヘッダーのタイトルを設定|tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?|☓|
 |フッターのタイトルを設定|tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String?|☓|
 
-### UITableViewDelegate
+## UITableViewDelegate
 UITableViewDelegateの約束事を簡単に説明すると、「テーブルの操作に関する約束事」です。
 
-#### UITableViewDelegateに含まれる約束事
+## UITableViewDelegateに含まれる約束事
 以下にUITableViewDelegateに含まれる約束事をいくつか紹介します。
 
 |内容|メソッド|必須（○：必須、☓：任意）|
