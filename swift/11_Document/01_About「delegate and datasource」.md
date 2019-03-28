@@ -3,7 +3,7 @@
 ## 概要
 UITableViewやUICollectionView, UIPickerViewを使うとき、  
 〇〇Delegateと〇〇Datasourceというのが出てきたと思います。  
-ここでは、この2つについて解説していきます。
+ここではこの2つについて解説していきます。
 
 ## Delegate, Datasource = プロトコル
 プロトコルという言葉を聞いたことがありますか？  
