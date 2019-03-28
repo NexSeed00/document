@@ -57,10 +57,10 @@
       ![Swiftロゴ](./img/add_photo_usage.gif)
 
 4. カメラ撮影機能
-    1. ViewControllerにDelegateを追加する
+    1. ViewControllerにDelegateを追加する  
       以下のDelegateを追加する。
-      - UIImagePickerControllerDelegate
-      - UINavigationControllerDelegate
+      	- UIImagePickerControllerDelegate
+      	- UINavigationControllerDelegate
 
       Delegate追加後のViewController
       
