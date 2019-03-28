@@ -5,8 +5,8 @@
 
 ### Routeの設定
 ```
-Route::get('/folders/create', 'FolderController@showCreateForm')->name('folders.create');
-Route::post('/folders/create', 'FolderController@create');
+Route::get('diary/create', 'DiaryController@create')->name('diary.create');
+Route::post('diary/create', 'DiaryController@store')->name('diary.store');
 ```
 
 ### Controllerの編集(投稿画面)
