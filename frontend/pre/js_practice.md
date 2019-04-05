@@ -313,5 +313,74 @@ switch (gender) {
 ```
 
 ### 繰り返し
+#### for
 ```JavaScript
+// for( 変数の定義, 条件式, 変数の更新)
+for (let i = 1; i <= 10; i++) {
+    console.log(i);
+}
+```
+
+#### while
+```JavaScript
+let j = 11;
+while (j <= 20) {
+    console.log(j);
+    j++;
+}
+```
+
+#### for in
+```JavaScript
+let prices = {
+    'apple': 150,
+    'banana': 200,
+    'grape': 300,
+ }
+
+for (key in prices) {
+    console.log(prices[key]);
+}
+```
+
+#### for of
+```JavaScript
+let hobbies = ['running', 'swimming', 'reading books'];
+for (let value of hobbies) {
+    console.log(value);
+}
+```
+
+#### 繰り返しの中断、スキップ
+繰り返し処理をする際に、
+特定の条件の場合は、繰り返し処理を中止したい、
+または、特定の条件の場合、処理をスキップして次に進みたい、といった場合があります。
+そういった場合に使用するのが***break**と**continue**です。
+breakでは処理の中止、continueでは処理をスキップします。
+
+##### break
+```JavaScript
+//1 - 100までの数字を順番に足して、合計が1000を超える数値を画面に表示するプログラム
+//合計が1000を超えたあとの繰り返しは不要なため、breakで繰り返し処理を中止。
+let result = 0;
+for (let i = 1; i <= 100; i++) {
+    result += i;
+
+    if (result > 1000) {
+        console.log(`合計値が1000を超えるのは${i}の時`);
+        break;
+    }
+}
+```
+
+##### continue
+```JavaScript
+//1 - 30までの数値で、3の倍数ではないものを表示するプログラム
+//3の倍数の時だけ処理が不要なため、breckでスキップする。
+for (let i = 1; i <= 30; i++) {
+    if (i % 3 !== 0) {
+        continue;
+    }
+    console.log(i);
+}
 ```
