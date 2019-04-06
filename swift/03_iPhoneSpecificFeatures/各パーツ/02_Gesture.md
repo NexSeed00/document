@@ -51,7 +51,7 @@
         @IBOutlet weak var swipedCountLabel: UILabel!
 
         以下を追加
-        var tappedCount = 0
+        var tappedCount = 0
         ```
 
     4. ```tapped```メソッドに回数をカウントアップする処理を追加する。
