@@ -9,7 +9,7 @@ UserDefaultとは、iosアプリ内でデータを永続的に保存する方法
 UserDefaultを使うとデータを保存することができ、そのデータはアプリを閉じて消えることはありません。
 
 ## 作成するアプリ
-<img src="./img/GestureProject.gif" width="300px">
+<img src="./img/UserDefaultProject02.gif" width="300px">
 
 ## 開発の流れ
 1. 画面の部品を配置する
