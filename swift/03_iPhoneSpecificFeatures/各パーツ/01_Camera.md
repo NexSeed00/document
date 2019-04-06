@@ -10,7 +10,8 @@
 2. カメラ・フォトライブラリのアクセス利用設定
 3. カメラ撮影機能
 4. フォトライブラリ表示機能
-5. 写真保存機能
+5. 撮影または選択された画像の表示機能
+6. 写真保存機能
 
 ## 開発しよう
 1. プロジェクトを作成する  
@@ -32,6 +33,8 @@
         ![Swiftロゴ](./img/connect_parts.png)
 
     3. デザインの制約を追加する。
+        Main.storyboardで画面を選択し、右下にある「Pinボタン」内の「Add Missing Constraints」を選択する。
+        > この作業をすることで、画面サイズによるデザインのずれを解決します。
         ![Swiftロゴ](./img/add_containts.gif)
 
 3. ユーザー許可の設定をする
@@ -114,7 +117,7 @@
 
 5. フォトライブラリ表示機能
 
-    2. ```showAlbum```メソッドにフォトライブラリ動処理を追記する。
+    1. ```showAlbum```メソッドにフォトライブラリ動処理を追記する。
       以下の処理を追記してください。
 
       ```
@@ -157,3 +160,44 @@
 
       > ```present(imagePicker, animated: true, completion: nil)```  
       > この部分で作成したフォトライブラリの画面を表示しています。
+
+6. 撮影または選択された画像の表示機能
+    1. ```imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any])```を追記する
+
+      ![Swiftロゴ](./img/didFinishPickingMediaWithInfo.gif)
+
+    2. 上記で追加したメソッドに撮影または選択された画像を表示するプログラムを追記する
+
+      追記後の```imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any])```
+
+      ```
+      func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let pickedImage = info[.originalImage] as? UIImage {
+            imageView.image = pickedImage
+            imageView.contentMode = .scaleAspectFit
+        }
+        
+        picker.dismiss(animated: true, completion: nil)
+      }
+      ```
+
+      > 解説  
+      > ```imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any])```  
+      > このメソッドは写真が撮影が終わった時、またはフォトライブラリから写真が選択された後、自動で呼ばれるメソッドです。
+      > このメソッドはUIImagePickerControllerDelegateに含まれています。  
+
+      > ```if let pickedImage = info[.originalImage] as? UIImage {```
+      > この部分で配列infoに入っている撮影または選択された写真を取り出しています。  
+      > 写真が取り出せた場合はtrue、取り出せなかった場合はfalseになります。  
+      > 配列infoには写真の他にもいくつかデータが入っています。（写真のURLやメディアのタイプなど）  
+      > 配列infoから写真を取得したい場合は、```info[.originalImage]```とすることで取得できます。
+
+      > ```imageView.image = pickedImage```
+      > この部分で画面に配置したImageViewのimageプロパティに撮影または選択された画像を設定しています。
+
+      > ```imageView.contentMode = .scaleAspectFit```
+      > ここで、ImageViewの縦横比についての設定をしています。
+      > scaleAspectFitは「縦横の比率はそのままで長い辺を基準に全体を表示する」という設定になります。
+
+      > ```picker.dismiss(animated: true, completion: nil)```
+      >  この処理を呼ぶことによって、モーダルで表示されていたカメラもしくはアルバムの画面を閉じています。
