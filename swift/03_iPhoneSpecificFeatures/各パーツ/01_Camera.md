@@ -201,3 +201,63 @@
 
       > ```picker.dismiss(animated: true, completion: nil)```
       >  この処理を呼ぶことによって、モーダルで表示されていたカメラもしくはアルバムの画面を閉じています。
+7. 表示されている画像の保存機能
+
+    1. ```savePhoto```メソッドに画像をアルバムに保存する処理を追記する。  
+    以下の処理を追記してください。
+    
+    ```
+    let image = imageView.image
+        
+    if image != nil {
+        UIImageWriteToSavedPhotosAlbum(
+            image!,
+            self,
+            #selector(<#code#>),
+            nil)
+    }
+    ```
+
+    追記後の```savePhoto```メソッド
+
+    ```
+    @IBAction func savePhoto(_ sender: UIButton) {
+        let image = imageView.image
+        
+        if image != nil {
+            UIImageWriteToSavedPhotosAlbum(
+                image!,
+                self,
+                #selector(<#code#>),
+                nil)
+        }
+    }
+    ```
+
+    2. 写真保存後に実行される関数を作成する。
+
+    ```
+    @objc func didFinishSavePhoto(_ image: UIImage,
+                     didFinishSavingWithError error: NSError!,
+                     contextInfo: UnsafeMutableRawPointer) {
+        
+        if error != nil {
+            print("写真の保存に失敗しました。")
+            print(error.code)
+        } else {
+            print("写真を保存しました")
+        }
+    }
+    ```
+
+    3. 上記で作成した```didFinishSavePhoto```を```savePhoto```メソッド内の```UIImageWriteToSavedPhotosAlbum```の引数に設定する。
+
+    修正後の```UIImageWriteToSavedPhotosAlbum```
+
+    ```
+    UIImageWriteToSavedPhotosAlbum(
+                image!,
+                self,
+                #selector(didFinishSavePhoto(_:didFinishSavingWithError:contextInfo:)),
+                nil)
+    ```
