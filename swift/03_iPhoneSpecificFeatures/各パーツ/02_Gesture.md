@@ -4,14 +4,12 @@
 - Gestureが使えるようになる
 
 ## 作成するアプリ
+<img src="./img/GestureProject.gif" width="300px">
 
 ## 開発の流れ
 1. 画面の部品を配置する
-2. カメラ・フォトライブラリのアクセス利用設定
-3. カメラ撮影機能
-4. フォトライブラリ表示機能
-5. 撮影または選択された画像の表示機能
-6. 写真保存機能
+2. タップ処理を追加する
+3. スワイプ処理を追加する
 
 ## 開発しよう
 1. プロジェクトを作成する  
@@ -62,6 +60,42 @@
           tappedCountLabel.text = "\(tappedCount)"
         }
         ```
+4. スワイプ処理を追加する
+    1. UISwipeGestureRecognizerを画面に追加する。（4つUISwipeGestureRecognizerを追加してください）
+      ![Swiftロゴ](./img/add_swipe_recognizer.gif)
+      
+    2. 追加したUISwipeGestureRecognizerのスワイプ向きをそれぞれ設定する（上下左右それぞれ設定してください）
+        ![Swiftロゴ](./img/swipe_direction.gif)
 
+    3. 配置したUISwipeGestureRecognizerをViewController.swiftに接続する。
 
+        |部品|接続時のName|
+        |---|---|
+        |UISwipeGestureRecognizer（上向き）|swipedUp|
+        |UISwipeGestureRecognizer（右向き）|swipedRight|
+        |UISwipeGestureRecognizer（下向き）|swipedDown|
+        |UISwipeGestureRecognizer（左向き）|swipedLeft|
 
+        ![Swiftロゴ](./img/connect_swipe.png)
+
+    4. タップした回数を保持する変数を定義する。
+      
+        ```
+        @IBOutlet weak var swipedCountLabel: UILabel!
+
+        var tappedCount = 0
+
+        以下を追加
+        var swipedCount = 0
+        ```
+
+    5. スワイプ時に呼ばれるそれぞれのメソッドに回数をカウントアップする処理を追加する。
+
+        ```
+        @IBAction func swipedUp(_ sender: UISwipeGestureRecognizer) {
+          swipedCount += 1
+          swipedCountLabel.text = "\(swipedCount)"
+        }
+        ```
+## 実行してみよう
+<img src="./img/GestureProject.gif" width="300px">
