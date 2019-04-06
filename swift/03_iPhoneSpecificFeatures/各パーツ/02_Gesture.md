@@ -45,14 +45,14 @@
 
     3. タップした回数を保持する変数を定義する。
       
-      ```
-      @IBOutlet weak var tappedCountLabel: UILabel!
-    
-      @IBOutlet weak var swipedCountLabel: UILabel!
+        ```
+        @IBOutlet weak var tappedCountLabel: UILabel!
+      
+        @IBOutlet weak var swipedCountLabel: UILabel!
 
-      ↓追加
-      var tappedCount = 0
-      ```
+        以下を追加
+        var tappedCount = 0
+        ```
 
     4. ```tapped```メソッドに回数をカウントアップする処理を追加する。
 
