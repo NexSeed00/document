@@ -4,7 +4,7 @@
 - Mapが使えるようになる
 
 ## 作成するアプリ
-<img src="./img/UserDefaultProject02.gif" width="300px">
+<img src="./img/MapProject03.png" width="300px">
 
 ## 開発の流れ
 1. 画面の部品を配置する
