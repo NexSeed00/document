@@ -5,8 +5,8 @@
 学んだ内容を元に練習問題を解きましょう。
 
 ### ゴール
-JavaScriptを使用して練習問題を
-どうやって解くのか説明できるようになる。
+1. 練習問題を解くことができる。
+2. 練習問題の解き方を自分で説明することができる。
 
 ### 基本構文
 まずは基本構文からです。
@@ -20,12 +20,13 @@ JavaScriptでプログラミングする際にデータの
 
 app.jsファイルに以下の内容を記述後、
 index.htmlをブラウザで開いてください。
-```
+```JavaScript
 console.log('ここの文字が表示されます。');
 ```
 
 developer toolでコンソールログを確認し、
 上記内容が表示されていればOKです。
+※ここに画面録画
 
 #### コメントアウト
 入力されてる文字をプログラムとして実行されないようにすることです。
@@ -39,37 +40,56 @@ developer toolでコンソールログを確認し、
 コメントアウトすることで、メモなどのコードに関係ない文字を残すことができます。
 
 JavaScriptでは行の先頭に`//`をつけるとコメントアウトになります。
-```
-// ここはコメントアウトなので処理されない
-```
+また、複数行をコメントにしたい場合は、`/*  */` でコメントにしたい行を囲みます。
 
-#### 四則演算
-```
-console.log(1 + 1); //足し算
-console.log(5 - 2); //引き算
-console.log(3 * 3); //掛け算
-console.log(8 / 2); //割り算
-console.log(7 % 2); //余り
+```JavaScript
+// ここはコメントアウトなので処理されない
+
+/*
+ 通常コメントアウトはコードの処理内容を書かないが、
+ 勉強の際はあとで読み返してわかるように
+ コメントアウトはどんどんメモに使いましょう。
+ */
 ```
 
 #### 文字列連結
 +記号を使って文字と文字を結合できます。
-文字列は必ず`'(シングルクォーテーション)`で囲む必要があります。
-```
+文字列は必ず`'(シングルクォーテーション)`または`"(ダブルクォーテーション)`で囲む必要があります。
+
+```JavaScript
 console.log('Nex' + 'Seed'); //結果 NexSeed 
+```
+
+#### 四則演算
+四則演算を行う演算子が用意されています。
+
+|演算子|内容|例|
+|:--:|:--:|:--:|
+|`+`|加算|3 + 6|
+|`-`|減算|5 - 2|
+|`*`|乗算|5 * 3|
+|`/`|除算|8 / 2|
+|`%`|剰余|7 % 3|
+
+```JavaScript
+console.log(3 + 6);
+console.log(5 - 2);
+console.log(5 * 3);
+console.log(8 / 2);
+console.log(7 % 3);
 ```
 
 #### 変数
 変数とはデータを入れるための箱のようなものです。
 箱の名前を変数名と言います。
-変数を使用する場合、`let 変数名 = データ`のように記述します。
-多くのプログラミング言語で`=`は左右が等しいという意味ではなく、
+変数を使用する場合、`let 変数名 = 値`のように記述します。
+プログラミングの世界では`=`は左右が等しいという意味ではなく、
 **右の値を左に代入する**という意味になります。
-変数を使用する理由は、何を表すデータかわかりやすくなる、
-変更に対応しやすいなどがあります。
+変数を使用する理由は、**何を表すデータかわかりやすくなる**、
+**システムの修正に対応しやすい**などがあります。
 変数は以下のように使用します。
 
-```
+```JavaScript
 let place = 'Cebu';
 console.log(place);
 ```
@@ -78,180 +98,31 @@ console.log(place);
 1. placeという変数を定義して、cebuという文字を代入し、
 2. placeという変数をconsoleに表示
 
+##### 再代入
+一度定義した変数の内容を後から変更することを**再代入**と言います。
+以下のように一度定義した変数に再度 `変数名 = 値` を実行することで変数の内容が変更できますが、修正の際などに変数の確認が大変になることが多いため、あまり利用しません。
+```JavaScript
+let name = 'talk talk';
+console.log(name);
+
+name = 'NexSeed';
+console.log(name);
+```
+
+#### テンプレートリテラル
+```JavaScript
+let schoolName = 'NexSeed';
+console.log(`私の所属先は、${schoolName}です`);
+```
 
 
 #### 配列
-
-### 条件分岐
-
-
-### 繰り返し
-
-
-
-//テンプレートリテラル
-const schoolName = 'NexSeed';
-console.log(`私の所属先は、${schoolName}です`);
-
-
-console.log('----------------条件分岐----------------');
-// if (条件式) {
-//     処理;
-// }
-console.log('if文----------------');
-let int = 5;
-if (int > 3) {
-    console.log(`${int}は3より大きいです。`);
-}
-
-//真偽値 true false
-console.log(int >= 3);
-
-//比較演算子
-// <, <=, >, >=, ===, !==
-
-//論理演算子
-// && ||
-
-console.log('else if----------------');
-int = 5;
-if (int >= 10) {
-    console.log(int + 'は10以上です')
-} else if (int > 3) {
-    console.log(`${int}は3より大きいです。`);
-} else {
-    console.log(`${int}は3以下です。`);
-}
-
-
-console.log('switch----------------');
-let signal = 'green';
-switch (signal) {
-    case 'red':
-        console.log('止まれ');
-        break;
-    case 'green':
-        console.log('すすめ');
-        break;
-    default:
-        console.log('その他');
-        break;
-}
-
-console.log('----------------繰り返し処理----------------');
-console.log('for----------------');
-// for( 変数の定義, 条件式, 変数の更新)
-for (let i = 1; i <= 10; i++) {
-    console.log(i);
-}
-
-
-console.log('while----------------');
-let j = 11;
-while (j <= 20) {
-    console.log(j);
-    j++;
-}
-
-console.log('do while----------------');
-let j2 = 21;
-do {
-    console.log(j2);
-    j2++;
-} while (j2 <= 20);
-
-console.log('----------------アラート----------------');
-//alert, confirm
-// alert('Hello World');
-// const answer = confirm('削除しますか?');
-// console.log(answer);
-
-
-console.log('----------------関数----------------');
-/* 
-    関数
-    複数の処理を1つにまとめたもの
-    function 関数名() {
-        処理
-    }
-*/
-
-// function greeting() {
-//     console.log('おはよう');
-// }
-// greeting();
-
-console.log('引数----------------');
-// function greeting(greeting) {
-//     console.log(greeting);
-// }
-// greeting('おはよう');
-// greeting('こんにちは');
-// greeting('こんばんは');
-
-console.log('ローカル変数----------------');
-// function greeting(name) {
-//     let morning = 'おはよう' + name;
-//     return morning;
-// }
-
-// let hoge = greeting('ヒロ');
-// console.log(hoge);
-// console.log(morning); //エラー
-
-console.log('関数を変数に代入----------------');
-// let greeting = function (name) {
-//     let greeting = 'おはよう' + name;
-//     return greeting;
-// }
-// let hoge = greeting('seedKun');
-// console.log(hoge);
-
-
-console.log('----------------タイマー処理----------------');
-/* 
-    タイマー処理
-    setInterval ->前の処理が終わったことを確認しない
-    setTimeout ->前の処理が終わったか確認
-*/
-
-console.log('setInterval----------------');
-    // let i = 100;
-    // function countDown() {
-    //     console.log(i--);
-    // }
-    // setInterval(function() {
-    //     countDown();
-    // }, 1000)
-
-console.log('setTimeout----------------');
-    // let j2 = 100;
-    // function countDown() {
-    //     console.log(j2--);
-    // }
-
-    // setTimeout(function() {
-    //     countDown();
-    // }, 1000);
-
-console.log('setTimeOutで繰り返し + timerをとめる----------------');
-    // let k = 100;
-    // function countDown() {
-    //     console.log(k--);
-    //     let timer = setTimeout(function() {
-    //         countDown();
-    //     }, 1000);
-
-    //     if (k < 95) {
-    //         clearTimeout(timer);
-    //         console.log('timer stop');
-    //     }
-    // }
-    // countDown();
-
-console.log('----------------配列----------------');
-// 配列 = グループ化されたデータ
+配列は、数値や文字列などと同じくデータ型の1つであり、キーと値のペアからなる要素を複数管理することができます。  
+配列は変数とは違い、同じような項目の値を複数管理する場合に有効です。
+```JavaScript
+//書き方
 // [値1, 値2]
+
 let student_list = ['Yamada', 'Sato', 'Suzuki'];
 console.log(student_list); //student list全体を表示
 console.log(student_list[1]); //2番目の値
@@ -261,116 +132,237 @@ console.log(student_list);
 student_list.pop(); //末尾の値を削除
 student_list.shift(); //先頭の値を削除
 console.log(student_list);
+```
 
-console.log('----------------連想配列----------------');
-//連想配列(オブジェクト)
+#### 連想配列
+```JavaScript
+
+//書き方
 //{キー1: 値1, キー2: 値2}
-let user = {
-    food: 'ラーメン', 
-    age: 38,
-    from: '沖縄'
-};
-console.log(user);
-console.log(user['food']);
 
-let user2 = {
-    food: 'UFO',
-    age: 20,
-    from: '沖縄'
+let user = { age: 38, from: '沖縄'};
+```
+
+### 条件分岐
+プログラムは記述した順に上から下へ実行されていきますが、条件によって処理を分けたい場合があります。
+例えば、変数の値が10より大きかったらAの処理を行い、10より小さかったらBの処理を行うといった場合です。
+
+このように条件に従って処理を分岐させるために使われるのが**if文**や、**Switch文**です。
+
+#### if文
+```JavaScript
+/*
+if (条件式) {
+     処理;
+}
+*/
+
+let int = 5;
+if (int > 3) {
+    console.log(`${int}は3より大きいです。`);
+}
+```
+
+##### 比較演算子
+if文では、条件式の内容が正しい(真, TRUE)か誤っている(偽, FALSE)かによって処理を分けます。  
+条件式には「xxxと等しい」とか「xxxよりも大きい」などのように条件を記述することになりますが、この条件式の中で使用されるのが比較演算子です。
+
+よく使われる比較演算子は次のとおりです。
+
+|演算子|記述例|意味|
+|:--:|:--:|:--|
+|==|a == b|aとbの値が等しい|
+|===|a === b|aとbの値が等しく、型も等しい|
+|!=|a!=b|aとbの値が等しくない|
+|!==|a !== b|aとbの値、もしくは型が等しくない|
+|>|a > b|bよりaが大きい|
+|>=|a >= b|bよりaが大きい、もしくは等しい|
+|<|a < b|bよりaが小さい|
+|<=|a <= b|bよりaが小さい、もしくは等しい|
+
+##### 論理演算子
+比較演算子では単独の条件式を記述することができますが、もう少し複雑に「xxxかつyyy」や「xxxもしくはyyy」のように、条件式を組み合わせてより複雑な条件式を利用したい場合があります。
+このような場合に使用するのが論理演算子です。
+
+よく使われる論理演算子は次のとおりです。
+
+|演算子|記述例|意味|
+|:--:|:--:|:--|
+|&&|a && b|aかつbである（論理積）|
+|\|\||a \|\| b|aまたはbである（論理和）|
+
+論理積(AND)は、演算子「&&」の左辺と右辺の条件式が共に真の場合のみ、全体の式の評価が真となります。  
+論理和(OR)は、演算子「||」の左辺と右辺の少なくともどちらか一つの条件式が真の場合に、全体の式の評価が真となります。
+```JavaScript
+let int2 = 23;
+if (int2 >= 20 && int2 < 30) {
+    console.log('20代です');
+}
+```
+
+##### else if
+ここまでは1つの条件式で真か偽かを判別していましたが、複数の条件式を組み合わせることも可能です。
+```JavaScript
+if (条件式A) {
+	条件式Aが真の時に、ここの処理が実行される
+} else if (条件式B) {
+	条件式Aは偽であるが、条件式Bが真の時に、ここの処理が実行される
+} else {
+	全ての条件式が偽の時に、ここの処理が実行される
 }
 
-console.log('----------------2次元配列----------------');
-let users = [user, user2];
-console.log(users);
-console.log(users[0]);
-console.log(users[0]['age']);
-console.log(users[1].age); //連想配列(オブジェクト)は.でつなぐこともできる
 
-console.log('----------------メソッド----------------');
-let user3 = {
-    food: 'sushi',
-    age: 27,
-    from: '千葉',
-    greet: function(name) {//メソッド
-        console.log("Hello I'm, " + name + " from " + this.from);
-    }
+let int3 = 5;
+if (int3 >= 10) {
+    console.log(int3 + 'は10以上です')
+} else if (int3 > 3) {
+    console.log(`${int3}は3より大きいです。`);
+} else {
+    console.log(`${int}は3以下です。`);
 }
-user3.greet('Atsushi');
+```
 
-console.log('----------------組み込みオブジェクト----------------');
+#### Switch文
+変数の値が、Aならこの処理、Bならこの処理、Cならこの処理、など色々な値と順次比較して一致する場合毎に処理を記述する場合があります。if文を使うと次のように記述できます。
+```JavaScript
+let var = 'A';
 
-console.log('文字列----------------');
-// let str = new String('Atsushi'); //文字列オブジェクト
-let str = "Atsushi"; //文字列リテラル lengthとかの実行時に勝手に文字列オブジェクトの内容を使いたいのかと判断してくれる
-console.log(str.length);
-console.log(str.substr(0, 4));
+if (var == 'A') {
+	// 処理
+} else if (var == 'B') {
+	// 処理
+} else if (var == 'C') {
+	// 処理
+} else if (var == 'D') {
+	// 処理
+} else if (var == 'E') {
+	// 処理
+} else {
+	// 処理
+}
+```
 
-console.log('配列----------------');
-// let arr = new Array(1, 2, 3);
-let arr = [1, 2, 3];
-console.log(arr.length);
-arr.push(4);
-console.log(arr);
-arr.splice(1, 0, 1.5); //1番目から1つも置き換えない(追加)
-console.log(arr);
-arr.splice(4, 1, 3.9); //4番目から1つ置き換える
-console.log(arr);
+これはこれで間違いではないのですが、このような用途の場合にはswitch文を使うと便利です。
+switch文の書式は次の通りです。
 
-console.log('数値----------------');
-console.log(Math.ceil(3.3));
-console.log(Math.floor(3.3));
-console.log(Math.random());
-// let hoge = Math.floor(Math.random() * 10);
-// console.log(hoge);
+```JavaScript
+switch (式) {
+	case 値1:
+		式が値1と等しい場合の処理;
+		break;
+	case 値2:
+		式が値2と等しい場合の処理;
+		break;
+	case 値3:
+		式が値3と等しい場合の処理;
+		break;
+	default:
+		式がいずれの値とも等しくない場合の処理;
+		break;
+}
+```
 
-console.log('日付----------------');
-let date = new Date();
-console.log(date);
-console.log(date.getFullYear());
+switch文では式の値を評価し、caseの後に記述された値と順次比較していきます。  
+もし一致する値があった場合には、その後に記述された処理を順次処理していき、breakに達したら終了します。
+if文の場合にはブロックを使ってどこからどこまでの処理を実行するのかが分かるようになっていましたが、switch文ではcase毎にブロックは使用されず、breakに達するまで順次処理を実行していきます。  
+defaultの後の処理は、式がcaseの後に記述されたいずれの値にも一致しなかった時に実行される処理を記述します。
 
-console.log('DOM----------------');
-// console.dir(window);
-// console.log(window.outerHeight);
-// window.location.href = 'http://nexseed.net'; //リダイレクト
+先程のif文をswitch文に書き直すと次のようになります。
 
-// window.document 今開いているページ 省略してdocumentとも書ける
-// documentにアクセスするための色々な命令をdocument objedt model(DOM)という
-// DOMをいじるときはHTMLのツリー構造を意識することが大切
-let test = document.getElementById('test');
-test.textContent = 'これに変わる';
-test.style.color = 'blue';
-test.className = 'addClass';
+```JavaScript
+let var2 = 'A';
 
-console.log('イベント----------------');
-document.getElementById('btn').addEventListener('click', function() {
-    let tag = document.createElement('p');
-    let text = document.createTextNode('Hello js');
-    document.body.appendChild(tag).appendChild(text);
-})
+switch (var2) {
+	case 'A':
+		// 処理
+		break;
+	case 'B':
+		// 処理
+		break;
+	case 'C':
+		// 処理
+		break;
+	case 'D':
+		// 処理
+		break;
+	case 'E':
+		// 処理
+		break;
+	default:
+		// 処理
+		break;
+}
+```
 
-console.log('----------------繰り返し処理再び----------------');
-console.log('for in----------------');
-//for (仮変数 in 連想配列) {}
-//仮変数にはkeyが入る
+```JavaScript
+let gender = 'male';
+
+switch (gender) {
+    case 'male':
+        // 処理
+        console.log('男性です');
+        break;
+    case 'female':
+        // 処理
+        console.log('女性です');
+        break;
+    default:
+        // 処理
+        console.log('?');
+        break;
+```
+
+### 繰り返し
+#### for
+```JavaScript
+// for( 変数の定義, 条件式, 変数の更新)
+for (let i = 1; i <= 10; i++) {
+    console.log(i);
+}
+```
+
+#### while
+```JavaScript
+let j = 11;
+while (j <= 20) {
+    console.log(j);
+    j++;
+}
+```
+
+#### for in
+```JavaScript
 let prices = {
     'apple': 150,
     'banana': 200,
     'grape': 300,
  }
+
 for (key in prices) {
     console.log(prices[key]);
 }
+```
 
-
-console.log('for of----------------');
+#### for of
+```JavaScript
 let hobbies = ['running', 'swimming', 'reading books'];
 for (let value of hobbies) {
     console.log(value);
 }
+```
 
-console.log('繰り返しの中断、スキップ----------------');
-//break
-var result = 0;
+#### 繰り返しの中断、スキップ
+繰り返し処理をする際に、
+特定の条件の場合は、繰り返し処理を中止したい、
+または、特定の条件の場合、処理をスキップして次に進みたい、といった場合があります。
+そういった場合に使用するのが***break**と**continue**です。
+breakでは処理の中止、continueでは処理をスキップします。
+
+##### break
+```JavaScript
+//1 - 100までの数字を順番に足して、合計が1000を超える数値を画面に表示するプログラム
+//合計が1000を超えたあとの繰り返しは不要なため、breakで繰り返し処理を中止。
+let result = 0;
 for (let i = 1; i <= 100; i++) {
     result += i;
 
@@ -379,29 +371,16 @@ for (let i = 1; i <= 100; i++) {
         break;
     }
 }
+```
 
-//continue
+##### continue
+```JavaScript
+//1 - 30までの数値で、3の倍数ではないものを表示するプログラム
+//3の倍数の時だけ処理が不要なため、breckでスキップする。
 for (let i = 1; i <= 30; i++) {
     if (i % 3 !== 0) {
         continue;
     }
     console.log(i);
 }
-
-
-console.log('----------------例外処理----------------');
-/*
-    try {
-        例外が発生するかもしれない命令
-    } catch(例外情報を受け取る変数) {
-        例外が発生した時に実行される命令
-    } finaly {
-        例外の有無に関わらず、最終的に実行される命令
-    }
-*/
-
-#### 条件分岐
-
-#### 繰り返し
-
-#### 練習問題
+```

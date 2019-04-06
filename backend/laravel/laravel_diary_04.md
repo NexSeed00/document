@@ -48,7 +48,7 @@ diaries/create.blade.phpを編集
                         <input type="text" class="form-control" name="title" id="title" />
                     </div>
                     <div class="form-group">
-                        <label for="title">本文</label>
+                        <label for="body">本文</label>
                         <textarea class="form-control" name="body" id="body"></textarea>
                     </div>
                     <div class="text-right">
