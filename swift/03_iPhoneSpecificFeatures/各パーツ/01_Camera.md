@@ -4,6 +4,7 @@
 - カメラが使えるようになる
 
 ## 作成するアプリ
+<img src="./img/CameraProject.gif" width="300px">
 
 ## 開発の流れ
 1. 画面の部品を配置する
@@ -261,3 +262,6 @@
                 #selector(didFinishSavePhoto(_:didFinishSavingWithError:contextInfo:)),
                 nil)
     ```
+
+## 実行してみよう
+<img src="./img/CameraProject.gif" width="300px">
