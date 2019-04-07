@@ -75,7 +75,7 @@
 
 4. 画像と文字をシェアする処理を追加する
 
-    1. ```didClickButton```メソッドに編集する  
+    1. ```didClickButton```メソッドを編集する  
 
         ```let data = [imageView.image!]```を以下のように編集する
 
