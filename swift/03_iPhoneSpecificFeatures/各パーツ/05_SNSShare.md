@@ -70,7 +70,7 @@
         > ```present(controller, animated: true, completion: nil)```  
         > ここで先ほど作成したシェア方法を選択する画面を表示します
 
-    2. 実行してみる
+    2. 実行してみる  
         <img src="./img/SNSShareProject01.gif" width="300px">
 
 4. 画像と文字をシェアする処理を追加する
@@ -83,5 +83,5 @@
         let data = [imageView.image!, "猫の写真です"] as [Any]
         ```
 
-## 実行してみる
+## 実行してみる  
 <img src="./img/SNSShareProject02.gif" width="300px">
