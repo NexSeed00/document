@@ -4,7 +4,7 @@
 - SNSシェア機能が使えるようになる
 
 ## 作成するアプリ
-<img src="./img/UserDefaultProject02.gif" width="300px">
+<img src="./img/SNSShareProject02.gif" width="300px">
 
 ## 開発の流れ
 1. 画面の部品を配置する
@@ -36,3 +36,52 @@
     4. 画面に配置したImageViewに任意の画像を設定する
         <img src="./img/place_image.png" width="300px">
 
+3. SNSシェアの処理を追加する
+
+    1. 以下の処理を```didClickButton```メソッドに追加する  
+    以下の処理を追記する
+
+        ```
+        let data = [imageView.image!]
+        let controller = UIActivityViewController(activityItems: data, applicationActivities: nil)
+          
+        present(controller, animated: true, completion: nil)
+        ```
+
+        追記後の```didClickButton```メソッド
+
+        ```
+        @IBAction func didClickButton(_ sender: UIButton) {
+          let data = [imageView.image!]
+          let controller = UIActivityViewController(activityItems: data, applicationActivities: nil)
+        
+          present(controller, animated: true, completion: nil)
+        }
+        ```
+
+        > 解説  
+        > let data = [imageView.image!]  
+        > ここでSNSシェアするデータを用意しています。  
+
+        > ```let controller = UIActivityViewController(activityItems: data, applicationActivities: nil)```
+        > ここでシェア方法を選択する画面を作成しています。  
+        > activityItemsにはシェアするデータを配列で渡すことができます
+
+        > ```present(controller, animated: true, completion: nil)```
+        > ここで先ほど作成したシェア方法を選択する画面を表示します
+
+    2. 実行してみる
+        <img src="./img/SNSShareProject01.gif" width="300px">
+
+4. 画像と文字をシェアする処理を追加する
+
+    1. ```didClickButton```メソッドに編集する  
+
+        ```let data = [imageView.image!]```を以下のように編集する
+
+        ```
+        let data = [imageView.image!, "猫の写真です"] as [Any]
+        ```
+
+## 実行してみる
+<img src="./img/SNSShareProject02.gif" width="300px">
