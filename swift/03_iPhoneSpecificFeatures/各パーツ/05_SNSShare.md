@@ -63,11 +63,11 @@
         > let data = [imageView.image!]  
         > ここでSNSシェアするデータを用意しています。  
 
-        > ```let controller = UIActivityViewController(activityItems: data, applicationActivities: nil)```
+        > ```let controller = UIActivityViewController(activityItems: data, applicationActivities: nil)```  
         > ここでシェア方法を選択する画面を作成しています。  
         > activityItemsにはシェアするデータを配列で渡すことができます
 
-        > ```present(controller, animated: true, completion: nil)```
+        > ```present(controller, animated: true, completion: nil)```  
         > ここで先ほど作成したシェア方法を選択する画面を表示します
 
     2. 実行してみる
