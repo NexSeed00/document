@@ -33,7 +33,7 @@
         > この作業をすることで、画面サイズによるデザインのずれを解決します。
         ![Swiftロゴ](./img/add_containts.gif)
 
-    4. 画面に配置したImageViewに任意の画像を設定する
+    4. 画面に配置したImageViewに任意の画像を設定する  
         <img src="./img/place_image.png" width="300px">
 
 3. SNSシェアの処理を追加する
