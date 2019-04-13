@@ -77,6 +77,7 @@
     8. 自作セルにデザインの制約を追加する。
         CustomCell.xibでセルを選択し、右下にある「Pinボタン」内の「Add Missing Constraints」を選択する。
         > この作業をすることで、画面サイズによるデザインのずれを解決します。  
+        
           ![Swiftロゴ](./img/add_constraints.gif)
         
 4. 画面表示時にAPIを呼び出す処理を追記する
