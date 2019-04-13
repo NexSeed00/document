@@ -72,6 +72,11 @@
         |UILabel|label|
 
         ![Swiftロゴ](./img/connect_image_label.gif)
+
+    8. 自作セルにデザインの制約を追加する。
+        CustomCell.xibでセルを選択し、右下にある「Pinボタン」内の「Add Missing Constraints」を選択する。
+        > この作業をすることで、画面サイズによるデザインのずれを解決します。
+        ![Swiftロゴ](./img/add_constraints.gif)
         
 4. 画面表示時にAPIを呼び出す処理を追記する
     1. iTunes APIを実行して、取得した結果を保存する変数```collectionData```を作成する
@@ -120,6 +125,26 @@
         })
         task.resume()
         ```
+
+    3. 変数```collectionData```の値がセットされたら、CollectionViewを更新する処理を追記する  
+    変数```collectionData```にdidSetを追記する
+
+        追記前
+
+        ```
+        var collectionData: [[String: Any]] = []
+        ```
+
+        追記後
+
+        ```
+        var collectionData: [[String: Any]] = [] {
+            didSet {
+                collectionView.reloadData()
+            }
+        }
+        ```
+
 5. CollectionViewの設定を追記する
     1. ViewControllerに```UICollectionViewDataSource```と```UICollectionViewDelegate```を追記する
 
@@ -197,6 +222,7 @@
 
     3. UICollectionViewの要素数と、UICollectionViewに表示する内用を定義する
         1. ```func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int)```を以下のように修正する
+        
                 ```
                 func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
                     return collectionData.count
@@ -204,6 +230,7 @@
                 ```
 
         2. ```func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath)```を以下のように修正する
+
                 ```
                 func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
                     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCell
@@ -222,4 +249,55 @@
                 }
                 ```
     
-    4. 画面のCollectionViewに設定を反映する。
+    4. 画面のCollectionViewに設定を反映する。  
+    ```viewDidLoad```メソッドに以下の処理を追記する
+            ```
+            collectionView.delegate = self
+            collectionView.dataSource = self
+            ```
+
+            追記後の```viewDidLoad```
+
+            ```
+            override func viewDidLoad() {
+                super.viewDidLoad()
+                
+                let url: URL = URL(string: "http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/wa/wsSearch?term=marron5&limit=20")!
+                let task: URLSessionTask = URLSession.shared.dataTask(with: url, completionHandler: {data, response, error in
+                    do {
+                        let items = try JSONSerialization.jsonObject(with: data!) as! NSDictionary
+                        
+                        var result: [[String: Any]] = []
+                        
+                        for(key, data) in items {
+                            if (key as! String == "results"){
+                                let resultArray = data as! NSArray
+                                for (eachMusic) in resultArray{
+                                    let dicMusic:NSDictionary = eachMusic as! NSDictionary
+                                    
+                                    print(dicMusic["trackName"]!)
+                                    print(dicMusic["artworkUrl100"]!)
+                                    
+                                    let data: [String: Any] = ["name": dicMusic["trackName"]!, "imageUrl": dicMusic["artworkUrl100"]!]
+                                    
+                                    result.append(data)
+                                }
+                            }
+                        }
+                        
+                        DispatchQueue.main.async() { () -> Void in
+                            self.collectionData = result
+                        }
+                        
+                    } catch {
+                        print(error)
+                    }
+                })
+                task.resume()
+                
+                collectionView.register(UINib(nibName: "CustomCell", bundle: nil), forCellWithReuseIdentifier: "cell")
+                
+                collectionView.delegate = self
+                collectionView.dataSource = self
+            }
+            ```
