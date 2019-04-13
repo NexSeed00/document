@@ -222,12 +222,12 @@
 
     3. UICollectionViewの要素数と、UICollectionViewに表示する内用を定義する
         1. ```func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int)```を以下のように修正する
-        
-                ```
-                func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-                    return collectionData.count
-                }
-                ```
+
+            ```
+            func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+                return collectionData.count
+            }
+            ```
 
         2. ```func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath)```を以下のように修正する
 
