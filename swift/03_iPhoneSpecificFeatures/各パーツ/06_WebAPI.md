@@ -4,7 +4,7 @@
 - WebAPIが使えるようになる
 
 ## 作成するアプリ
-<img src="./img/SNSShareProject02.gif" width="300px">
+<img src="./img/WebAPIProject02.png" width="300px">
 
 ## 開発の流れ
 1. 画面の部品を配置する
@@ -301,3 +301,66 @@
             collectionView.dataSource = self
         }
         ```
+
+    5. 実行してみる
+        <img src="./img/WebAPIProject01.png" width="300px">
+
+6. CollectionViewのセルの大きさなどを設定する
+    1. ViewControllerに```UICollectionViewDelegateFlowLayout```を追加する
+
+        追記前
+
+        ```
+        class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+        ```
+
+        追記後
+
+        ```
+        class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+        ```
+
+    2. セルの大きさを設定する
+        1. ```func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize```メソッドを追記する
+    
+            ![Swiftロゴ](./img/add_sizeForItemAt.gif)
+
+        2. セルの大きさを画面の半分の大きさに設定する
+        ```func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize```メソッドを以下のように修正する
+
+            ```
+            func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+                let cellSize:CGFloat = self.view.bounds.width/2 - 4
+                return CGSize(width: cellSize, height: cellSize)
+            }
+            ```
+
+    3. セルとセルの横の幅の設定をする
+        1. ```func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat```メソッドを追記する
+
+            ![Swiftロゴ](./img/add_minimumInteritemSpacingForSectionAt.gif)
+
+        2. セルとセルの横幅を0に設定する
+        ```func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat```メソッドを以下のように修正する
+
+            ```
+            func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+                return 0
+            }
+            ```
+
+    4. セルとセルの縦の幅の設定をする
+        1. ```func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat```メソッドを追記する
+
+            ![Swiftロゴ](./img/add_minimumLineSpacingForSectionAt.gif)
+        
+        2. ```func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat```メソッドを以下のように修正する
+
+            ```
+            func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+                return 10
+            }
+            ```
+
+## 実行してみる
+<img src="./img/WebAPIProject02.png" width="300px">
