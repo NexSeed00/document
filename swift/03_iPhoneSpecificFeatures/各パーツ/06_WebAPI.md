@@ -251,53 +251,53 @@
     
     4. 画面のCollectionViewに設定を反映する。  
     ```viewDidLoad```メソッドに以下の処理を追記する
-            ```
-            collectionView.delegate = self
-            collectionView.dataSource = self
-            ```
+        ```
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        ```
 
-            追記後の```viewDidLoad```
+        追記後の```viewDidLoad```
 
-            ```
-            override func viewDidLoad() {
-                super.viewDidLoad()
-                
-                let url: URL = URL(string: "http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/wa/wsSearch?term=marron5&limit=20")!
-                let task: URLSessionTask = URLSession.shared.dataTask(with: url, completionHandler: {data, response, error in
-                    do {
-                        let items = try JSONSerialization.jsonObject(with: data!) as! NSDictionary
-                        
-                        var result: [[String: Any]] = []
-                        
-                        for(key, data) in items {
-                            if (key as! String == "results"){
-                                let resultArray = data as! NSArray
-                                for (eachMusic) in resultArray{
-                                    let dicMusic:NSDictionary = eachMusic as! NSDictionary
-                                    
-                                    print(dicMusic["trackName"]!)
-                                    print(dicMusic["artworkUrl100"]!)
-                                    
-                                    let data: [String: Any] = ["name": dicMusic["trackName"]!, "imageUrl": dicMusic["artworkUrl100"]!]
-                                    
-                                    result.append(data)
-                                }
+        ```
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            
+            let url: URL = URL(string: "http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/wa/wsSearch?term=marron5&limit=20")!
+            let task: URLSessionTask = URLSession.shared.dataTask(with: url, completionHandler: {data, response, error in
+                do {
+                    let items = try JSONSerialization.jsonObject(with: data!) as! NSDictionary
+                    
+                    var result: [[String: Any]] = []
+                    
+                    for(key, data) in items {
+                        if (key as! String == "results"){
+                            let resultArray = data as! NSArray
+                            for (eachMusic) in resultArray{
+                                let dicMusic:NSDictionary = eachMusic as! NSDictionary
+                                
+                                print(dicMusic["trackName"]!)
+                                print(dicMusic["artworkUrl100"]!)
+                                
+                                let data: [String: Any] = ["name": dicMusic["trackName"]!, "imageUrl": dicMusic["artworkUrl100"]!]
+                                
+                                result.append(data)
                             }
                         }
-                        
-                        DispatchQueue.main.async() { () -> Void in
-                            self.collectionData = result
-                        }
-                        
-                    } catch {
-                        print(error)
                     }
-                })
-                task.resume()
-                
-                collectionView.register(UINib(nibName: "CustomCell", bundle: nil), forCellWithReuseIdentifier: "cell")
-                
-                collectionView.delegate = self
-                collectionView.dataSource = self
-            }
-            ```
+                    
+                    DispatchQueue.main.async() { () -> Void in
+                        self.collectionData = result
+                    }
+                    
+                } catch {
+                    print(error)
+                }
+            })
+            task.resume()
+            
+            collectionView.register(UINib(nibName: "CustomCell", bundle: nil), forCellWithReuseIdentifier: "cell")
+            
+            collectionView.delegate = self
+            collectionView.dataSource = self
+        }
+        ```
