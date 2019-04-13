@@ -231,23 +231,23 @@
 
         2. ```func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath)```を以下のように修正する
 
-                ```
-                func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-                    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCell
-        
-                    var data = collectionData[indexPath.row]
-                    
-                    let url = URL(string: data["imageUrl"] as! String)
+            ```
+            func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCell
+    
+                var data = collectionData[indexPath.row]
+                
+                let url = URL(string: data["imageUrl"] as! String)
 
-                    let imageData :Data = (try! Data(contentsOf: url!,options: NSData.ReadingOptions.mappedIfSafe))
-                    let img = UIImage(data:imageData)
-                    
-                    cell.imageView.image = img
-                    cell.label.text = (data["name"] as! String)
-                    
-                    return cell
-                }
-                ```
+                let imageData :Data = (try! Data(contentsOf: url!,options: NSData.ReadingOptions.mappedIfSafe))
+                let img = UIImage(data:imageData)
+                
+                cell.imageView.image = img
+                cell.label.text = (data["name"] as! String)
+                
+                return cell
+            }
+            ```
     
     4. 画面のCollectionViewに設定を反映する。  
     ```viewDidLoad```メソッドに以下の処理を追記する
