@@ -18,7 +18,7 @@
 
 2. 画面の部品を配置する
     1. 以下のような画面になるよう部品を配置する  
-    ※コレクションビューを配置してください
+    ※コレクションビューを配置してください  
         <img src="./img/place_webapi.png" width="300px">
   
     2. 配置した部品をViewController.swiftに接続する。
@@ -39,3 +39,187 @@
     プロジェクトフォルダを選択し、右クリック→「New File」を選択→「View」選択し、Next→「CustomCell」と入力しCreate
 
         ![Swiftロゴ](./img/create_xib.gif)
+
+    2. xibファイルにあるViewControllerを削除する。  
+    ViewControllerを選択し、Deleteキーを押下
+
+        ![Swiftロゴ](./img/delete_vc.gif)
+
+    3. xibファイルにCollectionViewCellを配置する。
+
+        ![Swiftロゴ](./img/place_collection_cell.gif)
+
+    4. 以下のようにImageViewとLabelを配置する
+
+        ![Swiftロゴ](./img/place_image_label.gif)
+
+    5. 作成したCollectionViewCellと対応するクラスファイルを作成する  
+    プロジェクトフォルダを選択し、右クリック→「New File」を選択→「Cocoa Touch Class」を選択→クラス欄に「CustomCell」と入力、Subclass of 欄で「UICollectionViewCell」を選択→「Next」を選択→「Create」を選択
+
+        ![Swiftロゴ](./img/create_customcell_class.gif)
+
+    6. CustomCell.xibとCustomCell.swiftを紐付ける
+    CustomCell.xibを開き、ユーティリティエリアの左から3番目のアイデンティティインスペクタを選択。  
+    Class欄に「CustomCell」と入力する
+
+        ![Swiftロゴ](./img/connect_customcell.gif)
+
+    7. CustomCell.xibのImageViewとlabelをCustomCell.swiftに接続する
+
+        |部品|接続時のName|
+        |---|---|
+        |UIImageView|imageView|
+        |UILabel|label|
+
+        ![Swiftロゴ](./img/connect_image_label.gif)
+        
+4. 画面表示時にAPIを呼び出す処理を追記する
+    1. iTunes APIを実行して、取得した結果を保存する変数```collectionData```を作成する
+    ViewControllerに以下の変数を追記する
+
+        ```
+        @IBOutlet weak var collectionView: UICollectionView!
+
+        ↓追加
+        var collectionData: [[String: Any]] = []
+        ```
+
+    2. ```viewDidLoad```メソッドに以下の処理を追記してください。
+
+        ```
+        let url: URL = URL(string: "http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/wa/wsSearch?term=marron5&limit=20")!
+        let task: URLSessionTask = URLSession.shared.dataTask(with: url, completionHandler: {data, response, error in
+            do {
+                let items = try JSONSerialization.jsonObject(with: data!) as! NSDictionary
+                
+                var result: [[String: Any]] = []
+                
+                for(key, data) in items {
+                    if (key as! String == "results"){
+                        let resultArray = data as! NSArray
+                        for (eachMusic) in resultArray{
+                            let dicMusic:NSDictionary = eachMusic as! NSDictionary
+                            
+                            print(dicMusic["trackName"]!)
+                            print(dicMusic["artworkUrl100"]!)
+                            
+                            let data: [String: Any] = ["name": dicMusic["trackName"]!, "imageUrl": dicMusic["artworkUrl100"]!]
+                            
+                            result.append(data)
+                        }
+                    }
+                }
+                
+                DispatchQueue.main.async() { () -> Void in
+                    self.collectionData = result
+                }
+
+            } catch {
+                print(error)
+            }
+        })
+        task.resume()
+        ```
+5. CollectionViewの設定を追記する
+    1. ViewControllerに```UICollectionViewDataSource```と```UICollectionViewDelegate```を追記する
+
+        追記前
+        ```
+        class ViewController: UIViewController {
+        ```
+
+        追記後
+        ```
+        class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+        ```
+
+    2. CollectionViewのセルに自作したセルを設定する  
+    ```viewDidLoad```メソッドに以下の処理を追記する
+
+        ```
+        collectionView.register(UINib(nibName: "CustomCell", bundle: nil), forCellWithReuseIdentifier: "cell")
+        ```
+
+        追記後の```viewDidLoad```
+
+        ```
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            
+            let url: URL = URL(string: "http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/wa/wsSearch?term=marron5&limit=20")!
+            let task: URLSessionTask = URLSession.shared.dataTask(with: url, completionHandler: {data, response, error in
+                do {
+                    let items = try JSONSerialization.jsonObject(with: data!) as! NSDictionary
+                    
+                    var result: [[String: Any]] = []
+                    
+                    for(key, data) in items {
+                        if (key as! String == "results"){
+                            let resultArray = data as! NSArray
+                            for (eachMusic) in resultArray{
+                                let dicMusic:NSDictionary = eachMusic as! NSDictionary
+                                
+                                print(dicMusic["trackName"]!)
+                                print(dicMusic["artworkUrl100"]!)
+                                
+                                let data: [String: Any] = ["name": dicMusic["trackName"]!, "imageUrl": dicMusic["artworkUrl100"]!]
+                                
+                                result.append(data)
+                            }
+                        }
+                    }
+                    
+                    DispatchQueue.main.async() { () -> Void in
+                        self.collectionData = result
+                    }
+                    
+                } catch {
+                    print(error)
+                }
+            })
+            task.resume()
+            
+            collectionView.register(UINib(nibName: "CustomCell", bundle: nil), forCellWithReuseIdentifier: "cell")
+        }
+        ```
+
+    2. 設定に必要な関数を追加する。 以下の２つの関数をviewDidLoadの下に追加する
+
+        ```
+        func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) ->    Int {
+            <#code#>
+        }
+
+        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+            <#code#>
+        }
+        ```
+
+    3. UICollectionViewの要素数と、UICollectionViewに表示する内用を定義する
+        1. ```func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int)```を以下のように修正する
+                ```
+                func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+                    return collectionData.count
+                }
+                ```
+
+        2. ```func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath)```を以下のように修正する
+                ```
+                func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+                    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCell
+        
+                    var data = collectionData[indexPath.row]
+                    
+                    let url = URL(string: data["imageUrl"] as! String)
+
+                    let imageData :Data = (try! Data(contentsOf: url!,options: NSData.ReadingOptions.mappedIfSafe))
+                    let img = UIImage(data:imageData)
+                    
+                    cell.imageView.image = img
+                    cell.label.text = (data["name"] as! String)
+                    
+                    return cell
+                }
+                ```
+    
+    4. 画面のCollectionViewに設定を反映する。
