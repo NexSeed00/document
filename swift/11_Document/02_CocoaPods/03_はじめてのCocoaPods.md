@@ -98,4 +98,4 @@ CocoaPodsを使って、ライブラリをインストールした場合は、�
 		|---|---|
 		|UIButton|didClickButton|
 
-		![Swiftロゴ](./img/connect_SCLAlertViewProject.png)
+		![Swiftロゴ](../img/connect_SCLAlertViewProject.png)
