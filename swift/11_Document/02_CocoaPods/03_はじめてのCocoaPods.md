@@ -27,9 +27,23 @@
 	2. ターミナル（またはiTerm）を開く
 
 	3. ターミナル上で、SCLAlertViewProjectのプロジェクトがあるフォルダまで移動する  
-	テーミナルに```cd```と入力し、半角スペースを開けて、FinderでSCLAlertViewProjectを選択し、ターミナルまでドラッグ＆ドロップする。
+	ターミナルに```cd```と入力し、半角スペースを開けて、FinderでSCLAlertViewProjectを選択し、ターミナルまでドラッグ＆ドロップする。
 	その後Enterキーを押下する
 		![Swiftロゴ](../img/cd_SCLAlertViewProject.gif)
 
 		> Enterキー押下後、以下のように「SCLAlertViewProject」と表示されていれば成功です
 		![Swiftロゴ](../img/cd_SCLAlertViewProject_.png)
+
+	4. ターミナルで以下のコマンドを入力し、実行する。  
+	```
+	pod init
+	```
+		![Swiftロゴ](../img/pod_init.gif)
+	
+	5. SCLAlertViewProjectフォルダ内作成された、「Podfile」を開く。
+		![Swiftロゴ](../img/open_podfile.png)
+
+	6. インストールするライブラリ「SCLAlertView-Swift」のREADME.mdを確認し、CocoaPodsのインストール方法を探す。  
+		[SCLAlertView-Swift](https://github.com/vikmeup/SCLAlertView-Swift#installation)	
+
+	
