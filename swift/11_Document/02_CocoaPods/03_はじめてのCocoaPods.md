@@ -29,7 +29,7 @@
 	3. ターミナル上で、SCLAlertViewProjectのプロジェクトがあるフォルダまで移動する  
 	テーミナルに```cd```と入力し、半角スペースを開けて、FinderでSCLAlertViewProjectを選択し、ターミナルまでドラッグ＆ドロップする。
 	その後Enterキーを押下する
-		![Swiftロゴ](./img/cd_SCLAlertViewProject.gif)
+		![Swiftロゴ](../img/cd_SCLAlertViewProject.gif)
 
 		> Enterキー押下後、以下のように「SCLAlertViewProject」と表示されていれば成功です
-		![Swiftロゴ](./img/cd_SCLAlertViewProject.png)
+		![Swiftロゴ](../img/cd_SCLAlertViewProject.png)
