@@ -76,4 +76,4 @@
 			pod install
 			```
 
-			![Swiftロゴ](../img/pod_install.gif)
+		![Swiftロゴ](../img/pod_install.gif)
