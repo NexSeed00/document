@@ -48,5 +48,32 @@
 	6. インストールするライブラリ「SCLAlertView-Swift」のREADME.mdを確認し、CocoaPodsのインストール方法を探す。  
 		[SCLAlertView-Installation](https://github.com/vikmeup/SCLAlertView-Swift#installation)	
 
-		> To install add the following line to your Podfile:
+		> To install add the following line to your Podfile:  
 		> ```pod 'SCLAlertView'```
+
+		上記のようにインストール方法が書かれているので、先ほど作成したPodfileに```pod 'SCLAlertView'```を追記する
+
+		追記後のPodfile
+		
+		```
+		# Uncomment the next line to define a global platform for your project
+		# platform :ios, '9.0'
+
+		target 'SCLAlertViewProject' do
+			# Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+			use_frameworks!
+
+			# Pods for SCLAlertViewProject
+			# 以下追記
+			pod 'SCLAlertView'
+
+		end
+
+		```
+
+	7. 以下のコマンドをターミナルで実行して、インストールする。
+			```
+			pod install
+			```
+
+			![Swiftロゴ](../img/pod_install.gif)
