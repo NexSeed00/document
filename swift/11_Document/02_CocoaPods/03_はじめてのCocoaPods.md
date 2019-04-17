@@ -77,3 +77,25 @@
 			```
 
 		![Swiftロゴ](../img/pod_install.gif)
+
+	8. ここまででSCLAlertViewライブラリのインストールが完了しました。
+
+3. ライブラリインストール後、Xcodeプロジェクトを立ち上げる。  
+SCLAlertViewProjectフォルダ内に、「SCLAlertViewProject.xcodeproj」と「SCLAlertViewProject.xcworkspace」の２つがあると思います。  
+CocoaPodsを使って、ライブラリをインストールした場合は、必ず「〇〇.**xcworkspace**」の方を開くようにしてください。
+
+	![Swiftロゴ](../img/open_xcworkspace.gif)
+
+4. 画面の部品を配置する
+
+	1. 以下のような画面になるよう部品を配置する
+
+		<img src="../img/place_SCLAlertViewProject.png" width="300px">
+
+	2. 配置した部品をViewController.swiftに接続する。
+
+		|部品|接続時のName|
+		|---|---|
+		|UIButton|didClickButton|
+
+		![Swiftロゴ](./img/connect_SCLAlertViewProject.png)
