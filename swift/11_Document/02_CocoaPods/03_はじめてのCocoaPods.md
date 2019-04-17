@@ -32,4 +32,4 @@
 		![Swiftロゴ](../img/cd_SCLAlertViewProject.gif)
 
 		> Enterキー押下後、以下のように「SCLAlertViewProject」と表示されていれば成功です
-		![Swiftロゴ](../img/cd_SCLAlertViewProject.png)
+		![Swiftロゴ](../img/cd_SCLAlertViewProject_.png)
