@@ -1,7 +1,7 @@
 # CocoaPodsを使ってみよう
 
 ## 今回作成するアプリ
-<!--<img src="../img/SCLAlertViewProject.gif" width="300px">-->
+<img src="../img/SCLAlertViewProject01.gif" width="300px">
 
 ## 使用するライブラリ
 [SCLAlertView-Swift](https://github.com/vikmeup/SCLAlertView-Swift)	
@@ -99,3 +99,38 @@ CocoaPodsを使って、ライブラリをインストールした場合は、�
 		|UIButton|didClickButton|
 
 		![Swiftロゴ](../img/connect_SCLAlertViewProject.png)
+
+5. ボタンが押された時、インストールしたライブラリを実行する
+
+	1. インストールしたライブラリの使い方を確認する。
+
+		![SCLAlertView - Get Started](https://github.com/vikmeup/SCLAlertView-Swift#get-started)
+
+	
+	2. ```didClickButton```メソッドに以下の処理を追記する
+
+		```
+		SCLAlertView().showInfo("Important info", subTitle: "You are great")
+		```
+
+		追記後の```didClickButton```メソッド
+
+		```
+		@IBAction func didClickButton(_ sender: UIButton) {
+        SCLAlertView().showInfo("Important info", subTitle: "You are great")
+    }
+		```
+
+	3. ```import SCLAlertView```をViewControllerに追記する
+
+		追記後のViewController
+
+		```
+		import UIKit
+		import SCLAlertView
+
+		class ViewController: UIViewController {
+		```
+
+## 実行してみる
+<img src="../img/SCLAlertViewProject01.gif" width="300px">
