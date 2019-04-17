@@ -35,15 +35,18 @@
 		![Swiftロゴ](../img/cd_SCLAlertViewProject_.png)
 
 	4. ターミナルで以下のコマンドを入力し、実行する。  
-	```
-	pod init
-	```
+		```
+		pod init
+		```
+
 		![Swiftロゴ](../img/pod_init.gif)
 	
 	5. SCLAlertViewProjectフォルダ内作成された、「Podfile」を開く。
+
 		![Swiftロゴ](../img/open_podfile.png)
 
 	6. インストールするライブラリ「SCLAlertView-Swift」のREADME.mdを確認し、CocoaPodsのインストール方法を探す。  
-		[SCLAlertView-Swift](https://github.com/vikmeup/SCLAlertView-Swift#installation)	
+		[SCLAlertView-Installation](https://github.com/vikmeup/SCLAlertView-Swift#installation)	
 
-	
+		> To install add the following line to your Podfile:
+		> ```pod 'SCLAlertView'```
