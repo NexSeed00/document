@@ -1,7 +1,7 @@
 # CocoaPodsを使ってみよう
 
 ## 今回作成するアプリ
-<img src="../img/SCLAlertViewProject01.gif" width="300px">
+<img src="../img/SCLAlertViewProject01.gif" width="300px">s
 
 ## 使用するライブラリ
 [SCLAlertView-Swift](https://github.com/vikmeup/SCLAlertView-Swift)	
