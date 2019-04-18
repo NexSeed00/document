@@ -67,5 +67,5 @@
 
 5. 〇〇.xcworkspaceを開く
 
-	> SampleProjectフォルダ内に、「SampleProject.xcodeproj」と「SampleProject.xcworkspace」の２つがあると思います。
+	> SampleProjectフォルダ内に、「SampleProject.xcodeproj」と「SampleProject.xcworkspace」の２つがあると思います。  
   	> CocoaPodsを使って、ライブラリをインストールした場合は、必ず**白いアイコン**の「〇〇.xcworkspace」の方を開くようにしてください。
