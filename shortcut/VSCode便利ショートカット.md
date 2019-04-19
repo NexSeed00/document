@@ -10,7 +10,7 @@
     |Mac|Ctrl + Shift + N|
 
     <details><summary>実行例</summary><div>
-      ![ショートカット](./img/newWindow.gif)
+      <img src="./img/newWindow.gif">
 	  </div></details> 
 
 2. ウィンドウを閉じる
