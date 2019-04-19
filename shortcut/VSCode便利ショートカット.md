@@ -18,7 +18,7 @@
 - [行コピー](#copy_row)
 - [切り取り　（選択範囲）](#cut)
 - [切り取り　（行）](#cut_row)
-- [次の同じ値を選択に追加](#copy_paste_row)
+- [次の同じ値を選択に追加](#multiSelect)
 - [選択値と同じ値を全て選択](#allSelect)
 
 ## ウィンドウ・エディタ操作系
@@ -185,7 +185,7 @@
       <img src="./img/cut_row.gif">
 	  </div></details>
 
-## <a id="copy_paste_row"></a>
+## <a id="multiSelect"></a>
 6. 次の同じ値を選択に追加
 
     |PC|キー|
@@ -194,7 +194,7 @@
     |Mac|Ctrl + D|
 
     <details><summary>実行例</summary><div>
-      <img src="./img/copy_paste_row.gif">
+      <img src="./img/multiSelect.gif">
 	  </div></details>
 
 ## <a id="allSelect"></a>
