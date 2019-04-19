@@ -9,7 +9,9 @@
     |Windows|Ctrl + Shift + N|
     |Mac|Ctrl + Shift + N|
 
-    ![ショートカット](./img/newWindow.gif)
+    <details><summary>実行例</summary><div>
+      ![ショートカット](./img/newWindow.gif)
+	  </div></details> 
 
 2. ウィンドウを閉じる
 
