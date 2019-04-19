@@ -165,7 +165,7 @@
       <img src="./img/copy_paste_row.gif">
 	  </div></details>
 	  
-## <a　id="Links">リンク</a>
+## <a id="Links">リンク</a>
 
 5. 選択値と同じ値を全て選択
 
