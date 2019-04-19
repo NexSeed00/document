@@ -99,7 +99,7 @@
       <img src="./img/copy_paste.gif">
 	  </div></details>
 
-1. コピー＆貼り付け　（行）
+2. コピー＆貼り付け　（行）
 
     コピー
     
@@ -119,7 +119,40 @@
       <img src="./img/copy_paste.gif">
 	  </div></details>
 
-1. 次の同じ値を選択に追加
+3. 行コピー
+
+    |PC|キー|
+    |---|---|
+    |Windows|Ctrl + Alt + ↓|
+    |Mac|Ctrl + option + ↓|
+
+    <details><summary>実行例</summary><div>
+      <img src="./img/copy_row.gif">
+	  </div></details>
+
+3. 切り取り　（選択範囲）
+
+    |PC|キー|
+    |---|---|
+    |Windows|Ctrl + X|
+    |Mac|Ctrl + X|
+
+    <details><summary>実行例</summary><div>
+      <img src="./img/cut.gif">
+	  </div></details>
+
+3. 切り取り　（行）
+
+    |PC|キー|
+    |---|---|
+    |Windows|Ctrl + X|
+    |Mac|Ctrl + X|
+
+    <details><summary>実行例</summary><div>
+      <img src="./img/cut_row.gif">
+	  </div></details>
+
+4. 次の同じ値を選択に追加
 
     |PC|キー|
     |---|---|
@@ -130,7 +163,7 @@
       <img src="./img/copy_paste_row.gif">
 	  </div></details>
 
-2. 選択値と同じ値を全て選択
+5. 選択値と同じ値を全て選択
 
     |PC|キー|
     |---|---|
