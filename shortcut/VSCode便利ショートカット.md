@@ -5,12 +5,21 @@
 - [新しいウィンドウを開く](#newWindow)
 - [ウィンドウを閉じる](#closeWindow)
 - [エディタを閉じる](#closeEditor)
+- [エディタを分割する](#divideEditor)
 
 ### ファイル操作系
+- [新しいファイルを作成](#newFile)
+- [保存](#save)
+- [ファイル名からファイルを開く](#quickOpen)
 
 ### 編集系
-
-
+- [コピー＆貼り付け　（選択範囲）](#copy_paste)
+- [コピー＆貼り付け　（行）](#copy_paste_row)
+- [行コピー](#copy_row)
+- [切り取り　（選択範囲）](#cut)
+- [切り取り　（行）](#cut_row)
+- [次の同じ値を選択に追加](#copy_paste_row)
+- [選択値と同じ値を全て選択](#allSelect)
 
 ## ウィンドウ・エディタ操作系
 
@@ -50,6 +59,7 @@
       <img src="./img/closeEditor.gif">
 	  </div></details>
 
+## <a id="divideEditor"></a>
 4. エディタを分割する
 
     |PC|キー|
@@ -63,6 +73,7 @@
 
 ## ファイル操作系
 
+## <a id="newFile"></a>
 1. 新しいファイルを作成
 
     |PC|キー|
@@ -74,6 +85,7 @@
       <img src="./img/newFile.gif">
 	  </div></details>
 
+## <a id="save"></a>
 2. 保存
 
     |PC|キー|
@@ -81,6 +93,7 @@
     |Windows|Ctrl + S|
     |Mac|Ctrl + S|
 
+## <a id="quickOpen"></a>
 3. ファイル名からファイルを開く
 
     |PC|キー|
@@ -94,6 +107,7 @@
 
 # 編集系
 
+## <a id="copy_paste"></a>
 1. コピー＆貼り付け　（選択範囲）
 
     コピー
@@ -114,6 +128,7 @@
       <img src="./img/copy_paste.gif">
 	  </div></details>
 
+## <a id="copy_paste_row"></a>
 2. コピー＆貼り付け　（行）
 
     コピー
@@ -131,9 +146,10 @@
     |Mac|Ctrl + V|
 
     <details><summary>実行例</summary><div>
-      <img src="./img/copy_paste.gif">
+      <img src="./img/copy_paste_row.gif">
 	  </div></details>
 
+## <a id="copy_row"></a>
 3. 行コピー
 
     |PC|キー|
@@ -145,7 +161,8 @@
       <img src="./img/copy_row.gif">
 	  </div></details>
 
-3. 切り取り　（選択範囲）
+## <a id="cut"></a>
+4. 切り取り　（選択範囲）
 
     |PC|キー|
     |---|---|
@@ -156,7 +173,8 @@
       <img src="./img/cut.gif">
 	  </div></details>
 
-3. 切り取り　（行）
+## <a id="cut_row"></a>
+5. 切り取り　（行）
 
     |PC|キー|
     |---|---|
@@ -167,7 +185,8 @@
       <img src="./img/cut_row.gif">
 	  </div></details>
 
-4. 次の同じ値を選択に追加
+## <a id="copy_paste_row"></a>
+6. 次の同じ値を選択に追加
 
     |PC|キー|
     |---|---|
@@ -178,7 +197,8 @@
       <img src="./img/copy_paste_row.gif">
 	  </div></details>
 
-5. 選択値と同じ値を全て選択
+## <a id="allSelect"></a>
+7. 選択値と同じ値を全て選択
 
     |PC|キー|
     |---|---|
