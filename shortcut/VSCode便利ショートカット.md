@@ -1,6 +1,8 @@
 # Visual Studio Codeの便利なショートカット一覧
-
+[リンクに戻る](#Links)
 ## ウィンドウ・エディタ操作系
+
+[README](3. 行コピー)
 
 1. 新しいウィンドウを開く
 
@@ -162,7 +164,7 @@
     <details><summary>実行例</summary><div>
       <img src="./img/copy_paste_row.gif">
 	  </div></details>
-
+## <a　id="Links">リンク</a>
 5. 選択値と同じ値を全て選択
 
     |PC|キー|
@@ -173,3 +175,5 @@
     <details><summary>実行例</summary><div>
       <img src="./img/allSelect.gif">
 	  </div></details>
+	  
+	  
