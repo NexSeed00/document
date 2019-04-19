@@ -9,4 +9,4 @@
     |Windows|Ctrl + Shift + N|
     |Mac|Ctrl + Shift + N|
 
-    <img src="./img/newWindow.gif" width="400px">
+    ![ショートカット](./img/newWindow.gif)
