@@ -1,5 +1,5 @@
 # Visual Studio Codeの便利なショートカット一覧
-[リンクに戻る](##Links)
+[リンクに戻る](#Links)
 ## ウィンドウ・エディタ操作系
 
 [README](3. 行コピー)
@@ -165,7 +165,7 @@
       <img src="./img/copy_paste_row.gif">
 	  </div></details>
 	  
-### <a id="Links"></a>
+## <a id="Links"></a>
 
 5. 選択値と同じ値を全て選択
 
