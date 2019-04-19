@@ -4,9 +4,9 @@
 
 1. 新しいウィンドウを開く
 
-  |PC|キー|
-  |---|---|
-  |Windows|Ctrl + Shift + N|
-  |Mac|Ctrl + Shift + N|
+    |PC|キー|
+    |---|---|
+    |Windows|Ctrl + Shift + N|
+    |Mac|Ctrl + Shift + N|
 
-  ![ショートカット](./img/newWindow.gif)
+    ![ショートカット](./img/newWindow.gif)
