@@ -2,9 +2,9 @@
 
 ## 目次
 ### ウィンドウ・エディタ操作系
-[新しいウィンドウを開く](#newWindow)
-[ウィンドウを閉じる](#closeWindow)
-[エディタを閉じる](#closeEditor)
+- [新しいウィンドウを開く](#newWindow)
+- [ウィンドウを閉じる](#closeWindow)
+- [エディタを閉じる](#closeEditor)
 
 ### ファイル操作系
 
