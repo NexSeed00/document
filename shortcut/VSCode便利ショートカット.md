@@ -56,8 +56,6 @@
     |Windows|Ctrl + S|
     |Mac|Ctrl + S|
 
-    ![ショートカット](./img/newFile.gif)
-
 3. ファイル名からファイルを開く
 
     |PC|キー|
@@ -65,4 +63,4 @@
     |Windows|Ctrl + P|
     |Mac|Ctrl + P|
 
-    ![ショートカット](./img/newFile.gif)
+    ![ショートカット](./img/quickOpen.gif)
