@@ -20,7 +20,9 @@
     |Windows|Ctrl + Shift + W|
     |Mac|Ctrl + Shift + W|
 
-    ![ショートカット](./img/closeWindow.gif)
+    <details><summary>実行例</summary><div>
+      <img src="./img/closeWindow.gif">
+	  </div></details> 
 
 3. エディタを閉じる
 
@@ -29,7 +31,9 @@
     |Windows|Ctrl + W|
     |Mac|Ctrl + W|
 
-    ![ショートカット](./img/closeEditor.gif)
+    <details><summary>実行例</summary><div>
+      <img src="./img/closeEditor.gif">
+	  </div></details>
 
 4. エディタを分割する
 
@@ -38,7 +42,9 @@
     |Windows|Ctrl + \|
     |Mac|Ctrl + \|
 
-    ![ショートカット](./img/divideEditor.gif)
+    <details><summary>実行例</summary><div>
+      <img src="./img/divideEditor.gif">
+	  </div></details>
 
 ## ファイル操作系
 
@@ -49,7 +55,9 @@
     |Windows|Ctrl + \|
     |Mac|Ctrl + \|
 
-    ![ショートカット](./img/newFile.gif)
+    <details><summary>実行例</summary><div>
+      <img src="./img/newFile.gif">
+	  </div></details>
 
 2. 保存
 
@@ -65,4 +73,6 @@
     |Windows|Ctrl + P|
     |Mac|Ctrl + P|
 
-    ![ショートカット](./img/quickOpen.gif)
+    <details><summary>実行例</summary><div>
+      <img src="./img/quickOpen.gif">
+	  </div></details>
