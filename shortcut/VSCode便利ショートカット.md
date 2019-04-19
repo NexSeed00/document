@@ -1,8 +1,20 @@
 # Visual Studio Codeの便利なショートカット一覧
 
-[リンクに戻る](#Links)
+## 目次
+### ウィンドウ・エディタ操作系
+[新しいウィンドウを開く](#newWindow)
+[ウィンドウを閉じる](#closeWindow)
+[エディタを閉じる](#closeEditor)
+
+### ファイル操作系
+
+### 編集系
+
+
+
 ## ウィンドウ・エディタ操作系
 
+## <a id="newWindow"></a>
 1. 新しいウィンドウを開く
 
     |PC|キー|
@@ -14,6 +26,7 @@
       <img src="./img/newWindow.gif">
 	  </div></details> 
 
+## <a id="closeWindow"></a>
 2. ウィンドウを閉じる
 
     |PC|キー|
@@ -25,6 +38,7 @@
       <img src="./img/closeWindow.gif">
 	  </div></details> 
 
+## <a id="closeEditor"></a>
 3. エディタを閉じる
 
     |PC|キー|
@@ -163,8 +177,6 @@
     <details><summary>実行例</summary><div>
       <img src="./img/copy_paste_row.gif">
 	  </div></details>
-	  
-## <a id="Links"></a>
 
 5. 選択値と同じ値を全て選択
 
