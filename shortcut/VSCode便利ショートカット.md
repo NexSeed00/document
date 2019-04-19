@@ -82,12 +82,14 @@
 1. コピー＆貼り付け　（選択範囲）
 
     コピー
+    
     |PC|キー|
     |---|---|
     |Windows|Ctrl + C|
     |Mac|Ctrl + C|
 
     貼り付け
+    
     |PC|キー|
     |---|---|
     |Windows|Ctrl + V|
@@ -100,12 +102,14 @@
 1. コピー＆貼り付け　（行）
 
     コピー
+    
     |PC|キー|
     |---|---|
     |Windows|Ctrl + C|
     |Mac|Ctrl + C|
 
     貼り付け
+    
     |PC|キー|
     |---|---|
     |Windows|Ctrl + V|
