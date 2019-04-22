@@ -13,7 +13,7 @@ for文の場合、以下のようになると思います。
 
 ```
 for (var i = 1; i <= 10; i++) {
-    console.log(i)
+    console.log(i);
 }
 ```
 
@@ -42,7 +42,7 @@ while (count <= 10) {
 
 ```
 while (true) {
-    console.log("こんにちは")
+    console.log("こんにちは");
 }
 ```
 

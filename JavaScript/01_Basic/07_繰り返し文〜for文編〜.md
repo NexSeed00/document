@@ -12,16 +12,16 @@
 for文を使わない場合、以下のようになると思います。
 
 ```
-console.log(1)
-console.log(2)
-console.log(3)
-console.log(4)
-console.log(5)
-console.log(6)
-console.log(7)
-console.log(8)
-console.log(9)
-console.log(10)
+console.log(1);
+console.log(2);
+console.log(3);
+console.log(4);
+console.log(5);
+console.log(6);
+console.log(7);
+console.log(8);
+console.log(9);
+console.log(10);
 ```
 
 これはこれで間違いではないのですが、これが1から100や1000になったらどうでしょう。  
@@ -97,7 +97,7 @@ for (var i = 1; i <= 30; i++) {
 	
 	```
 	for (var i = 1; i <= 100; i++) {
-		console.log(i)
+		console.log(i);
 	}
 	```
 	
@@ -112,9 +112,9 @@ for (var i = 1; i <= 30; i++) {
 	```
 	for (var i = 1; i <= 100; i++) {
 		if (i > 50) {
-	        break
+	        break;
 	    }
-	    console.log(i)
+	    console.log(i);
 	}
 	```
 	
@@ -126,9 +126,9 @@ for (var i = 1; i <= 30; i++) {
 	```
 	for (var i = 1; i <= 100; i++) {
 	    if (i % 2 == 0) {
-	        continue
+	        continue;
 	    }
-	    console.log(i)
+	    console.log(i);
 	}
 	
 	```

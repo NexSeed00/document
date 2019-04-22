@@ -57,19 +57,19 @@ defaultの後の処理は、式がcaseの後に記述されたいずれの値に
 var value = "A"
 switch (value) {
     case "A":
-        console.log("Aです")
+        console.log("Aです");
         break;
     case "B":
-        console.log("Bです")
+        console.log("Bです");
         break;
     case "C":
-        console.log("Cです")
+        console.log("Cです");
         break;
     case "D":
-        console.log("Dです")
+        console.log("Dです");
         break;
     default:
-        console.log("上記以外です")
+        console.log("上記以外です");
         break;
 }
 ```
@@ -97,22 +97,22 @@ switch (value) {
 ```
 switch (num) {
     case 1:
-        console.log("1です")
+        console.log("1です");
         break;
     case 2:
-        console.log("2です")
+        console.log("2です");
         break;
     case 3:
-        console.log("3です")
+        console.log("3です");
         break;
     case 4:
-        console.log("4です")
+        console.log("4です");
         break;
     case 5:
-        console.log("5です")
+        console.log("5です");
         break;
     default:
-        console.log("1,2,3,4,5以外です")
+        console.log("1,2,3,4,5以外です");
         break;
 }
 ```
