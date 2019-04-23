@@ -132,7 +132,7 @@
 				UIApplication.shared.registerUserNotificationSettings(settings)
 			}
 			return true
-    		}
+    	}
 		```
 
 		> 上記の処理を追加することによって、アプリ初回起動時に通知を許可するかの確認アラートが表示されます。  
@@ -168,7 +168,7 @@
         		content.title = textFieldForTitle.text!
         		content.body = textFieldForContent.text!
         		content.sound = .default
-    		}
+    	}
 		```
 
 	3. 通知の時間のタイマーを作成する。  
@@ -194,7 +194,7 @@
 			let calendar = Calendar.current
 			notificationTime.hour = calendar.component(.hour, from: datePicker.date)
 			notificationTime.minute = calendar.component(.minute, from: datePicker.date)
-    		}
+    	}
 		```
 
 	4. 3で作成したタイマーをトリガーに設定する。  
@@ -219,7 +219,7 @@
 			notificationTime.minute = calendar.component(.minute, from: datePicker.date)
 			
 			let trigger = UNCalendarNotificationTrigger(dateMatching: notificationTime, repeats: false)
-    		}
+    	}
 		```
 
 	5. 2で作成した通知内容と、4で作成したトリガーを使い、通知を作成する。  
@@ -275,7 +275,7 @@
 			let request = UNNotificationRequest(identifier: "uuid", content: content, trigger: trigger)
 			
 			UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-    		}
+    	}
 		```
 
 6. TextFieldのReturn Key処理
