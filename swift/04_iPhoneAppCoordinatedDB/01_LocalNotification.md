@@ -15,6 +15,7 @@
 2. 配置した画面の部品をプログラムで扱えるよう設定する
 3. ユーザーに通知を許可するか確認するアラートを登録する
 4. ボタンが押されたときのローカル通知の登録処理書く
+5. キーボードを閉じる処理を書く
 
 ## 部品の説明
 
@@ -277,5 +278,80 @@
 			UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     	}
 		```
+## 実行してみる
+<img src="./img/nofi_input_bug.gif" width="300px">
 
-6. TextFieldのReturn Key処理
+ここまでで実行すると、上記のようにキーボードが開きっぱなしになり、「登録ボタン」が押せません。  
+このあと、キーボードを閉じる処理を追記していきます。
+
+6. キーボードを閉じる処理を書く
+	1. 通知のタイトル用、通知の内容用の2つのTextFieldの「Return Key」のスタイルに「Done」を選択する
+
+		![Swiftロゴ](./img/set_done.png)
+
+	2. ViewControllerに```UITextFieldDelegate```を追記する
+
+		追記後のViewController
+
+		```
+		import UIKit
+		import UserNotifications
+
+		class ViewController: UIViewController, UITextFieldDelegate {
+		```
+
+	3. ```viewDidLoad```メソッドに以下の処理を追記する
+
+		```
+		textFieldForTitle.delegate = self
+    textFieldForContent.delegate = self
+		```
+
+		追記後の```viewDidLoad```メソッド
+
+		```
+		override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        textFieldForTitle.delegate = self
+        textFieldForContent.delegate = self
+    }
+		```
+
+	4. キーボードで完了が押された時の処理を書く
+
+		1. ```textFieldShouldReturn(_ textField: UITextField) -> Bool```メソッドをViewControllerに追加する
+
+			![Swiftロゴ](./img/add_text_should_return.gif)
+
+			> ```textFieldShouldReturn```メソッドはキーボードで「Return」や「改行」、「完了」が押された時に実行される関数です。
+
+		2. ```textFieldShouldReturn```メソッドに以下の処理を追記する
+
+			```
+			textFieldForTitle.resignFirstResponder()
+      textFieldForContent.resignFirstResponder()
+        
+      return true
+			```
+
+			追記後の```textFieldShouldReturn```メソッド
+
+			```
+			func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textFieldForTitle.resignFirstResponder()
+        textFieldForContent.resignFirstResponder()
+        
+        return true
+    	}
+			```
+
+			> resignFirstResponder()を使うと、キーボードに当たっているフォーカスを外すことができます。  
+			> 結果、キーボードが閉じられます。
+
+## 実行してみる
+通知の登録
+<img src="./img/LocalNotification01.gif" width="300px">
+
+通知の画面
+<img src="./img/LocalNotification02.gif" width="300px">
