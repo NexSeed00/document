@@ -312,10 +312,10 @@
 
 		```
 		override func viewDidLoad() {
-       	super.viewDidLoad()
+       		super.viewDidLoad()
         
-       	textFieldForTitle.delegate = self
-       	textFieldForContent.delegate = self
+       		textFieldForTitle.delegate = self
+       		textFieldForContent.delegate = self
     	}
 		```
 
