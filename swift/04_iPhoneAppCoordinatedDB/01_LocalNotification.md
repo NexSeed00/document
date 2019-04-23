@@ -4,7 +4,9 @@
 - ローカル通知が使えるようになる
 
 ## 作成するアプリ  
-<img src="./img/TextFieldViewAndButton.gif" width="300px">
+|通知登録|通知|
+|---|---|
+|<img src="./img/LocalNotification01.gif" width="300px">|	<img src="./img/LocalNotification02.gif" width="300px">|
 
 ## 開発の流れ
 
@@ -351,8 +353,8 @@
 			> 結果、キーボードが閉じられます。
 
 ## 実行してみる
-通知の登録  
-	<img src="./img/LocalNotification01.gif" width="300px">
 
-通知の画面  
-	<img src="./img/LocalNotification02.gif" width="300px">
+|通知登録|通知|
+|---|---|
+|<img src="./img/LocalNotification01.gif" width="300px">|	<img src="./img/LocalNotification02.gif" width="300px">|
+
