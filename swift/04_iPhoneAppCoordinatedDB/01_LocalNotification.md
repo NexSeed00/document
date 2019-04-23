@@ -77,28 +77,28 @@
 
 		```
 		if #available(iOS 10.0, *) {
-				// iOS 10
-				let center = UNUserNotificationCenter.current()
-				center.requestAuthorization(options: [.badge, .sound, .alert], completionHandler: { (granted, error) in
-						if error != nil {
-								return
-						}
+			// iOS 10
+			let center = UNUserNotificationCenter.current()
+			center.requestAuthorization(options: [.badge, .sound, .alert], completionHandler: { (granted, error) in
+				if error != nil {
+					return
+				}
 						
-						if granted {
-								print("通知許可")
+				if granted {
+					print("通知許可")
 								
-								let center = UNUserNotificationCenter.current()
-								center.delegate = self
+					let center = UNUserNotificationCenter.current()
+					center.delegate = self
 								
-						} else {
-								print("通知拒否")
-						}
-				})
+				} else {
+					print("通知拒否")
+				}
+			})
 				
 		} else {
-				// iOS 9以下
-				let settings = UIUserNotificationSettings(types: [.badge, .sound, .alert], categories: nil)
-				UIApplication.shared.registerUserNotificationSettings(settings)
+			// iOS 9以下
+			let settings = UIUserNotificationSettings(types: [.badge, .sound, .alert], categories: nil)
+			UIApplication.shared.registerUserNotificationSettings(settings)
 		}
 		```
 
@@ -108,31 +108,31 @@
 		func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 			// Override point for customization after application launch.
 			if #available(iOS 10.0, *) {
-					// iOS 10
-					let center = UNUserNotificationCenter.current()
-					center.requestAuthorization(options: [.badge, .sound, .alert], completionHandler: { (granted, error) in
-							if error != nil {
-									return
-							}
+				// iOS 10
+				let center = UNUserNotificationCenter.current()
+				center.requestAuthorization(options: [.badge, .sound, .alert], completionHandler: { (granted, error) in
+					if error != nil {
+						return
+					}
 							
-							if granted {
-									print("通知許可")
+					if granted {
+						print("通知許可")
 									
-									let center = UNUserNotificationCenter.current()
-									center.delegate = self
+						let center = UNUserNotificationCenter.current()
+						center.delegate = self
 									
-							} else {
-									print("通知拒否")
-							}
-					})
+					} else {
+						print("通知拒否")
+					}
+				})
 					
 			} else {
-					// iOS 9以下
-					let settings = UIUserNotificationSettings(types: [.badge, .sound, .alert], categories: nil)
-					UIApplication.shared.registerUserNotificationSettings(settings)
+				// iOS 9以下
+				let settings = UIUserNotificationSettings(types: [.badge, .sound, .alert], categories: nil)
+				UIApplication.shared.registerUserNotificationSettings(settings)
 			}
 			return true
-    }
+    		}
 		```
 
 		> 上記の処理を追加することによって、アプリ初回起動時に通知を許可するかの確認アラートが表示されます。  
@@ -164,11 +164,11 @@
 
 		```
 		@IBAction func didClickButton(_ sender: UIButton) {
-        let content = UNMutableNotificationContent()
-        content.title = textFieldForTitle.text!
-        content.body = textFieldForContent.text!
-        content.sound = .default
-    }
+        		let content = UNMutableNotificationContent()
+        		content.title = textFieldForTitle.text!
+        		content.body = textFieldForContent.text!
+        		content.sound = .default
+    		}
 		```
 
 	3. 通知の時間のタイマーを作成する。  
@@ -194,7 +194,7 @@
 			let calendar = Calendar.current
 			notificationTime.hour = calendar.component(.hour, from: datePicker.date)
 			notificationTime.minute = calendar.component(.minute, from: datePicker.date)
-    }
+    		}
 		```
 
 	4. 3で作成したタイマーをトリガーに設定する。  
@@ -219,7 +219,7 @@
 			notificationTime.minute = calendar.component(.minute, from: datePicker.date)
 			
 			let trigger = UNCalendarNotificationTrigger(dateMatching: notificationTime, repeats: false)
-    }
+    		}
 		```
 
 	5. 2で作成した通知内容と、4で作成したトリガーを使い、通知を作成する。  
@@ -246,7 +246,7 @@
 			let trigger = UNCalendarNotificationTrigger(dateMatching: notificationTime, repeats: false)
 			
 			let request = UNNotificationRequest(identifier: "uuid", content: content, trigger: trigger)
-    }
+   		}
 		```
 
 	6. 5で作成した通知をセットする。  
@@ -275,7 +275,7 @@
 			let request = UNNotificationRequest(identifier: "uuid", content: content, trigger: trigger)
 			
 			UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-    }
+    		}
 		```
 
 6. TextFieldのReturn Key処理
