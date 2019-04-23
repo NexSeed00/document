@@ -330,20 +330,20 @@
 
 			```
 			textFieldForTitle.resignFirstResponder()
-      textFieldForContent.resignFirstResponder()
+      		textFieldForContent.resignFirstResponder()
         
-      return true
+      		return true
 			```
 
 			追記後の```textFieldShouldReturn```メソッド
 
 			```
 			func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textFieldForTitle.resignFirstResponder()
-        textFieldForContent.resignFirstResponder()
+        		textFieldForTitle.resignFirstResponder()
+        		textFieldForContent.resignFirstResponder()
         
-        return true
-    	}
+        		return true
+    		}
 			```
 
 			> resignFirstResponder()を使うと、キーボードに当たっているフォーカスを外すことができます。  
