@@ -311,11 +311,11 @@
 
 		```
 		override func viewDidLoad() {
-        super.viewDidLoad()
+       	super.viewDidLoad()
         
-        textFieldForTitle.delegate = self
-        textFieldForContent.delegate = self
-    }
+       	textFieldForTitle.delegate = self
+       	textFieldForContent.delegate = self
+    	}
 		```
 
 	4. キーボードで完了が押された時の処理を書く
