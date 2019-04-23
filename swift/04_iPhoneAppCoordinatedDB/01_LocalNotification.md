@@ -304,10 +304,11 @@
 
 		```
 		textFieldForTitle.delegate = self
-    textFieldForContent.delegate = self
+    	textFieldForContent.delegate = self
 		```
 
 		追記後の```viewDidLoad```メソッド
+		
 
 		```
 		override func viewDidLoad() {
