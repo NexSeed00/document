@@ -350,8 +350,8 @@
 			> 結果、キーボードが閉じられます。
 
 ## 実行してみる
-通知の登録  
-<img src="./img/LocalNotification01.gif" width="300px">
+	通知の登録  
+		<img src="./img/LocalNotification01.gif" width="300px">
 
-通知の画面  
-<img src="./img/LocalNotification02.gif" width="300px">
+	通知の画面  
+		<img src="./img/LocalNotification02.gif" width="300px">
