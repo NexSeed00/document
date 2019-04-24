@@ -73,61 +73,61 @@ UserDefaultを使うとデータを保存することができ、そのデータ
       }
       ```
 
-      3. 変数colorOptの値に応じて、ラベルの文字を設定する関数を作成する。
+    3. 変数colorOptの値に応じて、ラベルの文字を設定する関数を作成する。  
 
-        関数名：changeLabel
-        処理内容：以下の表の条件通り、ラベルの文字を設定する
+      関数名：changeLabel  
+      処理内容：以下の表の条件通り、ラベルの文字を設定する  
 
-        |条件|背景色|
-        |---|---|
-        |デフォルト|White|
-        |変数colorOptの値が1|LightGray|
-        |変数colorOptの値が2|DarkGray|
+      |条件|背景色|
+      |---|---|
+      |デフォルト|White|
+      |変数colorOptの値が1|LightGray|
+      |変数colorOptの値が2|DarkGray|
 
-        ```
-        func changeLabel() {
-          switch colorOpt {
-          case 1:
-              label.text = "LightGray"
-          case 2:
-              label.text = "DarkGray"
-          default:
-              label.text = "White"
-          }
+      ```
+      func changeLabel() {
+        switch colorOpt {
+        case 1:
+            label.text = "LightGray"
+        case 2:
+            label.text = "DarkGray"
+        default:
+            label.text = "White"
         }
-        ```
+      }
+      ```
 
-      4. ボタンが押された時、背景色とラベルの文字を変更する処理を追記する  
-      ```didClickButton```メソッドに以下の処理を追記する
+    4. ボタンが押された時、背景色とラベルの文字を変更する処理を追記する  
+    ```didClickButton```メソッドに以下の処理を追記する
 
-        ```
+      ```
+      if colorOpt == 2 {
+          colorOpt = 0
+      } else {
+          colorOpt += 1
+      }
+      
+      changeBgColor()
+      changeLabel()
+      ```
+
+      追記後の```didClickButton```メソッド
+
+      ```
+      @IBAction func didClickButton(_ sender: UIButton) {
         if colorOpt == 2 {
-            colorOpt = 0
+          colorOpt = 0
         } else {
             colorOpt += 1
         }
         
         changeBgColor()
         changeLabel()
+      }
         ```
 
-        追記後の```didClickButton```メソッド
-
-        ```
-        @IBAction func didClickButton(_ sender: UIButton) {
-          if colorOpt == 2 {
-            colorOpt = 0
-          } else {
-              colorOpt += 1
-          }
-          
-          changeBgColor()
-          changeLabel()
-        }
-        ```
-
-      5. 実行してみる
-      <img src="./img/UserDefaultProject01.gif" width="300px">
+    5. 実行してみる
+    <img src="./img/UserDefaultProject01.gif" width="300px">
 
 5. ```didClickButton```メソッドに変数colorOptの値をUserDefaultに保存する処理を追記する。  
     以下の処理を追記してください
