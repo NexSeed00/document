@@ -130,30 +130,30 @@ UserDefaultを使うとデータを保存することができ、そのデータ
     <img src="./img/UserDefaultProject01.gif" width="300px">
 
 5. ```didClickButton```メソッドに変数colorOptの値をUserDefaultに保存する処理を追記する。  
-    以下の処理を追記してください
+以下の処理を追記してください
 
-        ```
-        let userDefault = UserDefaults.standard
-        userDefault.set(colorOpt, forKey: "colorOpt")
-        ```
+  ```
+  let userDefault = UserDefaults.standard
+  userDefault.set(colorOpt, forKey: "colorOpt")
+  ```
+s
+  追記後の```didClickButton```メソッド
 
-        追記後の```didClickButton```メソッド
-
-        ```
-        @IBAction func didClickButton(_ sender: UIButton) {
-          if colorOpt == 2 {
-              colorOpt = 0
-          } else {
-              colorOpt += 1
-          }
-          
-          changeBgColor()
-          changeLabel()
-          
-          let userDefault = UserDefaults.standard
-          userDefault.set(colorOpt, forKey: "colorOpt")
-        }
-        ```
+  ```
+  @IBAction func didClickButton(_ sender: UIButton) {
+    if colorOpt == 2 {
+        colorOpt = 0
+    } else {
+        colorOpt += 1
+    }
+    
+    changeBgColor()
+    changeLabel()
+    
+    let userDefault = UserDefaults.standard
+    userDefault.set(colorOpt, forKey: "colorOpt")
+  }
+  ```
 
 6. UserDefaultから保存されている変数colorOptの値を取得する処理を追記する
 
