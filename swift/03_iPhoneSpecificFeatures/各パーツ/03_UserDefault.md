@@ -124,7 +124,7 @@ UserDefaultを使うとデータを保存することができ、そのデータ
         changeBgColor()
         changeLabel()
       }
-       ```
+      ```
 
     5. 実行してみる
     <img src="./img/UserDefaultProject01.gif" width="300px">
