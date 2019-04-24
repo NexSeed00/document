@@ -136,7 +136,7 @@ UserDefaultを使うとデータを保存することができ、そのデータ
   let userDefault = UserDefaults.standard
   userDefault.set(colorOpt, forKey: "colorOpt")
   ```
-s
+
   追記後の```didClickButton```メソッド
 
   ```
