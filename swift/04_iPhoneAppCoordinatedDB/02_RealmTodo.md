@@ -32,8 +32,8 @@
 
 		![画像](./img/add_navigation_controller.gif)
 
-	2. 以下のような画面になるよう部品を配置する
+	2. 以下のような画面になるよう部品を配置する  
 		<img src="./img/RealmTodoUI01.png" width="300px">
 
-	3. 以下のような別画面を作成し、部品を配置する
+	3. 以下のような別画面を作成し、部品を配置する  
 		<img src="./img/RealmTodoUI02.png" width="300px">
