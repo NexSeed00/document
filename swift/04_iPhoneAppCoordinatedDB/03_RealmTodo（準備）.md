@@ -14,7 +14,7 @@
 
 1. 必要なクラスファイルを作成する
 2. フォルダを作成し、作成したクラスを移動させる
-3. RealmをCocoaPodsを使ってインストールする
+3. 各クラスを作成する
 
 ## 開発しよう
 1. 必要なクラスファイルを作成する
@@ -50,3 +50,31 @@
 
 	> 以下のようになっていればOK  
 	> ![画像](./img/folder_.png)
+
+3. 各クラスを作成する
+
+	1. Todo.swiftを以下のように修正する
+
+		```
+		import RealmSwift
+
+		class Todo: Object {
+			
+		}
+		```
+
+	2. TodoRepository.swiftを以下のように修正する
+
+		```
+		class TodoRepository {
+			
+		}
+		```
+
+	3. TodoService.swiftを以下のように修正する
+
+		```
+		class TodoService {
+			
+		}
+		```
