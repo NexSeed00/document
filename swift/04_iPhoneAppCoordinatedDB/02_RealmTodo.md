@@ -37,3 +37,6 @@
 
 	3. 以下のような別画面を作成し、部品を配置する  
 		<img src="./img/RealmTodoUI02.png" width="300px">
+
+	4. 2つのViewControllerが画面遷移するよう設定する
+		![画像](./img/connect_home_add_view.mov.gif)
