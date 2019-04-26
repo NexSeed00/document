@@ -12,12 +12,12 @@
 
 ## 開発の流れ
 
-1. 必要なクラスを作成する
-2. 配置した画面の部品をプログラムで扱えるよう設定する
+1. 必要なクラスファイルを作成する
+2. フォルダを作成し、作成したクラスを移動させる
 3. RealmをCocoaPodsを使ってインストールする
 
 ## 開発しよう
-1. 必要なクラスを作成する
+1. 必要なクラスファイルを作成する
 
 	1. Realm Objectsを作成する  
 	class名：Todo
@@ -26,7 +26,7 @@
 
 		![画像](./img/create_tidi_object.gif)
 
-	2. レポジトリクラスを作成する
+	2. レポジトリクラスを作成する  
 	class名：TodoRepository
 
 		> このクラスは、上記で作ったTodoクラスを使って、タスクの取得・登録・編集・削除の操作をするためのクラスです。
@@ -37,3 +37,16 @@
 	class名：TodoService
 
 		> このクラスは、上記で作ったTodoRepositoryクラスのタスク取得・登録・編集・削除に必要なデータを準備し、実際にTodoRepositoryクラスのタスク取得・登録・編集・削除を実行します。
+
+2. フォルダを作成し、作成したクラスを移動させる
+
+	1. 「Controllers」フォルダを作成し、ViewController.swiftとInputViewController.swiftを移動させる
+
+		![画像](./img/create_controllers_folder.gif)
+
+	2. 「Entities」フォルダを作成し、Todo.swiftを移動させる
+	3. 「Repositories」フォルダを作成し、TodoRepository.swiftを移動させる
+	4. 「Services」フォルダを作成し、TodoService.swiftを移動させる
+
+	> 以下のようになっていればOK  
+	> ![画像](./img/folder_.png)
