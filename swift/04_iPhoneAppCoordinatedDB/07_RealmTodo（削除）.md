@@ -14,7 +14,6 @@
 
 1. TodoRepository, TodoService,InputViewControllerにそれぞれ削除の処理を追記する。
 2. セルにスワイプ処理と削除ボタンを追加する
-3. ```ViewController.swift```セルクリック時の処理を追記する
 
 ## 開発しよう
 
