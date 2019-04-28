@@ -13,8 +13,7 @@ UserDefaultを使うとデータを保存することができ、そのデータ
 
 ## 開発の流れ
 1. 画面の部品を配置する
-2. タップ処理を追加する
-3. スワイプ処理を追加する
+2. ボタン押下時処理を追加する
 
 ## 開発しよう
 1. プロジェクトを作成する  
@@ -38,71 +37,132 @@ UserDefaultを使うとデータを保存することができ、そのデータ
         > この作業をすることで、画面サイズによるデザインのずれを解決します。
         ![Swiftロゴ](./img/add_containts.gif)
 
-3. カウントアップ処理を追加する
-    1. タップした回数を保持する変数を定義する。
+4. ボタン押下時処理を追加する
+    1. ボタンを押されるたびにカウントアップする変数を作成する。  
 
-        ```
-        @IBOutlet weak var label: UILabel!
-    
-        以下を追加
-        var count = 0
-        ```
+      ```
+      @IBOutlet weak var label: UILabel!
 
-    2. ```didClickButton```メソッドに回数をカウントアップする処理を追加する。
+      以下を追加
+      var colorOpt = 0
+      ```
 
-        ```
-        @IBAction func didClickButton(_ sender: UIButton) {
-          count += 1
-          label.text = "\(count)"
+      > 変数colorOptの値が0の場合：White、1の場合：LightGray、2の場合：DarkGrayを背景色に設定するようにしていきます。
+
+    2. 変数colorOptの値に応じて、画面の背景色を設定する関数を作成する。  
+
+      関数名：changeBgColor  
+      処理内容：以下の表の条件通り、画面の背景色を変更する  
+
+      |条件|背景色|
+      |---|---|
+      |デフォルト|White|
+      |変数colorOptの値が1|LightGray|
+      |変数colorOptの値が2|DarkGray|
+
+      ```
+      func changeBgColor() {
+        switch colorOpt {
+        case 1:
+            view.backgroundColor = .lightGray
+        case 2:
+            view.backgroundColor = .darkGray
+        default:
+            view.backgroundColor = .white
         }
-        ```
+      }
+      ```
 
-    3. 画面の初期表示時に、Labelに初期カウントを設定する
+    3. 変数colorOptの値に応じて、ラベルの文字を設定する関数を作成する。  
 
-        ```
-        override func viewDidLoad() {
-          super.viewDidLoad()
+      関数名：changeLabel  
+      処理内容：以下の表の条件通り、ラベルの文字を設定する  
+
+      |条件|背景色|
+      |---|---|
+      |デフォルト|White|
+      |変数colorOptの値が1|LightGray|
+      |変数colorOptの値が2|DarkGray|
+
+      ```
+      func changeLabel() {
+        switch colorOpt {
+        case 1:
+            label.text = "LightGray"
+        case 2:
+            label.text = "DarkGray"
+        default:
+            label.text = "White"
+        }
+      }
+      ```
+
+    4. ボタンが押された時、背景色とラベルの文字を変更する処理を追記する  
+    ```didClickButton```メソッドに以下の処理を追記する
+
+      ```
+      if colorOpt == 2 {
+          colorOpt = 0
+      } else {
+          colorOpt += 1
+      }
+      
+      changeBgColor()
+      changeLabel()
+      ```
+
+      追記後の```didClickButton```メソッド
+
+      ```
+      @IBAction func didClickButton(_ sender: UIButton) {
+        if colorOpt == 2 {
+          colorOpt = 0
+        } else {
+            colorOpt += 1
+        }
         
-          label.text = "\(count)"
-        }
-        ```
+        changeBgColor()
+        changeLabel()
+      }
+      ```
 
-    4. 実行してみる  
-        <img src="./img/UserDefaultProject01.gif" width="300px">
+    5. 実行してみる
+    <img src="./img/UserDefaultProject01.gif" width="300px">
 
-        > 実行してみてわかるとおり、今の段階だとアプリを閉じるとカウントが0に戻ってしまいます。
-        > これからUserDefaultでカウントを保存する処理を追加していきます。
+5. ```didClickButton```メソッドに変数colorOptの値をUserDefaultに保存する処理を追記する。  
+以下の処理を追記してください
 
-4. UserDefaultを使ってカウントを保存する処理を追記する
+  ```
+  let userDefault = UserDefaults.standard
+  userDefault.set(colorOpt, forKey: "colorOpt")
+  ```
 
-    1. ```didClickButton```メソッドにカウントをUserDefaultに保存する処理を追記する。  
+  追記後の```didClickButton```メソッド
+
+  ```
+  @IBAction func didClickButton(_ sender: UIButton) {
+    if colorOpt == 2 {
+        colorOpt = 0
+    } else {
+        colorOpt += 1
+    }
+    
+    changeBgColor()
+    changeLabel()
+    
+    let userDefault = UserDefaults.standard
+    userDefault.set(colorOpt, forKey: "colorOpt")
+  }
+  ```
+
+6. UserDefaultから保存されている変数colorOptの値を取得する処理を追記する
+
+    1. ```viewDidLoad```メソッドにUserDefaultから保存されている変数colorOptの値を取得する処理を追記する  
     以下の処理を追記してください
 
         ```
         let userDefault = UserDefaults.standard
-        userDefault.set(count, forKey: "currentCount")
-        ```
-
-        追記後の```didClickButton```メソッド
-
-        ```
-        @IBAction func didClickButton(_ sender: UIButton) {
-          count += 1
-          label.text = "\(count)"
-        
-          let userDefault = UserDefaults.standard
-          userDefault.set(count, forKey: "currentCount")
-        
-        }
-        ```
-
-5. UserDefaultから前回のカウントを取得する処理を追記する
-
-    1. ```viewDidLoad```メソッドにUserDefaultから前回のカウントを取得する処理を追記する  
-    以下の処理を追記してください
-
-        ```
-        count = userDefault.integer(forKey: "currentCount")
+        colorOpt = userDefault.integer(forKey: "colorOpt")
         ```
 
         追記後の```viewDidLoad```メソッド
@@ -112,10 +172,31 @@ UserDefaultを使うとデータを保存することができ、そのデータ
           super.viewDidLoad()
         
           let userDefault = UserDefaults.standard
-          count = userDefault.integer(forKey: "currentCount")
-          label.text = "\(count)"
+          colorOpt = userDefault.integer(forKey: "colorOpt")
         }
         ```
+
+    2. ```viewDidLoad```メソッドに変数colorOptの値に応じて、背景色とラベルの文字を設定する処理を追記する  
+    以下の処理を追記してください
+
+      ```
+      changeBgColor()
+      changeLabel()
+      ```
+
+      追記後の```viewDidLoad```メソッド
+
+      ```
+      override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let userDefault = UserDefaults.standard
+        colorOpt = userDefault.integer(forKey: "colorOpt")
+        
+        changeBgColor()
+        changeLabel()
+      }
+      ```
 
 ## 実行してみよう
 <img src="./img/UserDefaultProject02.gif" width="300px">
