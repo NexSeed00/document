@@ -70,6 +70,7 @@
 		|部品|接続時のName|
 		|---|---|
 		|UITextField|textField|
+		|UIButton|button|
 		|UIButton|didClickButton|
 
 		![画像](./img/connect_second_vc.png)
