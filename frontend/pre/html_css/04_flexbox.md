@@ -81,7 +81,7 @@ HTMLの例でブロック要素は縦に並ぶということを説明しまし�
   - `flex-direction: column`の場合は**左右**の位置を決める
 
 使用例は以下のWebサイトを確認してください。
-[サンプルサイト](https://nexseed.netlify.com/html_css/flex/)
+[サンプルサイト](https://nexseed.netlify.com/html_css/flexbox/)
 
 他にもプロパティはたくさんあるので、
 興味がある方は参考リンクをご参照ください。
