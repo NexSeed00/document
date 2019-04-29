@@ -12,13 +12,16 @@
 
 ## 開発の流れ
 
-1. TodoRepository.swiftにタスク新規追加処理を追加する
+1. ViewController.swiftに全タスクを保持する配列を追記する
 2. ```UITableViewDelegate```、```UITableViewDataSource```を追記し、必要な関数を設定する
 3. Main.storyboardでTableViewCellのIdentifierを設定する
+4. TodoRepository.swiftにタスク全件取得するメソッドを追加する
+5. TodoService.swiftにTodoRepository.swiftのタスク全件取得するメソッドを呼び出す処理を追加する
+6. ViewController.swiftにTodoService.swiftのタスク全件取得するメソッドを呼び出す処理を追記する
 
 ## 開発しよう
 
-1. TodoRepository.swiftにタスク新規追加処理を追加する
+1. ViewController.swiftに全タスクを保持する配列を追記する
 
 	以下の配列を定義する
 
@@ -105,6 +108,61 @@
 		}
 		```
 
+	5. 以下の処理を```viewDidLoad```メソッドに追記する。
+
+		```
+		tableView.dataSource = self
+		tableView.delegate = self
+		```
+
+		追記後の```viewDidLoad```メソッド
+
+		```
+		override func viewDidLoad() {
+			super.viewDidLoad()
+
+			tableView.dataSource = self
+			tableView.delegate = self
+		}
+		```
+
 3. Main.storyboardでTableViewCellのIdentifierを設定する
 
 	![画像](./img/add_Identifier_for_cell.png)
+
+4. TodoRepository.swiftにタスク全件取得するメソッドを追加する
+
+	1. タスクを全件取得するfindAllメソッドを追記する
+
+		```
+		// Todoを全件取得する
+		func findAll() -> [Todo] {
+			let todos = realm.objects(Todo.self)
+			return todos.reversed()
+		}
+		```
+
+5. TodoService.swiftにTodoRepository.swiftのタスク全件取得するメソッドを呼び出す処理を追加する
+
+	1. 以下のメソッドを追加する
+
+	```
+	// Todoを全件取得する
+	func findAll() -> [Todo] {
+		return repository.findAll()
+	}
+	```
+
+6. ViewController.swiftにTodoService.swiftのタスク全件取得するメソッドを呼び出す処理を追記する
+
+	1. 以下のメソッドを追記する
+
+	```
+	override func viewWillAppear(_ animated: Bool) {
+		// RealmにあるTodoを全件取得
+		let todoService = TodoService()
+		todos = todoService.findAll()
+
+		tableView.reloadData()
+	}
+	```
