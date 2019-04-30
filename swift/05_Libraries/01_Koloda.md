@@ -144,7 +144,7 @@
 		```
 		func koloda(_ koloda: KolodaView, viewForCardAt index: Int) -> UIView {
 			let image = UIImage(named: images[index])
-			let imageView = UIImageView(image: image)
+			let imageView = UIImageView(image: image)
 			imageView.backgroundColor = .black
 			
 			return imageView
