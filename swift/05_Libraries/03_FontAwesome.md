@@ -84,3 +84,6 @@
 
 ## 実行してみる
 <img src="./img/FontProject.png" width="300px">
+
+アイコンは以下から探すことができます
+https://fontawesome.com/icons?d=gallery
