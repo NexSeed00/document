@@ -22,7 +22,7 @@
     ```
 
 2. 画面の部品を配置する
-    1. 以下のような画面になるよう部品(View)を配置する  
+    1. 以下のような画面になるよう部品を配置する  
         <img src="./img/IQProjectUI.png" width="300px">
 
 3. ```AppDelegate.swift```に処理を追記する
