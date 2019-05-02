@@ -7,8 +7,8 @@
 
 ## 作成するアプリ  
 |タスク一覧|タスク追加|タスク編集|タスク削除|
-|---|---|---|---|
-|<img src=".../img/RealmTodoList.png" width="300px">|<img src=".../img/RealmTodoAdd.gif" width="300px">|<img src="../img/RealmTodoEdit.gif" width="300px">|<img src="../img/RealmTodoDelete.gif" width="300px">|
+|---|---|---|---|s
+|<img src="../img/RealmTodoList.png" width="300px">|<img src="../img/RealmTodoAdd.gif" width="300px">|<img src="../img/RealmTodoEdit.gif" width="300px">|<img src="../img/RealmTodoDelete.gif" width="300px">|
 
 ## 開発の流れ
 
