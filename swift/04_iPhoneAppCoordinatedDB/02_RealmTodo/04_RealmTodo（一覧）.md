@@ -8,7 +8,7 @@
 ## 作成するアプリ  
 |タスク一覧|タスク追加|タスク編集|タスク削除|
 |---|---|---|---|
-|<img src="./img/RealmTodoList.png" width="300px">|<img src="./img/RealmTodoAdd.gif" width="300px">|<img src="./img/RealmTodoEdit.gif" width="300px">|<img src="./img/RealmTodoDelete.gif" width="300px">|
+|<img src="../img/RealmTodoList.png" width="300px">|<img src="../img/RealmTodoAdd.gif" width="300px">|<img src="../img/RealmTodoEdit.gif" width="300px">|<img src="../img/RealmTodoDelete.gif" width="300px">|
 
 ## 開発の流れ
 
@@ -128,7 +128,7 @@
 
 3. Main.storyboardでTableViewCellのIdentifierを設定する
 
-	![画像](./img/add_Identifier_for_cell.png)
+	![画像](../img/add_Identifier_for_cell.png)
 
 4. TodoRepository.swiftにタスク全件取得するメソッドを追加する
 
