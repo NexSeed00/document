@@ -16,11 +16,13 @@
 
 ### 参考リンク
 
-<details><summary>index.html</summary><div>
+<details><summary>index.html</summary>
+<div>
 
 ```
 
 ```
 
-</div></details>
+</div>
+</details>
 <br>
