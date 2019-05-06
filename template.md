@@ -16,7 +16,7 @@
 
 ### 参考リンク
 
-<details><summary>index.html</summary>
+<details><summary>回答例</summary>
 <div>
 
 ```
