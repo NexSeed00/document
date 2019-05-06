@@ -104,7 +104,7 @@ CocoaPodsを使って、ライブラリをインストールした場合は、�
 
 	1. インストールしたライブラリの使い方を確認する。
 
-		![SCLAlertView - Get Started](https://github.com/vikmeup/SCLAlertView-Swift#get-started)
+		<a href="https://github.com/vikmeup/SCLAlertView-Swift#get-started">SCLAlertView - Get Started</a>
 
 	
 	2. ```didClickButton```メソッドに以下の処理を追記する
