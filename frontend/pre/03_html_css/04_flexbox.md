@@ -66,10 +66,10 @@ Flexboxを使用する(②)と横並びになります。
 </div>
 ```
 
-①  
+### ①  
 ![block](./img/flex/block.png)
 
-②  
+### ②  
 ![flex](./img/flex/flex.png)
 
 配置を動かしたいが、並び順は縦のままにしたい場合はFlexコンテナに`flex-direction: column`をつけます。
@@ -94,25 +94,25 @@ Flexboxを使用する(②)と横並びになります。
 そのため、ある要素のFlexアイテムが、別のある要素のFlexコンテナになることもあります。
 
 ## まとめ
-- ## `display: flex`
-  - つけた要素がFlexコンテナになる
-  - 子要素(Flexアイテム)を自由に動かすことができる
+### `display: flex`
+- つけた要素がFlexコンテナになる
+- 子要素(Flexアイテム)を自由に動かすことができる
 
-- ## `flex-direction`
-  - Flexコンテナにつける
-  - Flexアイテムの並び順を縦にするか横にするかを決める
-  - `flex-direction: column`の場合は縦並び
-  - `flex-direction: row`、またはついてない場合は横ならび
+### `flex-direction`
+- Flexコンテナにつける
+- Flexアイテムの並び順を縦にするか横にするかを決める
+- `flex-direction: column`の場合は縦並び
+- `flex-direction: row`、またはついてない場合は横ならび
 
-- ## `justify-content`
-  - Flexコンテナにつける
-  - `flex-direction: row`、またはついてない場合は**左右**の位置を決める
-  - `flex-direction: column`の場合は**上下**の位置を決める
+### `justify-content`
+- Flexコンテナにつける
+- `flex-direction: row`、またはついてない場合は**左右**の位置を決める
+- `flex-direction: column`の場合は**上下**の位置を決める
 
-- ## `aline-items`
-  - Flexコンテナにつける
-  - `flex-direction: row`、またはついてない場合は**上下**の位置を決める
-  - `flex-direction: column`の場合は**左右**の位置を決める
+### `aline-items`
+- Flexコンテナにつける
+- `flex-direction: row`、またはついてない場合は**上下**の位置を決める
+- `flex-direction: column`の場合は**左右**の位置を決める
 
 他にもプロパティはたくさんあるので、  
 興味がある方はGoogleで「Flexbox」などで検索してみてください。
