@@ -36,8 +36,3 @@ B未満の場合は、B以上になるように特訓しましょう。
 |削除                    |command + delete    |Delete         |
 |スクリーンショット（画面全体）|command + shift + 3 |Print Screen   |
 |スクリーンショット（選択部分）|command + shift + 4 |-              |
-
-
-### 参考
-* [Mac用ショートカット](http://matome.naver.jp/odai/2138612139607002701)
-* [Windows用ショートカット](http://www.geocities.jp/kagemusyamk1/e.short1.html)
