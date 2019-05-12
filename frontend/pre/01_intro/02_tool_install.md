@@ -16,8 +16,8 @@
 
 [![chrome](https://img.youtube.com/vi/-D9D4irknEA/0.jpg)](https://www.youtube.com/watch?v=-D9D4irknEA)  
 
-MacにはSafari、WindowsにはIEがデフォルトのブラウザとして用意されていますが、  
-ブラウザには、開発者用の様々機能が付いているGoogle Chromeがオススメです。  
+MacにはSafari、WindowsにはIEまたはEdgeがデフォルトのブラウザとして用意されていますが、  
+ブラウザには、開発者用の様々な機能が付いているGoogle Chromeがオススメです。  
 
 公式からダウンロードしましょう。
 
