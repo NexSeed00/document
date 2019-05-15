@@ -7,24 +7,23 @@
 
 ### カリキュラムに関して
 - 各セクションには公式サイトのリンクを貼っています。
-  - Laravelは非常に多機能になっているため、カリキュラムでは、最低限必要な内容の記述にとどめています。  詳細を知りたい場合は公式サイトをご確認ください。
+  - Laravelは非常に多機能なため、  
+    カリキュラムでは、最低限必要な内容の記述にとどめています。  
+    詳細を知りたい場合は公式サイトをご確認ください。
 - コマンドの実行はLaravelのルートディレクトリ(app, bootstrapなどが保存されているフォルダ)で実行する必要があります。  
 - コマンドはターミナル(コマンドプロンプト)で実行します。  
-- 編集するファイルの名称はコードの上部にコメントアウトで記載します。  
+- 編集するファイルの名称はコードの上部にコメントアウトで記載してます。  
 
 ### ルートの設定
 まずはルートの設定をします。  
 ルートでは、**①どのURL(メソッドも含む)の時に**、**②どのコントローラーの**、**③どのメソッドを使用するか**  
 を決めます。  
 
-下の例は、
-①URL`/`に`GET`メソッドでアクセスされた場合、②`DiaryController`の③`index`メソッドを使用する。  
+下の例は、  
+①URL`/`に`GET`メソッドでアクセスされた場合、②`DiaryController`の③`index`メソッドを使用する   
 ということになります。  
-`/`はルートディレクトのことで、今回の場合は`localhost:8000`です。  
 
-※`->name('diary.index')`の部分は画面にリンクを作成する時に使用します。  
-詳しくは後述します。  
-※`//削除`とコメントがついてる部分はサンプルページのため、削除します。  
+`/`はルートディレクトのことで、今回の場合は`localhost:8000`です。  
 
 ```php
 // routes/web.php
@@ -36,14 +35,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 ```
+※`->name('diary.index')`の部分は画面にリンクを作成する時に使用します。  
+詳しくは後述します。  
+
+※`//削除`とコメントがついてる部分はサンプルページのため、削除します。  
+
 
 #### 参考リンク
 [ルーティング](https://readouble.com/laravel/5.7/ja/routing.html)
 
 ### コントローラーの作成
 次にコントローラーを作成します。  
-Laravelではコントローラーの作成をコマンド1つで行えます。  
-以下のコマンドをターミナル(コマンドプロンプト)に入力してください。  
+Laravelではコントローラーの作成をコマンド1つで行えます。    
 
 `php artisan make:controller DiaryController`
 
@@ -56,7 +59,7 @@ Laravelではコントローラーの作成をコマンド1つで行えます。
 画面にHello Worldが表示されればOKです。  
 
 ```php
-//app/Http/Controllers
+// app/Http/Controllers/DiaryController
 
 class DiaryController extends Controller
 {
@@ -78,7 +81,6 @@ URLを入力して画面が表示されるまでの流れは、
 ### モデルの作成
 次にモデルを作成します。  
 Laravelではモデルの作成もコマンド1つで行えます。  
-以下のコマンドをターミナル(コマンドプロンプト)に入力してください。  
 
 `php artisan make:model Diary`
 
@@ -118,7 +120,8 @@ DBへのテーブル追加や、変更を簡単に行える機能です。
 これもコマンド1つで行えます。  
 
 以下のコマンドを実行することで、  
-`php artisan make:migration create_diaries_table --create=diaries`
+`php artisan make:migration create_diaries_table --create=diaries`  
+
 `database`ディレクトリに`yyyy_mm_dd_hhmmii_create_diaries_table.php`というファイルが作成されます。  
 
 今回は、diariesテーブルを作成するファイルのため、  
@@ -167,7 +170,8 @@ DBを確認してテーブルが作成されているか確認してみましょ
 ファイルの作成は簡単です。
 これもコマンド1つでできます。  
 
-`php artisan make:seeder DiariesTableSeeder`
+`php artisan make:seeder DiariesTableSeeder`  
+
 上記コマンドを実行すると、`database/seeds`に`DiariesTableSeeder`というファイルが作成されます。  
 
 
@@ -235,7 +239,7 @@ diariesテーブルにデータが保存されていることを確認しまし�
 `DiaryController`で`Diary`と書いたときに、`app/Diary`クラスが使用できます。  
 
 ```php
-//app/Http/Controllers
+//app/Http/Controllers/DiaryController
 
 use App\Diary; // App/Diaryクラスを使用する宣言
 use Illuminate\Http\Request;
@@ -253,40 +257,73 @@ class DiaryController extends Controller
     }
 ```
 
-### Viewの作成
-- viewsディレクトリにdiariesディレクトリ作成
-- diariesに`index.blade.php`を作成
+ここまでで、
+URLを入力して画面が表示されるまでの流れは、    
+1. web.phpで使用するコントローラーとメソッドの確認
+2. 1で指定されたコントローラーのメソッドを実行
+3. モデルのallメソッドを使用してデータを取得
+となります。
 
-index.blade.phpを編集
-```
+### ビューの作成
+最後に画面の作成です。  
+モデルで取得したデータを画面に表示します。  
+
+ビューの作成はコマンドではなく自分で実施する必要があります。  
+1. `resources/views`ディレクトリに`diaries`ディレクトリを作成
+2. `diaries`に`index.blade.php`を作成
+をしてください。  
+
+
+いきなりデータの表示はせず以下の手順で順番に進めていきます。  
+1. ビューが正しく表示されることの確認
+2. モデルで取得したデータが表示されることの確認
+
+#### ビューが正しく表示されることの確認
+```php
+// resources/views/diaries/index.blade.php
+
 Hello View
 ```
-
-上記viewを表示するため、
-DiaryController.phpを編集
+ 
 ```php
+//app/Http/Controllers/DiaryController
+
 public function index()
 {
-    $diaries = Diary::all(); //diariesテーブルのデータを全件取得
+    $diaries = Diary::all();
 
+    // view/diaries/index.blade.phpを表示
     return view('diaries.index');
 }
 ```
+`return view('diaries.index');`ですが、  
+`view()`は、`resources/views/`の中のファイルを開くためのメソッドです。  
+`diaries.index`はファイルのパスを表しています。  
+今回の場合は、  diariesディレクトリのindex.blade.phpを表しています。  
 
-Viewが表示されることが確認できたら、
-Modelから取得したデータをViewで表示します。
+
+画面が表示されることが確認できたら、
+モデルから取得したデータをビューで表示します。
+
 ```php
+//app/Http/Controllers/DiaryController
+
 public function index()
 {
-    $diaries = Diary::all(); //diariesテーブルのデータを全件取得
+    $diaries = Diary::all();
 
-    return view('diaries.index',[
-        'diaries' => $diaries,
-    ]);
+    return view('diaries.index',['diaries' => $diaries]);
 }
 ```
+`view()`メソッドの引数が2つに増えています。  
+2つめの引数`['diaries' => $diaries]`では、  
+変数`$diaries`を第1引数のページに渡しています。  
+第1引数に指定されたページでは、 第2引数の連想配列のキー名が、変数名となります。  
+
 
 ```php
+// view/diaries/index.blade.php
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -308,7 +345,28 @@ public function index()
 </html>
 ```
 
+ここまでで、
+URLを入力して画面が表示されるまでの流れは、    
+1. web.phpで使用するコントローラーとメソッドの確認
+2. 1で指定されたコントローラーのメソッドを実行
+3. モデルのallメソッドを使用してデータを取得
+4. 3で取得したデータをビューで表示する
+となります。
+
 ### まとめ
+これで一覧画面の表示処理は完了です。  
 
+このカリキュラムでは以下の3つを学びました。  
+1. ブラウザからURLを入力して、画面が表示されるまでの流れ
+2. データベースにテーブルを作成する方法
+3. データベースにテストデータを保存する方法
 
+特に重要なのが**1**の画面が表示されるまでの流れです。  
+今後新しい機能を複数作成していきますが、  
+基本的には今回の1の流れがベースとなります。
 
+最初は複数のファイルを扱うためわかりにくく感じる部分もあるかもしれませんが、  
+規模が大きくなってくると、  
+ファイルの管理のしやすさなどメリットを感じる部分も出てきます。  
+
+まずは深く考えるよりも、たくさん書いてなれていきましょう。
