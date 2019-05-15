@@ -87,7 +87,7 @@ public function create()
 以下のURLにアクセスして画面が正しく表示されることを確認しましょう。  
 http://localhost:8000/diary/create
 
-ここまでで、
+これで投稿画面は完成です。  
 URLを入力して画面が表示されるまでの流れは、    
 1. web.phpで使用するコントローラーとメソッドの確認
 2. 1で指定されたコントローラーのメソッドを実行
@@ -96,7 +96,7 @@ URLを入力して画面が表示されるまでの流れは、
 
 
 画面は正しく表示されましたが、  
-今回のビューには2箇所新しい書き方
+今回のビューには2箇所新しい書き方があるので簡単に紹介します。  
 1. `<form action="{{ route('diary.create') }}" method="POST">`
 2. `@csrf`
 
@@ -142,19 +142,37 @@ Laravelではその脆弱性を防ぐのは非常に簡単で、
 [CSRF保護](https://readouble.com/laravel/5.7/ja/csrf.html)
 
 ### Controllerの編集(保存処理)
-今の状態で送信ボタンを押すとエラー
+投稿画面ができたので、次は保存処理です。  
+投稿画面の投稿ボタンを押してみましょう。  
 
-DiaryController.phpを編集する
-```
+エラーが表示されるかと思います。  
+
+これはエラーの内容を読むとわかりますが、  
+ルートで設定されている`DiaryController@store`が存在しないことが原因です。  
+
+以下のようにstoreメソッドを追加してから再度投稿してみてください。
+```php
+//app/Http/Controllers/DiaryController
+ public function create()
+ {
+     return view('diaries.create');
+ }
+
 public function store()
 {
     dd('ここに保存処理');
 }
 ```
-画面が表示されたことを確認する
+画面が表示されるかと思います。  
 
-DiaryController.phpを編集する
-```
+
+次にControllerに以下2つの処理を追加します。  
+1. データの保存(上4行)
+2. 一覧画面にリダイレクトする(下1行)
+
+```php
+//app/Http/Controllers/DiaryController
+
 public function store(Request $request)
 {
     $diary = new Diary(); //Diaryモデルをインスタンス化
@@ -166,19 +184,40 @@ public function store(Request $request)
     return redirect()->route('diary.index'); //一覧ページにリダイレクト
 }
 ```
-一覧画面が表示され、入力した内容が表示されている
 
-- 入力された値の受け渡しに関して説明
+一覧画面が表示され、入力した内容が表示されていれば保存の処理は成功です。 
+
+投稿ボタンをクリックしてから、画面が表示されるまでの流れは、    
+1. web.phpで使用するコントローラーとメソッドの確認
+2. 1で指定されたコントローラーのメソッドを実行
+3. モデルをインスタンス化→投稿内容の取得→投稿内容をDBへの保存
+4. 一覧ページへリダイレクト
+となります。
+
+#### ユーザーが入力した内容の取得
+最後にユーザーが入力した内容ですが、  
+`public function store(Request $request)`
+の`$request`に入っています。  
+
+`$request->formのname属性`とすることで、ユーザーが入力した内容を取得できます。  
+例えば、`$request->title`とすることで、 ユーザーが入力したname属性titleの値が取得できます。  
+
+#### 参考リンク
+[Eloquent](https://readouble.com/laravel/5.7/ja/eloquent.html)
+[リクエスト](https://readouble.com/laravel/5.7/ja/requests.html)
 
 ### 一覧画面にリンクを追加
+
 一覧画面から投稿画面に移動できるようにリンクを追加します
-index.blade.phpのbodyタグのすぐ下に以下を追記
-```
+```php
+// view/diaries/index.blade.php
+<body>
 <a href="{{ route('diary.create') }}" class="btn btn-primary btn-block">
     新規投稿
 </a>
 ```
-一覧画面から投稿画面に移動できることを確認
+
+一覧画面から投稿画面に移動できることを確認しましょう。
 
 ### バリデーション
 - 何も保存していない状態で投稿処理
