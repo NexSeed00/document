@@ -308,7 +308,7 @@
 
 	1. 以下のメソッドを```ViewController```内に追記する
 
-		```
+		```swift
 		func createResponse(text: String) -> Message {
 			let chatUser = ChatUser(senderId: "9999", displayName: "UserName");
 			if text == "こんにちは" {
@@ -321,7 +321,7 @@
 
 		追記後の```ViewController```
 
-		```
+		```swift
 		class ViewController: MessagesViewController {
 			/// 全てのメッセージを保持する配列
 			var messageList: [Message] = []
@@ -354,7 +354,7 @@
 	2. 作成した```createResponse```メソッドを```inputBar```メソッド内で使用する。  
 	```inputBar```メソッドを以下のように修正する
 
-		```
+		```swift
 		func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
 			// 自分の情報を取得
 			let me = self.currentSender() as! ChatUser
