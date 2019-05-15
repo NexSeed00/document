@@ -40,10 +40,6 @@ public function boot()
 }
 ```
 
-
-##### 参考
-https://laravel-news.com/laravel-5-4-key-too-long-error
-
 #### 起動確認
 - プロジェクトのルートディレクトリに移動
 - `php artisan serve`でビルトインサーバを起動
