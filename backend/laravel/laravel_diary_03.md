@@ -13,6 +13,7 @@
 - コマンドの実行はLaravelのルートディレクトリ(app, bootstrapなどが保存されているフォルダ)で実行する必要があります。  
 - コマンドはターミナル(コマンドプロンプト)で実行します。  
 - 編集するファイルの名称はコードの上部にコメントアウトで記載してます。  
+- Gitでのバージョン管理の復習も兼ねて、最低1カリキュラムに1回はcommitしましょう。
 
 ### ルートの設定
 まずはルートの設定をします。  
@@ -286,7 +287,7 @@ Hello View
 ```
  
 ```php
-//app/Http/Controllers/DiaryController
+// app/Http/Controllers/DiaryController
 
 public function index()
 {
