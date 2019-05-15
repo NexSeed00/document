@@ -7,7 +7,7 @@
 <a href="https://github.com/MessageKit/MessageKit">MessageKit</a>
 
 ## 作成するアプリ
-<img src="./img/KolodaProject.gif" width="300px">
+<img src="./img/KolodaProject.gif" target="_blank" width="300px">
 
 ## 開発の流れ
 1. プロジェクトを作成する
