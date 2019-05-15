@@ -1,33 +1,55 @@
 ## 新規投稿機能の作成
-### 今回学ぶこと
-投稿画面の作成と、投稿の保存処理をします
-まず最初に投稿画面を作成し、そのあと保存処理をします。
+### 学ぶこと
+このカリキュラムでは、投稿画面の作成と保存処理の作成を通して以下のことを学びます。  
+1. ブラウザからURLを入力して、画面が表示されるまでの流(復習)
+2. フォームからデータを送信する方法
+3. データを保存する方法
+4. バリデーションの方法
 
-### Routeの設定
-```
-Route::get('diary/create', 'DiaryController@create')->name('diary.create');
-Route::post('diary/create', 'DiaryController@store')->name('diary.store');
+### ルートの設定
+一覧の作成同様まずはルートの設定をします。  
+ルートでは、**①どのURL(メソッドも含む)の時に**、**②どのコントローラーの**、**③どのメソッドを使用するか**  
+を決めます。  
+
+
+投稿画面と、保存処理のルートを追記してください。
+```php
+// routes/web.php
+Route::get('/', 'DiaryController@index')->name('diary.index');
+
+Route::get('diary/create', 'DiaryController@create')->name('diary.create'); // 投稿画面
+Route::post('diary/create', 'DiaryController@store')->name('diary.create'); // 保存処理
 ```
 
-### Controllerの編集(投稿画面)
-DiaryController.phpに以下を追加
-```
+### コントローラーの編集(投稿画面)
+createメソッドを追加します。
+
+```php
+// app/Http/Controllers/DiaryController
+
+    public function index()
+    {
+        //省略
+    }
+
 public function create()
 {
+    // views/diaries/create.blade.phpを表示する
     return view('diaries.create');
 }
 ```
 
-### Viewの作成(投稿画面)
-diaries/create.blade.phpを作成
-```
-Hello create
-```
-http://localhost:8000/diary/createにブラウザからアクセスして
-画面が正しく表示されることを確認
+### ビューの作成(投稿画面)
+投稿画面にはDBのデータを表示する必要がないため、  
+モデルでの処理はありません。 
 
-diaries/create.blade.phpを編集
-```
+投稿画面用のビューを作成します。
+`resources/views/diaries/`ディレクトリに`create.blade.php`を作成して以下の内容をコピーしてください
+。  
+
+```php
+// resources/views/diaries/create.blade.php
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,7 +63,7 @@ diaries/create.blade.phpを編集
     <section class="container m-5">
         <div class="row justify-content-center">
             <div class="col-8">
-                <form action="{{ route('diary.create') }}" method="post">
+                <form action="{{ route('diary.create') }}" method="POST">
                     @csrf
                     <div class="form-group">
                         <label for="title">タイトル</label>
@@ -62,8 +84,62 @@ diaries/create.blade.phpを編集
 </html>
 ```
 
-- formのaction説明
-- csrf対策説明
+以下のURLにアクセスして画面が正しく表示されることを確認しましょう。  
+http://localhost:8000/diary/create
+
+ここまでで、
+URLを入力して画面が表示されるまでの流れは、    
+1. web.phpで使用するコントローラーとメソッドの確認
+2. 1で指定されたコントローラーのメソッドを実行
+3. 2で指定されたビューを表示する
+となります。
+
+
+画面は正しく表示されましたが、  
+今回のビューには2箇所新しい書き方
+1. `<form action="{{ route('diary.create') }}" method="POST">`
+2. `@csrf`
+
+#### フォームのactionに関して
+まずはフォームのアクションに関して説明します。  
+フォームのアクションには、遷移先のページのURLを入力することは既に  
+既に認識されているかと思います。  
+
+`action="{{ route('diary.create') }}" `も遷移先を指定してます。  
+`route('diary.create')`と書くことこで、ルートに指定した`name`のURLに変換されます。  
+
+```php
+// routes/web.php
+Route::get('/', 'DiaryController@index')->name('diary.index');
+
+Route::get('diary/create', 'DiaryController@create')->name('diary.create'); // 投稿画面
+Route::post('diary/create', 'DiaryController@store')->name('diary.create'); // 保存処理
+```
+
+上記が現在のルートです。  
+それぞれ`>name('xxx.yyy')`となってますが、  
+Laravelでは`<form>`や`<a>`で遷移先を指定するときに、`route('xxx.yyy')`とすることで、  
+リンクが対応したURLになります。  
+
+今回の場合は、`{{ route('diary.create') }}`なので、URLは`diary/create`となります。  
+また、formに指定されているメソッドは`POST`のため、  
+投稿ボタンを押した場合は保存処理が実行されることになります。
+
+
+#### CSRF対策
+Laravelには一般的な攻撃を防ぐためのセキュリティ対策があらかじめ準備されています。  
+そのうちの1つがCSRF対策です。  
+CSRFの詳細は説明は本論とずれてしまうため割愛しますが、  
+簡単にいうと、ユーザーの意図しない不正な書き込みなどが実施できる脆弱性、  
+またはその脆弱性を利用した攻撃のことです。  
+
+Laravelではその脆弱性を防ぐのは非常に簡単で、  
+フォームの中に`@csrf`と記述するだけです。    
+また、入力漏れがないように、`@csrf`を書いてない場合はフォームの送信時にエラーが表示されます。  
+
+##### 参考リンク
+
+[CSRF保護](https://readouble.com/laravel/5.7/ja/csrf.html)
 
 ### Controllerの編集(保存処理)
 今の状態で送信ボタンを押すとエラー
