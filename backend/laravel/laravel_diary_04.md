@@ -203,8 +203,8 @@ public function store(Request $request)
 例えば、`$request->title`とすることで、 ユーザーが入力したname属性titleの値が取得できます。  
 
 #### 参考リンク
-[Eloquent](https://readouble.com/laravel/5.7/ja/eloquent.html)
-[リクエスト](https://readouble.com/laravel/5.7/ja/requests.html)
+- [Eloquent](https://readouble.com/laravel/5.7/ja/eloquent.html)
+- [リクエスト](https://readouble.com/laravel/5.7/ja/requests.html)
 
 ### 一覧画面にリンクを追加
 
@@ -220,16 +220,56 @@ public function store(Request $request)
 一覧画面から投稿画面に移動できることを確認しましょう。
 
 ### バリデーション
-- 何も保存していない状態で投稿処理
-    - 投稿処理
-      - エラー
-        - DBでnullを許容してないのに、nullのため
+次にバリデーションを行います。  
+バリデーションとはユーザーが入力した内容が適切か検証を行うことです。   
+不適切な場合は、必要に応じて警告などを表示します。  
 
-#### バリデーションの準備
+不適切な場合とは例えば、  
+- 必須入力欄なのに、空欄
+- パスワードが短い
+- パスワードが間違っている
+- 年齢を入れる欄に文字が入っている
+などです。
+
+皆さんも一度はログインやアカウント登録で、  
+エラーを表示したことがあるのではないでしょうか。  
+不適切な値が入力された場合は、  
+ユーザーが適切な値を入力できるように警告などを表示します。
+
+現在文字を何も入力せずに投稿ボタンを押すと、エラーが表示されるかと思います。  
+これはDBでは日記のタイトルなどが空になることを許可してないのに、  
+空で保存しようとしているためエラーが表示されています。  
+
+#### 設定するバリデーション
+日記はタイトルも本文も必ず入力してもらいたいので、  
+入力を必須とします。
+
+バリデーションをする方法はいくつかありますが、  
+ここではそのうちの1つを紹介します。  
+
+大まかな流れとしては以下です。
+1. バリデーションを記述するファイルを作成
+2. 1にバリデーションの条件を記述
+3. 1で作成したファイルを対象のメソッドで使用
+4. 画面に警告を表示する
+
+#### 参考リンク
+[バリデーション](https://readouble.com/laravel/5.7/ja/validation.html)
+
+#### バリデーションを記述するファイルを作成
+
+以下のコマンドを実行するだけです。  
 `php artisan make:request CreateDiary`
 
-CreateDiaryを編集
-```
+`app/Http/Requests`に`CreateDiary`というファイルが作成されます。  
+
+
+#### バリデーションの条件を記述
+
+ファイルを以下のように修正します。  
+```php
+// app/Http/Requests/CreateDiary
+
 class CreateDiary extends FormRequest
 {
     /**
@@ -239,7 +279,7 @@ class CreateDiary extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return true; // falseから変更
     }
 
     /**
@@ -254,81 +294,121 @@ class CreateDiary extends FormRequest
             'body' => 'required',
         ];
     }
-
-    public function attributes()
-    {
-        return [
-            'title' => 'タイトル',
-            'body' => '本文',
-        ];
-    }
 }
 ```
 
-#### Controllerの編集
-DiaryControllerを編集
-```
-use App\Http\Requests\CreateDiary;
+`rules()`メソッドにバリデーションのルールを記述します。  
+今回は、フォームのname属性が`title`の場合は、  
+入力必須(`required`)と、最大30文字(`max:30`)を設定してます。 
 
-public function store(CreateDiary $request)
+
+#### バリデーションのファイルを対象のメソッドで使用
+
+```php
+// app/Http/Controllers/DiaryController
+
+use App\Http\Requests\CreateDiary; // 追加
+
+class DiaryController extends Controller
+{
+        // 中略
+
+public function store(CreateDiary $request) //変更
 {
 
 }
 ```
-文字を何も入力しないでボタンを押すと元の画面にもどります。
-ただ、エラーなど何も表示されないのでユーザーは
-何が起きたかわかりません。
 
-#### viewにエラーメッセージ表示
-create.blade.phpのformタグの上に以下追加
+文字を何も入力しないで投稿ボタンを押すと元の画面にもどります。  
+これはstoreメソッドを実行する前に、CreateDiaryクラスに記述したバリデーションを実行しているためです。  
+
+これでバリデーションはできるようになりましたが、  
+画面に何も表示されないため、  
+ユーザーには何がおこったかわからず不親切です。  
+
+
+#### ビューにエラーメッセージを表示
+
+以下のif文を追加してください。  
+```php
+// resources/views/diaries/create.blade.php
+
+@if($errors->any())
+   <ul>
+       @foreach($errors->all() as $message)
+            <li class="alert alert-danger">{{ $message }}</li>
+       @endforeach
+   </ul>
+@endif
+<form action="{{ route('diary.create') }}" method="post">
 ```
-  @if($errors->any())
-      <ul>
-          @foreach($errors->all() as $message)
-          <li class="alert alert-danger">{{ $message }}</li>
-          @endforeach
-      </ul>
-  @endif
-```
-$errorsという変数にエラーの内容が入っている
+
+Laravelではバリデーションのエラーは全て$errorsという変数に入るため、  
+$errorsから`foreach`で全てのエラーを取り出して表示してます。  
 
 #### 入力内容の保持
-エラーで元の画面に戻った後に、
-一から入力するのは面倒です。
+エラーで元の画面に戻った後に、入力内容を1から入力し直すのは面倒です。
 そのため、入力内容を保持できるようにします。
-create.blade.phpの入力欄を以下のように編集
-```
+`old(name属性)`と入力するだけです。  
+
+```php
+// resources/views/diaries/create.blade.php
+
 <input type="text" class="form-control" name="title" id="title" value="{{ old('title') }}">
 
 <textarea class="form-control" name="body" id="body">{{ old('body') }}</textarea>
-
 ```
 
-### おまけ(授業では実施しない)
+### まとめ
+これで新規投稿機能の作成は完了です。
+このカリキュラムでは、以下の4つを学びました。  
+1. ブラウザからURLを入力して、画面が表示されるまでの流(復習)
+2. フォームからデータを送信する方法
+3. データを保存する方法
+4. バリデーションの方法
+
+新しい内容が非常に多かったと思いますが、暗記する必要はありません。
+**大まかにこういうことができる**ということ だけ覚えておけば、  
+細かい書き方は、実際に書くときに調べれば問題ありません。  
+
+
+
+### おまけ
 #### エラーメッセージの日本語化
+エラーメッセージはデフォルトだと英語ですが、日本語化もできます。  
+
 - `/resources/lang/jp`ディレクトリを作成
 - `/resources/lang/en/validation.php`を`/resources/lang/jp/`にコピー
 - 必要な箇所を日本語に編集
+    
+```php
+// validation.php
 
-    validation.php
-    ```
-    'required' => ':attribute は必須です。',
-    'string' => ':attribute は :max 文字以内にしてください。', //81行目
-    ```
+'required' => ':attribute は必須です。',
+'string' => ':attribute は :max 文字以内にしてください。', //81行目
+```
 
-    - config/app.phpのlocaleをjpに変更
-    ```
-    'locale' => 'jp',
-    ```
+```php
+// config/app.php
 
-    - CreateDiaryに以下追加
-    ```
-    public function attributes()
-    {
-        return [
-            'title' => 'タイトル',
-            'body' => '本文',
-        ];
-    }
-    ```
-    エラー内容が日本語になってることを確認
+'locale' => 'jp', //localeをjpに変更
+```
+
+```php
+// app/Http/Requests/CreateDiary
+
+// 追加
+public function attributes()
+{
+    return [
+        'title' => 'タイトル',
+        'body' => '本文',
+    ];
+}
+```
+
+`attributes()`メソッドでは、バリデーションで失敗した際に警告文として使用する文字を指定します。  
+`attributes()`を指定しない場合、警告に使用される文字はname属性になります。 
+
+
+最後に投稿ボタンを押した時のエラー内容が日本語になってることを確認します。
