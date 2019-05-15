@@ -45,3 +45,39 @@
   2. 「ValueObjects」というグループを作成する
 
     ![Swiftロゴ](./img/MessageKit04.png)
+
+	3. 作成した「ValueObjects」の中に以下のファイルを新規作成する
+
+		- ChatUser.swift
+		- Message.swift
+
+		 ![Swiftロゴ](./img/MessageKit05.gif)
+
+4. 必要なクラスを定義する
+
+	1. 作成した```ChatUser.swift```にチャットのユーザーのデータを管理するクラスを追記する。  
+	以下のプログラムを```ChatUser.swift```に追記する
+
+		```swift
+		import MessageKit
+
+		/// チャットユーザーの情報を持つクラス
+		class ChatUser {
+    
+    	/// ユーザーID
+    	let uid: String
+    
+    	/// ユーザー名
+    	let name: String
+    
+    	/// イニシャライザ
+			///
+			/// - Parameters:
+			///   - uid: ユーザーID
+			///   - name: ユーザー名
+			init(uid: String, name: String) {
+					self.uid = uid
+					self.name = name
+			}
+		}
+		```
