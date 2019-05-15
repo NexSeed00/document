@@ -209,7 +209,7 @@
 		func currentSender() -> SenderType {
 			let id = "1234"
 			let name = "SeedKun"
-			return Sender(id: id, displayName: name)
+			return ChatUser(id: id, displayName: name)
 		}
 		```
 
