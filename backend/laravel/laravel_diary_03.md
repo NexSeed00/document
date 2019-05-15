@@ -5,20 +5,26 @@
 2. データベースにテーブルを作成する方法
 3. データベースにテストデータを保存する方法
 
-### Routeの設定
-まずはルートの設定をします。
+### カリキュラムに関して
+- 各セクションには公式サイトのリンクを貼っています。
+  - Laravelは非常に多機能になっているため、カリキュラムでは、最低限必要な内容の記述にとどめています。  詳細を知りたい場合は公式サイトをご確認ください。
+- コマンドの実行はLaravelのルートディレクトリ(app, bootstrapなどが保存されているフォルダ)で実行する必要があります。  
+- コマンドはターミナル(コマンドプロンプト)で実行します。  
+- 編集するファイルの名称はコードの上部にコメントアウトで記載します。  
+
+### ルートの設定
+まずはルートの設定をします。  
 ルートでは、**①どのURL(メソッドも含む)の時に**、**②どのコントローラーの**、**③どのメソッドを使用するか**  
 を決めます。  
 
-下の例では、
-①URLが`/`に`GET`メソッドでアクセスされた場合、②`DiaryController`の③`index`メソッドを使用する。  
-ということを決めています。  
+下の例は、
+①URL`/`に`GET`メソッドでアクセスされた場合、②`DiaryController`の③`index`メソッドを使用する。  
+ということになります。  
+`/`はルートディレクトのことで、今回の場合は`localhost:8000`です。  
 
-※`->name('diary.index')`の部分は画面にリンクを作成する時に使用しますが、  
+※`->name('diary.index')`の部分は画面にリンクを作成する時に使用します。  
 詳しくは後述します。  
 ※`//削除`とコメントがついてる部分はサンプルページのため、削除します。  
-
-※編集するファイルの場所はコードの上部に記載します。  
 
 ```php
 // routes/web.php
@@ -31,7 +37,10 @@ Route::get('/', function () {
 });
 ```
 
-### Controllerの作成
+#### 参考リンク
+[ルーティング](https://readouble.com/laravel/5.7/ja/routing.html)
+
+### コントローラーの作成
 次にコントローラーを作成します。  
 Laravelではコントローラーの作成をコマンド1つで行えます。  
 以下のコマンドをターミナル(コマンドプロンプト)に入力してください。  
@@ -40,7 +49,12 @@ Laravelではコントローラーの作成をコマンド1つで行えます。
 
 `app/Http/Controllers`に`DiaryController.php`というファイルが作成されます。  
 
-`DiaryController`にindexメソッドを追加してブラウザから動作確認しましょう(Hello Worldが表示されればOK)
+ファイルが作成されたら、  
+`DiaryController`にindexメソッドを追加しましょう。  
+
+最後にブラウザから動作確認します。  
+画面にHello Worldが表示されればOKです。  
+
 ```php
 //app/Http/Controllers
 
@@ -53,13 +67,15 @@ class DiaryController extends Controller
 }
 ```
 
-流れとしてはURLを入力してアクセスすると、  
+URLを入力して画面が表示されるまでの流れは、    
 1. web.phpで使用するコントローラーとメソッドの確認
 2. 1で指定されたコントローラーのメソッドを実行
 となります。
 
+#### 参考リンク
+[コントローラー](https://readouble.com/laravel/5.7/ja/controllers.html)
 
-### Modelの作成
+### モデルの作成
 次にモデルを作成します。  
 Laravelではモデルの作成もコマンド1つで行えます。  
 以下のコマンドをターミナル(コマンドプロンプト)に入力してください。  
@@ -70,12 +86,52 @@ Laravelではモデルの作成もコマンド1つで行えます。
 
 モデルにはDBの操作などをするコードを書きます。  
 
-### Migrationの作成と実行
-#### Migration file作成
-`php artisan make:migration create_diaries_table --create=diaries`
+#### 参考リンク
+[モデル](https://readouble.com/laravel/5.5/ja/eloquent.html)
 
-yyyy_mm_dd_hhmmii_create_folders_table.phpを編集
+### マイグレーション
+Viewを作成する前に、  
+以下の2つを行います。      
+
+1. DBへテーブルの作成
+2. 1で作成したテーブルへのテストデータの挿入
+
+Laravelではこれらをサポートする機能もついています。
+
+DBへのテーブルの作成は、以下の手順で行います。  
+1. マイグレーションファイルの作成
+2. マイグレーションファイルの編集
+3. マイグレーションの実行  
+
+マイグレーションとは、簡単にいうと、  
+テーブルの作成やカラムの追加など、  
+DBへのテーブル追加や、変更を簡単に行える機能です。  
+
+この機能を使用することで、  
+自分でSQLを書くことなく、テーブルの作成が行えます。  
+また、例えば新たに開発メンバーが加わった場合も、  
+マイグレーションファイルを使用することで簡単に同じDBの環境を準備できます。  
+
+#### マイグレーションファイルの作成
+では実際にマイグレーションを行います。  
+まずはマイグレーションファイルの作成ですが、  
+これもコマンド1つで行えます。  
+
+以下のコマンドを実行することで、  
+`php artisan make:migration create_diaries_table --create=diaries`
+`database`ディレクトリに`yyyy_mm_dd_hhmmii_create_diaries_table.php`というファイルが作成されます。  
+
+今回は、diariesテーブルを作成するファイルのため、  
+`create_diaries_table`となっています。  
+
+#### マイグレーションファイルの編集
+次に作成したファイルを編集します。  
+今回のようにテーブルの作成の場合は、  
+作成するカラム名などを入力します。  
+
 ```php
+// database/yyyy_mm_dd_hhmmii_create_diaries_table.php
+
 public function up()
 {
     Schema::create('diaries', function (Blueprint $table) {
@@ -88,15 +144,38 @@ public function up()
 ```
 
 #### 実行
+最後に編集したマイグレーションの実行ですが、これもコマンド1つです。
 `php artisan migrate`
-DBを確認
 
-### テストデータの挿入
+上記コマンドを実行することで、ファイルに入力した内容(今回はテーブルの作成)が実行されます。  
+DBを確認してテーブルが作成されているか確認してみましょう。
+
+#### 参考リンク
+[マイグレーション](https://readouble.com/laravel/5.7/ja/migrations.html)
+
+### テストデータの作成
+次にDテストデータの作成を行います。  
+テーブルだけ作成してもデータがないと確認できない機能もあります。  
+例えば、日記の一覧を表示する機能は、表示するための日記のデータが必要です。  
+
+テストデータの作成手順は以下です。
+1. テストデータ作成用ファイルを作成
+2. テストデータ作成用ファイルを編集
+3. テストデータ作成用ファイルの実行
+
+#### テストデータ作成用ファイルの作成
+ファイルの作成は簡単です。
+これもコマンド1つでできます。  
+
 `php artisan make:seeder DiariesTableSeeder`
+上記コマンドを実行すると、`database/seeds`に`DiariesTableSeeder`というファイルが作成されます。  
 
 
-DiariesTableSeederを編集
+#### テストデータ作成用ファイルの編集
+
 ```php
+// database/seeds/DatabaseSeeder
+
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
@@ -128,22 +207,50 @@ public function run()
 }
 ```
 
+#### テストデータ作成用ファイルの実行
 
+これもコマンド1つで行えます。  
 `php artisan db:seed --class=DiariesTableSeeder`
-データが挿入されているか確認
 
+diariesテーブルにデータが保存されていることを確認しましょう。
 
-### Controllerにロジックの追加
-DiaryControllerを編集
+#### 参考リンク
+[シーディング](https://readouble.com/laravel/5.7/ja/seeding.html)
+
+### コントローラーにロジックを追加
+先ほどはコントローラーの動作確認をするために`Hello world`を表示しましたが、  
+一覧画面に表示するデータを取得するように変更します。  
+
+追加するのは
+1. `use App\Diary;`
+2. `$diaries = Diary::all();`
+3. `dd($diaries); `
+の3箇所です。
+
+#### useについて
+1で使用してる`use`ですが、  
+これは他のクラスを使用するときに使います。  
+
+今回の場合、`use App\Diary` とすることで、  
+`DiaryController`で`Diary`と書いたときに、`app/Diary`クラスが使用できます。  
+
 ```php
-use App\Diary; //追加
+//app/Http/Controllers
 
-public function index()
+use App\Diary; // App/Diaryクラスを使用する宣言
+use Illuminate\Http\Request;
+
+class DiaryController extends Controller
 {
-    $diaries = Diary::all(); //diariesテーブルのデータを全件取得
+    public function index()
+    {
+        //diariesテーブルのデータを全件取得
+        //useしてるDiaryモデルのallメソッドを実施
+        //all()はテーブルのデータを全て取得するメソッド
+        $diaries = Diary::all(); 
 
-    dd($diaries);
-}
+        dd($diaries);  //var_dump()とdie()を合わせたメソッド。変数の確認 + 処理のストップ
+    }
 ```
 
 ### Viewの作成
