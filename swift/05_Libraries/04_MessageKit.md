@@ -303,3 +303,80 @@
 10. 実行してみる
 
 	<img src="./img/MessageKitProject01.gif" width="300px">
+
+11. 送信したメッセージに応じて返信をするメソッドを作成する
+
+	1. 以下のメソッドを```ViewController```内に追記する
+
+		```
+		func createResponse(text: String) -> Message {
+			let chatUser = ChatUser(senderId: "9999", displayName: "UserName");
+			if text == "こんにちは" {
+				return Message(user: chatUser, text: "Hello", messageId: UUID().uuidString, sentDate: Date())
+			}
+			
+			return Message(user: chatUser, text: "よくわかりません", messageId: UUID().uuidString, sentDate: Date())
+		}
+		```
+
+		追記後の```ViewController```
+
+		```
+		class ViewController: MessagesViewController {
+			/// 全てのメッセージを保持する配列
+			var messageList: [Message] = []
+			
+			override func viewDidLoad() {
+				super.viewDidLoad()
+				messagesCollectionView.messagesDataSource = self
+				messagesCollectionView.messagesLayoutDelegate = self
+				messagesCollectionView.messagesDisplayDelegate = self
+				
+				messageInputBar.delegate = self
+			
+			}
+			
+			/// レスポンスのメッセージを作成する
+			///
+			/// - Parameter text: 送信したメッセージ
+			/// - Returns: レスポンスメッセージ
+			func createResponse(text: String) -> Message {
+				let chatUser = ChatUser(senderId: "9999", displayName: "UserName");
+				if text == "こんにちは" {
+					return Message(user: chatUser, text: "Hello", messageId: UUID().uuidString, sentDate: Date())
+				}
+				
+				return Message(user: chatUser, text: "よくわかりません", messageId: UUID().uuidString, sentDate: Date())
+			}
+		}
+		```
+
+	2. 作成した```createResponse```メソッドを```inputBar```メソッド内で使用する。  
+	```inputBar```メソッドを以下のように修正する
+
+		```
+		func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
+			// 自分の情報を取得
+			let me = self.currentSender() as! ChatUser
+			
+			// 自分の情報、送信されたテキストからMessageオブジェクト作成
+			let newMessage = Message(user: me, text: text, messageId: UUID().uuidString, sentDate: Date())
+			
+			// 全メッセージを保持する配列に新しいメッセージを追加
+			messageList.append(newMessage)
+			
+			// 新しいメッセージを画面に追加
+			messagesCollectionView.insertSections([messageList.count - 1])
+			
+			let responseMessage = createResponse(text: text)
+			messageList.append(responseMessage)
+			messagesCollectionView.insertSections([messageList.count - 1])
+			
+			// 入力バーの入力値リセット
+			inputBar.inputTextView.text = ""
+		}
+		```
+
+12. 実行してみる
+
+	<img src="./img/MessageKitProject02.gif" width="300px">
