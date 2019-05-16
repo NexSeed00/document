@@ -4,10 +4,10 @@
 - MessageKitライブラリが使えるようになる
 
 ## 使用するライブラリ
-	<a href="https://github.com/MessageKit/MessageKit" target="_blank">MessageKit</a>
+<a href="https://github.com/MessageKit/MessageKit" target="_blank">MessageKit</a>
 
 ## 作成するアプリ
-	<img src="./img/KolodaProject.gif" target="_blank" width="300px">
+<img src="./img/MessageKitProject02.gif" target="_blank" width="300px">
 
 ## 開発の流れ
 1. プロジェクトを作成する
