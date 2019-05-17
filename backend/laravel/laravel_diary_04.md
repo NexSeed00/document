@@ -1,6 +1,6 @@
 ## 新規投稿機能の作成
 ### 学ぶこと
-このカリキュラムでは、投稿画面の作成と保存処理の作成を通して以下のことを学びます。  
+このカリキュラムでは、新規投稿機能の作成を通して以下のことを学びます。  
 1. ブラウザからURLを入力して、画面が表示されるまでの流れ(復習)
 2. フォームからデータを送信する方法
 3. データを保存する方法
@@ -32,11 +32,11 @@ createメソッドを追加します。
         //省略
     }
 
-public function create()
-{
-    // views/diaries/create.blade.phpを表示する
-    return view('diaries.create');
-}
+    public function create()
+    {
+        // views/diaries/create.blade.phpを表示する
+        return view('diaries.create');
+    }
 ```
 
 ### ビューの作成(投稿画面)

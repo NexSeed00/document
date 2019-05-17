@@ -1,33 +1,62 @@
 ## 編集機能の作成
-### 今回学ぶこと
+### 学ぶこと
+このカリキュラムでは、編集機能の作成を通して以下のことを学びます。  
+1. フォームからデータを送信する方法(復習)
+2. 既存のデータを更新する方法
+3. バリデーションの方法(復習)
 
-### Routeの設定
-```
-Route::get('diary/edit', 'DiaryController@edit')->name('diary.edit');
-Route::put('diary/update', 'DiaryController@update')->name('diary.update');
+実施することは新規作成とほとんど同じです。  
+
+### ルートの設定
+まずはいつも通りルートの設定です。  
+今回は編集画面と、更新処理を作成します。  
+
+```php
+Route::get('diary/edit', 'DiaryController@edit')->name('diary.edit'); // 編集画面
+Route::put('diary/update', 'DiaryController@update')->name('diary.update'); //更新処理
 ```
 
-### 一覧画面にリンクを追加
-index.blade.phpの繰り返しの中に以下を追加
-```
+### 一覧画面に編集ボタンを追加
+一覧画面から編集画面に移動できるように「編集」ボタンのリンクを作成します。  
+
+
+```php
+// view/diaries/index.blade.php
+
 <a class="btn btn-success" href="{{ route('diary.edit', ['id' => $diary->id]) }}">編集</a>
+
+<form action="{{ route('diary.destroy', ['id' => $diary->id]) }}" method="post" class="d-inline">
+    @csrf
+    @method('delete')
+    <button class="btn btn-danger">削除</button>
+</form>
+
 ```
 
-### Contorollerの編集(編集画面)
-```
+### コントローラーの編集(編集画面)
+一覧画面の編集ボタンがクリックされた時の処理を作成します。  
+まずはコントローラーの呼び出しまで正しく動作するか確認します。  
+
+```php
+// app/Http/Controllers/DiaryController
+
 public function edit(int $id)
 {
     dd($id);
 }
 ```
-一覧画面の編集リンクをクリックし、
-画面にクリックしたデータのidが表示されることを確認
 
-以下の通り編集
-```
+一覧画面の編集リンクをクリックし、  
+画面にクリックしたデータのidが表示されることを確認できたら、  
+以下の通り編集します。  
+
+```php
+// app/Http/Controllers/DiaryController
+
 public function edit(int $id)
 {
-    $diary = Diary::find($id);
+     //Diaryモデルを使用して、diariesテーブルから$idと一致するidをもつデータを取得
+    $diary = Diary::find($id); 
 
     return view('diaries.edit', [
         'diary' => $diary,
@@ -35,9 +64,11 @@ public function edit(int $id)
 }
 ```
 
-### Viewの作成(編集画面)
-diaries/edit.blade.phpを作成
-```
+### ビューの作成(編集画面)
+次にコントローラーから呼び出されるビューを作成します。  
+
+```php 
+// view/diaries/edit.blade.php
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -79,15 +110,32 @@ diaries/edit.blade.phpを作成
 </body>
 </html>
 ```
-createと違う箇所は3つ
-- titleタグの中身
-- formのaction
-- old()の中身
-  - old('title', $diary->title)
-    - 第2引数がデフォルト値になる
 
-### Contorollerの編集(更新画面)
-```
+これで編集画面は作成できました。  
+ほとんど新規投稿の画面と同じですが、  
+3点異なる箇所があります。  
+1. メソッドの指定方法
+2. routeに第2引数がある。
+3. 値の保持
+
+1, 2の2箇所は削除ボタンと同じため、  
+ここでの説明は割愛します。  
+
+#### 値の保持
+値の保持ですが、  
+編集画面では、①**DBに登録されてる内容をデフォルト値として表示**したいです。  
+また、新規登録と同様、②**バリデーションにひっかかった際は、入力値を保持**したいです。  
+
+これは2つ同時に新規投稿機能のバリデーションの時に使用した、  
+`{{ old }}`で実現できます。  
+oldの第1引数に②の内容、第2引数に①の内容を記述します。  
+
+
+
+### コントローラーの編集(更新画面)
+最後に編集ページの更新ボタンを押した時の処理を記述します。  
+
+```php
 public function update(int $id, CreateDiary $request)
 {
     $diary = Diary::find($id);
@@ -99,11 +147,26 @@ public function update(int $id, CreateDiary $request)
     return redirect()->route('diary.index'); //一覧ページにリダイレクト
 }
 ```
-更新日時は勝手に更新されている
+
+diariesに設定されている`updated_at`カラムは自動で更新されます。  
+処理の内容はほとんど新規投稿と同じです。
+
+異なる部分は、 
+新規投稿の場合、新しくDBにデータを保存するのに対して、  
+更新の場合、既存のデータを使用するため、  
+`$diary = Diary::find($id);`のように`find`メソッドを使用して  
+既存のデータを取得しています。  
+
 
 ### バリデーション
-新規作成の時と同じ条件で問題ないため、
-変更なし
+新規作成の時と同じ条件で問題ないため、同じもの`CreateDiary`を使用してます。  
 
 ### まとめ
-ここまで一通りのCRUD機能が完成しました。
+ここまで一通りのCRUD機能が完成しました。  
+このカリキュラムまでに実施した内容が土台となるので、  
+復習で改めて一覧機能の表示から投稿、削除、編集まで
+実施してみてください。  
+
+抑えるべき最も重要なポイントは、  
+**ユーザーがURLを入力してから画面を表示するまでのフロー**
+です。  

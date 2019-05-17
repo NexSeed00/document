@@ -11,7 +11,6 @@
 ```php
 // routes/web.php
 
-Route::post('diary/create', 'DiaryController@store')->name('diary.create'); // 保存処理
 Route::delete('diary/{id}/delete', 'DiaryController@destroy')->name('diary.destroy'); // 削除処理
 ```
 
