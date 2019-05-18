@@ -14,6 +14,7 @@
 1. メッセージの文字の色を変える
 2. メッセージの背景色を変える
 3. メッセージのスタイルを変える
+4. アイコンを設定する
 
 ### 1. メッセージの文字の色を変える
 1. ``` extension ViewController: MessagesDisplayDelegate ``` 内に以下のメソッドを追記する。
@@ -87,5 +88,31 @@
 		}
 		
 		return .bubbleTail(corner, .curved)
+	}
+	```
+
+### 4. アイコンを設定する
+
+1. ``` extension ViewController: MessagesDisplayDelegate ``` 内に以下のメソッドを追記する。
+
+	```
+	func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
+		<#code#>
+	}
+	```
+
+2. 先程追加したメソッドを以下のように修正する
+
+	```
+	func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
+		if isFromCurrentSender(message: message) {
+			// 自分が送信したメッセージの場合
+			let avatar = Avatar(initials: "自分")
+			avatarView.set(avatar: avatar)
+		} else {
+			// 自分以外が送信したメッセージの場合
+			let avatar = Avatar(initials: "相手")
+			avatarView.set(avatar: avatar)
+		}
 	}
 	```
