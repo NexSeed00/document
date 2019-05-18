@@ -24,10 +24,10 @@ Route::delete('diary/{id}/delete', 'DiaryController@destroy')->name('diary.destr
 削除ボタンの作成方法は投稿ボタンとほとんど同じです。
 
 2点異なる箇所があります。  
-1. メソッドの指定方法
+1. フォームのメソッドの指定方法
 2. routeに第2引数がある
 
-#### メソッドの指定方法
+#### フォームのメソッドの指定方法
 HTMLの仕様上GETとPOST以外のメソッドを使用できないため、  
 フォームのmethodはPOSTにして、実際使用したいメソッドは、  
 `@method('delete')`といった形でフォームの中に書きます。  
