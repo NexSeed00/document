@@ -1,43 +1,99 @@
-## 認証機能(事前準備)
-### 今回学ぶこと
+# 認証機能(事前準備)
 
-### 事前準備
-新たにユーザーのデータを扱うための事前準備をします。
-#### user_idカラムをDiariesテーブルに追加
-`php artisan make:migration add_user_id_to_diaries --table=diaries`
-`php artisan migrate:fresh`
-    - `php artisan migrate`だと今までの投稿にuser_idがないため、通常NULLになるが、user_idはNULLを許容せずエラーになるため、作り直す
+## 学ぶこと
+このカリキュラムでは認証機能(サインアップ、ログイン)作成の準備を通して以下のことを学びます。  
+1. 既存のテーブルへのカラムの追加
+2. テーブルのリレーション
+3. テストデータの作成
 
-#### UserとDiaryのリレーションをモデルに追加
+以下の順番で学びます。  
+1. diariesテーブルにuser_idカラムを追加
+2. UserとDiaryのリレーションの定義
+3. usersテーブルにテストデータを作成する準備
+4. diaryesテーブルにテストデータを作成する準備
+5. テストデータの作成
+
+
+## diariesテーブルにuser_idカラムを追加
+どのユーザーが日記を投稿したかわかるようにします。
+
+以下のコマンドを実行してください。
+
+```php
+// user_idをdiariesテーブルに追加するためのマイグレーションファイルを作成
+php artisan make:migration add_user_id_to_diaries --table=diaries
+
+// マイグレーションの実行
+php artisan migrate:fresh
 ```
+
+マイグレーションの際に`php artisan migrate`ではなく、`php artisan migrate:fresh`理由を説明します。    
+新たにカラムを追加する場合、追加したカラムの値は`NULL`になります。  
+しかし、`user_id`には投稿したユーザーのidを入れるため、NULLを許可しないように設定します。  
+そのため、普通に`php artisan migrate`をしてしまうと、`user_id`カラムには`NULL`が許可されていないということでエラーになります。  
+
+
+## UserとDiaryのリレーションの定義
+Userは複数のDiaryを持つため、テーブルの関係性は、**1対多** となります。  
+Laravelではテーブルのリレーション(関係性)も簡単に表すことができます。  
+
+1対多のリレーションを表す場合は以下のようになります。  
+```php
+// app/User
+
 public function diaries()
 {
     return $this->hasMany('App\Diary');
 }
 ```
 
-#### usersテーブルにデータを挿入するSeederの作成
+### 参考リンク
+[1対多のリレーション](https://readouble.com/laravel/5.7/ja/eloquent-relationships.html#one-to-many)
+
+
+3. usersテーブルにテストデータを作成する準備
+## usersテーブルにデータを挿入するSeederの作成
+
+以下のコマンドでテストデータ作成用のファイルを作成します。  
 `php artisan make:seeder UsersTableSeeder`
 
-```
+作成したファイルの内容を以下のように変更してください。  
+
+```php
+// database/seeds/UsersTableSeeder.php
+
+use Illuminate\Database\Seeder;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
-public function run()
+class UsersTableSeeder extends Seeder
 {
-    DB::table('users')->insert([
-        'name' => 'pikopoko',
-        'email' => 'pikopoko@gmail.com',
-        'password' => bcrypt('123456'),
-        'created_at' => Carbon::now(),
-        'updated_at' => Carbon::now(),
-    ]);
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        DB::table('users')->insert([
+            'name' => 'pikopoko',
+            'email' => 'pikopoko@gmail.com',
+            'password' => bcrypt('123456'),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+    }
 }
 ```
 
-#### diariesテーブルにデータを挿入するSeederの編集
+## diaryesテーブルにテストデータを作成する準備
 
-```
+diariesテーブルにカラムを追加したため、  
+投入するテストデータも変更します。  
+
+```php
+// database/seeds/DiariesTableSeeder.php
+
 public function run()
 {
     $user = DB::table('users')->first(); //追加
@@ -70,15 +126,19 @@ public function run()
 }
 ```
 
-#### DBにデータの挿入
-usersとdiariesのseederを同時に実行するために
-seeds/DatabaseSeeder.phpを編集
-```
+## テストデータの作成
+
+今回作成した2つのテストデータを同時に作成するため、  
+`DatabaseSeeder.php`の`run`メソッドを以下のように編集します。  
+```php
+// database/seeds/DatabaseSeeder.php
+
 public function run()
 {
     $this->call(UsersTableSeeder::class);
     $this->call(DiariesTableSeeder::class);
 }
 ```
+
+最後に以下のコマンドを実行してDBにデータが作成されていることを確認します。  
 `php artisan db:seed`
-データベースにデータが入ってることを確認する
