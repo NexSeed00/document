@@ -1,67 +1,127 @@
-## 認証機能の作成
-コマンド1つで必要なファイル群を作成してくれる
+# 認証機能の作成
+
+## 学ぶこと
+認証機能の作成について学びます。  
+
+Laravelでは認証機能もコマンド1つで作成できます。
+以下のコマンドを実行することで認証機能が作成できます。  
 `php artisan make:auth`
 
-### コマンド実行で変更される内容
-#### 編集されるファイル
-`web.php`
-Auth::routes();が追記される
-    - 会員登録画面や、ログイン画面へのroute
 
-#### 追加されるファイル(ディレクトリ)
+## コマンド実行で変更される内容
+### 編集されるファイル
+
+```php
+// routes//web.php
+
+// Auth::routes();が追記されます。  
+Auth::routes();
+
+```
+会員登録画面や、ログイン画面へのroute
+`php artisan route:list`でどのコントローラーが使用されるか確認できます。  
+
+
+### 追加されるファイル(ディレクトリ)
+```php
+
 app/Http/Controllers/HomeController.php
-	resources/views/auth/
-	resources/views/home.blade.php
-	resources/views/layouts/
+resources/views/auth/
+resources/views/home.blade.php
+resources/views/layouts/
 
-### その他変更する箇所
-- アカウント登録した後の画面を変更
-RegisterController
-```
-- protected $redirectTo = '/home';
-+ protected $redirectTo = '/';
 ```
 
-- ログイン後の画面を変更
-LoginController
-```
-- protected $redirectTo = '/home';
-+ protected $redirectTo = '/';
+## ファイルの修正
+今回作成されるアプリに合わせていくつか変更、削除します。
+ 
+```php
+
+// app/Http/Controllers/Auth/RegisterController
+
+// アカウント登録後のリダイレクト先を/homeから/に変更
+protected $redirectTo = '/';
+
 ```
 
-### 表示するページの制御
-#### 一覧以外のページはログインしていないと表示できないようにする
+```php
+
+// app/Http/Controllers/Auth/RegisterController
+
+// ログイン後のリダイレクト先を/homeから/に変更
+protected $redirectTo = '/';
+
 ```
+
+```php
+
+// app/Http/Middleware/RedirectIfAuthenticated.php
+
+return redirect('/');
+
+```
+
+以下のように`web.php`を変更してください。  
+`Route::get('/home', 'HomeController@index')->name('home');`は不要なため削除  
+
+```php
+
+// routes//web.php
+
+Route::get('/', 'DiaryController@index')->name('diary.index');
+
+
+// 一覧以外のページはログインしていないと表示できないように変更
 Route::group(['middleware' => 'auth'], function() {
     Route::get('diary/create', 'DiaryController@create')->name('diary.create');
-    Route::post('diary/create', 'DiaryController@store')->name('diary.store');
+    Route::post('diary/create', 'DiaryController@store')->name('diary.create');
     
-    Route::get('diary/{id}/edit', 'DiaryController@edit')->name('diary.edit');
-    Route::put('diary/{id}/update', 'DiaryController@update')->name('diary.update');
+    Route::get('diary/{diary}/edit', 'DiaryController@edit')->name('diary.edit');
+    Route::put('diary/{diary}/update', 'DiaryController@update')->name('diary.update');
     
-    Route::delete('diary/{id}/delete', 'DiaryController@destroy')->name('diary.destroy');    
+    Route::delete('diary/{diary}/delete', 'DiaryController@destroy')->name('diary.destroy');    
 });
+
+Auth::routes();
+
 ```
 
-#### ログイン前のみ表示できるページのリダイレクト先変更
-`app/Http/Middleware/RedirectIfAuthenticated.php`
-```
-- return redirect('/home');
-+ return redirect('/');
-```
+`Route::group(['middleware' => 'auth'], function() {})`で囲んだルートは、  
+ログインしてない場合、表示できなくなります。  
 
-### おまけ(授業ではやらない)
-#### 全画面のheaderにログイン/ログアウトのボタンが表示されるようにする
-index.blade.php, create.blad.php, edit.blade.phpを以下のように編集
-```
+#### 参考リンク
+[ルート](https://readouble.com/laravel/5.7/ja/routing.html)
+
+
+## 不要なファイルの削除
+以下のビューも使用しないため削除します。  
+`resources/views/home.blade.php`  
+`resources/views/welcome.blade.php`  
+
+
+## 認証画面へのリンクを表示
+最初に実行したコマンドで、  
+認証画面へのリンクつきのテンプレートが作成されているため、  
+それを使用するように以下のファイルを変更します。  
+
+```php
+// resources/views/diares/index.blade.php
+// resources/views/diares/create.blade.php
+// resources/views/diares/edit.blade.php
+
 - @extends('layout')
 
 + @extends('layouts.app')
 ```
 
-#### validation日本語化(会員登録)
-RegisterControllerのvalidatorメソッドを以下の通り編集
-```
+## おまけ
+
+### validation日本語化(会員登録)
+
+```php
+
+// app/Http/Controllers/Auth/RegisterController
+
 return Validator::make($data, [
     'name' => 'required|string|max:255',
     'email' => 'required|string|email|max:255|unique:users',
@@ -71,10 +131,14 @@ return Validator::make($data, [
     'email' => 'メールアドレス',
     'password' => 'パスワード',
 ]);
+
 ```
 
-jp/valiadtionの必要な項目を編集
-```
+
+```php
+
+// resources/jp/validation
+
 'confirmed' => ':attribute が確認欄と一致しません。',
 'email' => ':attribute として有効な形式になっていません。',
 'min' => [
@@ -82,76 +146,112 @@ jp/valiadtionの必要な項目を編集
 ],
 'string' => ':attribute には文字を入力してください。',
 'unique' => ':attribute はすでに使用されています。',
+
 ```
 
-#### Validationの日本語化(ログイン機能)
-`lang/en/auth`を`lang/jp`にコピー
-```
+### Validationの日本語化(ログイン機能)
+1. `resources/lang/en/auth`を`resources/lang/jp`にコピー
+2. コピーした内容を以下の通り編集
+ 
+```php
+
 'failed' => 'メールアドレスまたはパスワードに誤りがあります。',
+
 ```
 
-#### パスワードの初期化
+### パスワードの初期化
+認証機能は、パスワードリセット機能も自動で作成してくれます。  
+`mailtrap`というサービスを使用することで簡単にテストできます。
+
 1. mailtrapにアカウント登録
-   .envファイルを修正
-    ```
-    MAIL_DRIVER=smtp
-    MAIL_HOST=smtp.mailtrap.io
-    MAIL_PORT=2525
-    MAIL_USERNAME=mailtrapのユーザー名
-    MAIL_PASSWORD=mailtrapのパスワード
-    MAIL_ENCRYPTION=null
-    MAIL_FROM_NAME="メールの送信者に表示される名前"
-    APP_URL=http://localhost:8000
-    MAIL_FROM_ADDRESS=メールの送信者のアドレス
-    ```
-#### 送信されるメールの内容を変更
-  `php artisan make:mail ResetPassword`
-  作成された`ResetPassword`を以下のように編集
-    ```
-    class ResetPassword extends Mailable
-    {
-        use Queueable, SerializesModels;
 
-        private $token;
+2. .envの内容を修正
+ ```
+ // .env
 
-        /**
-         * Create a new message instance.
-         *
-         * @return void
-         */
-        public function __construct($token)
-        {
-            $this->token = $token;
-        }
+ MAIL_DRIVER=smtp
+ MAIL_HOST=smtp.mailtrap.io
+ MAIL_PORT=2525
+ MAIL_USERNAME=mailtrapのユーザー名
+ MAIL_PASSWORD=mailtrapのパスワード
+ MAIL_ENCRYPTION=null
+ MAIL_FROM_NAME="メールの送信者に表示される名前"
+ APP_URL=http://localhost:8000
+ MAIL_FROM_ADDRESS=メールの送信者のアドレス
 
-        /**
-         * Build the message.
-         *
-         * @return $this
-         */
-        public function build()
-        {
-              return $this->view('mail.resetPassword', [
-                  'token' => $this->token,
-              ]);
-        }
-    }
-    ```
+ ```
 
-#### 自分で作成したメールを送信するように`User.php`を編集
-    ```
-    use App\Mail\ResetPassword;
-    use Illuminate\Support\Facades\Mail;
 
-    public function sendPasswordResetNotification($token)
-    {
-        Mail::to($this)->send(new ResetPassword($token));
-    }
-    ```
+### 送信されるメールの内容を変更
 
-    - パスワード変更後のリダイレクト先変更
-    ```
-    - protected $redirectTo = '/home';
-    + protected $redirectTo = '/';
-    ```
+以下のコマンドを実行します。  
+
+`php artisan make:mail ResetPassword`
+
+
+作成された`ResetPassword`を以下のように編集します。
+
+```php
+
+// app/Mail/ResetPassword
+
+class ResetPassword extends Mailable
+{
+  use Queueable, SerializesModels;
+
+  private $token;
+
+  /**
+   * Create a new message instance.
+   *
+   * @return void
+   */
+  public function __construct($token)
+  {
+      $this->token = $token;
+  }
+
+  /**
+   * Build the message.
+   *
+   * @return $this
+   */
+  public function build()
+  {
+        return $this->view('mail.resetPassword', [
+            'token' => $this->token,
+        ]);
+  }
+}
+
+```
+
+#### 自分で作成したメールを送信するように変更
+```php
+// app/User.php
+
+use App\Mail\ResetPassword; //追加
+use Illuminate\Support\Facades\Mail; //追加
+
+
+class User extends Authenticatable
+{
+
+ //中略
+
+public function sendPasswordResetNotification($token)
+{
+    Mail::to($this)->send(new ResetPassword($token));
+}
+
+```
+
+#### パスワード変更後のリダイレクト先を変更
+```php
+
+// app/Http/Controllers/Auth/ResetPasswordController.php
+
+protected $redirectTo = '/';
+
+```
 
