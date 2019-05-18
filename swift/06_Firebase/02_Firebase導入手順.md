@@ -38,3 +38,15 @@
 		<img src="./img/Firebase08.png">
 
 		<img src="./img/Firebase09.gif">
+
+	4. 手順通り、Firebase SDKをCocoaPodsでインストールする。
+
+	5. 〇〇xcworkspaceを開き、AppDelegateを以下のように修正する。
+
+		<img src="./img/Firebase10.png">
+
+	6. アプリを起動してみる。  
+	「Firebase がアプリに正常に追加されました。」とならない場合、シミュレーターから一度アプリをアンインストールなどしてみてください。  
+	また、確認しなくてもいいので、スキップしても大丈夫です。
+
+		<img src="./img/Firebase11.png">
