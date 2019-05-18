@@ -31,3 +31,10 @@
 		<img src="./img/Firebase06.png">
 
 		<img src="./img/Firebase07.png">
+
+	3. 「GoogleService-info.plist」をダウンロードする。
+	ダウンロードしたGoogleService-info.plistを、Xcode プロジェクトのルートに移動する。
+
+		<img src="./img/Firebase08.png">
+
+		<img src="./img/Firebase09.gif">
