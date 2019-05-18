@@ -1,12 +1,24 @@
-## Viewファイルの編集
-今viewファイルはheadなどが全て同じです。
-全く同じ処理を何度も書いてる状態を改善します。
-共通部分を切り出し、ページ毎に異なる部分だけを
-各ページのファイルに記述するようにします。
+# ビューのテンプレート
 
-### 共通部分を記述するファイルを作成 
-- layout.blade.phpを作成
-```
+## テンプレートの継承
+先程までのカリキュラムで、  
+一覧、投稿、編集ページを作成しました。  
+これらのページではヘッダーに同じことを記述してます。  
+このWebアプリに限らず、多くのWebアプリでは、  
+ヘッダーやフッターなど、共通部分が多くあります。  
+今回はそれらを共通化します。  
+
+大まかな流れとしては、
+1. 共通部分を記述するファイル(テンプレート)の作成 
+2. 各ページごとに異なる部分(セクション)の作成
+です。
+
+### 共通部分を記述するファイル(テンプレート)の作成 
+`layout.blade.php`というファイルを、`resources/views/`に作成しましょう。  
+
+```php
+// resources/views/layout.blade.php
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +26,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/css/app.css">
-    <title>@yield('title')</title>
+    <title>@yield('title')</title>
 </head>
 <body>
     @yield('content')
@@ -22,9 +34,23 @@
 </html>
 ```
 
-### ページごとに内容が変わる部分を修正
-- index.blade.php
-```
+#### @yield
+`@yield`というのが新しく登場しました。  
+各ページごとの異なる内容を入れたい部分に`@yield`を入れます。  
+
+`@yield`の後ろの`()`中に関しては後述します。  
+
+### 各ページごとに異なる部分(セクション)の作成
+全体で共通のテンプレートを作成できたので、  
+次に各ページの異なる部分を作成します。  
+
+ここでは一覧ページを使用して説明します。  
+一覧ページの内容を以下の内容に変更して、ページを表示しましょう。  
+特に画面の表示が変わってなければOKです。  
+
+```php
+// resources/views/diaries/index.blade.php
+
 @extends('layout')
 
 @section('title')
@@ -51,4 +77,26 @@
 @endsection
 ```
 
+新たに`@extends`と`@section`が出てきたので、それらについて説明します。  
+
+
+#### @extends
+使用するテンプレートを決めます。  
+`@extends(テンプレート名)`と書きます。  
+テンプレート名は、ファイル名の`.blade.php`より前の部分です。
+今回の場合、`@extends('layout')`で、`layout.blade.php`を使用してます。  
+
+#### @section
+テンプレートの中に表示するセクションを決めます。  
+`@section(セクション名)`と書きます。
+セクションの終わりに`@endsection`と書きます。  
+セクション名は、テンプレートの`@yield(セクション名)`の部分に表示されます。  
+
+今回の場合、  
+`@section('title')`が`@yield('title')`の部分に表示され、    
+`@section('content')`が`@yield('content')`の部分に表示されます。  
+
 同じ要領で、create.blade.phpとedit.blade.phpも実施してみましょう。
+
+## 参考リンク
+[Bladeテンプレート](https://readouble.com/laravel/5.7/ja/blade.html)

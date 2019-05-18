@@ -347,6 +347,9 @@ public function index()
 </html>
 ```
 
+#### 参考リンク
+[Bladeテンプレート](https://readouble.com/laravel/5.7/ja/blade.html)
+
 ここまでで、
 URLを入力して画面が表示されるまでの流れは、    
 1. web.phpで使用するコントローラーとメソッドの確認
