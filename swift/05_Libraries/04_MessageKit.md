@@ -32,7 +32,7 @@
 		![Swiftロゴ](./img/MessageKit01.png)
 	
 	2. プロジェクトを実行してみる
-		<img src="./img/MessageKit02.png" width="300px">
+	<img src="./img/MessageKit02.png" width="300px">
 
 3. 必要なグループとファイルを作成する
 	
