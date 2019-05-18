@@ -15,48 +15,50 @@
 2. メッセージの背景色を変える
 
 ### 1. メッセージの文字の色を変える
+1. ``` extension ViewController: MessagesDisplayDelegate ``` 内に以下のメソッドを追記する。
 
-	1. ``` extension ViewController: MessagesDisplayDelegate ``` 内に以下のメソッドを追記する。
-		```
-		func textColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
+	```
+	func textColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
 
-		}
-		```
+	}
+	```
 
-	2. 先程追加したメソッドを以下のように修正する
-		```
-		func textColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
-			if isFromCurrentSender(message: message) {
-				// 自分が送信したメッセージの場合
-				return .black
-			} else {
-				// 自分以外が送信したメッセージの場合
-				return .blue
-			}     
-		}
-		```
+
+2. 先程追加したメソッドを以下のように修正する
+	
+	```
+	func textColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
+		if isFromCurrentSender(message: message) {
+			// 自分が送信したメッセージの場合
+			return .black
+		} else {
+			// 自分以外が送信したメッセージの場合
+			return .blue
+		}     
+	}
+	```
 
 
 ### 2. メッセージの背景色を変える
 
-	1. ``` extension ViewController: MessagesDisplayDelegate ``` 内に以下のメソッドを追記する。
+1. ``` extension ViewController: MessagesDisplayDelegate ``` 内に以下のメソッドを追記する。
 
-		```
-		func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
-			<#code#>
-		}
-		```
+	```
+	func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
+		<#code#>
+	}
+	```
 
-	2. 先程追加したメソッドを以下のように修正する
+2. 先程追加したメソッドを以下のように修正する
 
-		```
-		func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
-			if isFromCurrentSender(message: message) {
-				// 自分が送信したメッセージの場合
-				return .white
-			} else {
-				// 自分以外が送信したメッセージの場合
-				return .orange
-			}    
-		}
-		```
+	```
+	func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
+		if isFromCurrentSender(message: message) {
+			// 自分が送信したメッセージの場合
+			return .white
+		} else {
+			// 自分以外が送信したメッセージの場合
+			return .orange
+		}    
+	}
+	```
