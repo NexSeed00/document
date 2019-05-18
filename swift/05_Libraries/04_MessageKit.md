@@ -12,9 +12,11 @@
 ## 開発の流れ
 1. プロジェクトを作成する
 2. 画面の部品を配置する
-3. 画像を用意する
-4. ViewControllerにDelegateとDataSourceを追記する
-5. Kolodaの設定を追記する
+3. 必要なグループとファイルを作成する
+4. 必要なクラスを定義する
+5. ViewControllerでMessageKitを扱えるよう修正する
+6. チャットのデータの設定をする
+7. 送信ボタンの処理を設定する
 
 ## 開発しよう
 1. プロジェクトを作成する
@@ -32,7 +34,7 @@
 		![Swiftロゴ](./img/MessageKit01.png)
 	
 	2. プロジェクトを実行してみる
-		<img src="./img/MessageKit02.png" width="300px">
+	<img src="./img/MessageKit02.png" width="300px">
 
 3. 必要なグループとファイルを作成する
 	
@@ -270,7 +272,7 @@
 		}
 		```
 
-		> UUIDを使用すると、アプリ内で一意になるIDをを作成することができます。
+		> UUIDを使用すると、アプリ内で一意になるIDを作成することができます。
 
 8. 以下のプログラムを```UIViewController.swift```に追記する
 
