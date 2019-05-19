@@ -192,3 +192,13 @@
 	名前：HomeViewController
 	
 		<img src="./img/Firebase23.gif " />
+		
+	3. 配置した部品をHomeViewController.swiftに接続する。
+
+		|部品|接続時のName|
+		|---|---|
+		|ImageView|userImageView|
+		|UILabel（メールアドレス）|mailLabel|
+		|UILabel（名前）|nameLabel|
+		
+		<img src="./img/Firebase24.png" />
