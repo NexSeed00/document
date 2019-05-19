@@ -46,7 +46,7 @@ protected $redirectTo = '/';
 
 ```php
 
-// app/Http/Controllers/Auth/RegisterController
+// app/Http/Controllers/Auth/LoginController
 
 // ログイン後のリダイレクト先を/homeから/に変更
 protected $redirectTo = '/';
