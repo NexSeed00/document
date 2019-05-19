@@ -2,7 +2,7 @@
 
 1. Firebaseプロジェクトを作成する
 	
-	1. 以下のリンクをクリックし、「使ってみる」をクリックする
+	1. 以下のリンクをクリックし、「使ってみる」をクリックする  
 		<a href="https://firebase.google.com/?hl=ja">Firebase</a>
 		
 		<img src="./img/Firebase01.png">
