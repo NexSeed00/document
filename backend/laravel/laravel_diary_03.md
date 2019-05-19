@@ -375,3 +375,24 @@ URLを入力して画面が表示されるまでの流れは、
 ファイルの管理のしやすさなどメリットを感じる部分も出てきます。  
 
 まずは深く考えるよりも、たくさん書いてなれていきましょう。
+
+## おまけ
+
+### 日記の並び順に関して
+現在並び順がIDの昇順(最初に作成したものが上)になってます。  
+以下のように修正するとIDの降順になります。  
+
+```php
+
+// app/Http/Controllers/DiaryController
+public function index()
+{
+    $diaries = Diary::orderBy('id', 'desc')->get();
+
+```
+
+その他にも`where()`を使用して条件を絞ることなどもできます。  
+以下のリンクに詳しい説明があります。  
+
+#### 参考リンク
+[クエリビルダ](https://readouble.com/laravel/5.7/ja/queries.html)
