@@ -10,8 +10,8 @@
 1. プロジェクトを作成する
 2. Google Sign Inの準備をする
 3. ログイン画面を作成する
-4. ViewControllerにDelegateとDataSourceを追記する
-5. Kolodaの設定を追記する
+4. ログイン処理を追記する
+5. ログイン後の画面を作成する
 
 ## 開発しよう
 
@@ -37,14 +37,20 @@
 		
 		<img src="./img/Firebase13.png" />
 		
-	2. 「GoogleService-Info.plist」の「REVERSED_CLIENT_ID」の値をコピーし、  
+	2. 「プロジェクトの設定」からサポートメールを設定する
+
+		<img src="./img/Firebase19.png" />
+		
+		<img src="./img/Firebase20.png" />
+		
+	3. 「GoogleService-Info.plist」の「REVERSED_CLIENT_ID」の値をコピーし、  
 	プロジェクト設定の「Info」内のURL Typesに貼り付ける。
 	
 		<img src="./img/Firebase14.png" />
 		
 		<img src="./img/Firebase15.png" />
 		
-	3. ```AppDelegate.swift```に以下のimport文を追記する
+	4. ```AppDelegate.swift```に以下のimport文を追記する
 
 		```
 		import GoogleSignIn
@@ -58,7 +64,7 @@
 		import GoogleSignIn
 		```
 		
-	4. ```AppDelegate.swift```の```application:didFinishLaunchingWithOptions:```メソッドに以下の処理を追記する
+	5. ```AppDelegate.swift```の```application:didFinishLaunchingWithOptions:```メソッドに以下の処理を追記する
 	
 		```
 		GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
@@ -75,7 +81,7 @@
 		}
 		```
 		
-	5. ```AppDelegate.swift```に以下のメソッドを追記する
+	6. ```AppDelegate.swift```に以下のメソッドを追記する
 
 		```
 		@available(iOS 9.0, *)
@@ -97,3 +103,92 @@
 	3. 実行してみる
 
 		<img src="./img/Firebase18.png" />
+		
+4. ログイン処理を追記する
+
+	1. ```ViewController.swift```に以下のimport文を追記する
+
+		```
+		import Firebase
+		import GoogleSignIn
+		```
+		
+	2. ```ViewController.swift```に以下のDelegateを追記する
+
+		- GIDSignInDelegate
+		- GIDSignInUIDelegate
+
+		追記後の```ViewController.swift```
+		
+		```
+		class ViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
+		```
+		
+	3. 以下のメソッドを```ViewController.swift```に追記する
+
+		```
+		func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+			<#code#>
+		}
+		```
+		
+	4. 追記した```sign```メソッドに以下の処理を追記する
+
+		```
+		if let error = error {
+			print("Error: \(error.localizedDescription)")
+			return
+		}
+		let authentication = user.authentication
+		// Googleのトークンを渡し、Firebaseクレデンシャルを取得する。
+		let credential = GoogleAuthProvider.credential(withIDToken: (authentication?.idToken)!,accessToken: (authentication?.accessToken)!)
+		
+		// Firebaseにログインする。
+		Auth.auth().signIn(with: credential) { (authDataResult, error) in
+			if let err = error {
+				print(err)
+			} else {
+				print("ログイン成功")
+			}
+		}
+		```
+		
+		追記後の```sign```メソッド
+		
+		```
+		func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+			if let error = error {
+				print("Error: \(error.localizedDescription)")
+				return
+			}
+			
+			let authentication = user.authentication
+			// Googleのトークンを渡し、Firebaseクレデンシャルを取得する。
+			let credential = GoogleAuthProvider.credential(withIDToken: (authentication?.idToken)!,accessToken: (authentication?.accessToken)!)
+			
+			// Firebaseにログインする。
+			Auth.auth().signIn(with: credential) { (authDataResult, error) in
+				if let err = error {
+					print(err)
+				} else {
+					print("ログイン成功")
+				}
+			}
+		}
+		```
+		
+	5. アプリを実行し、Googleでログインする。  
+	ログイン後、Firebase コンソールでユーザーを確認する。
+	
+		<img src="./img/Firebase21.png" />
+		
+5. ログイン後の画面を作成する
+
+	1. 以下のような画面になるよう部品を配置する
+
+		<img src="./img/Firebase22.png" />
+		
+	2. 新しい画面のViewControllerを作成する  
+	名前：HomeViewController
+	
+		<img src="./img/Firebase23.gif" />
