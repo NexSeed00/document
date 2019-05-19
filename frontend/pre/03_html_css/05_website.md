@@ -292,11 +292,18 @@ HTMLの記述ができたので、CSSをつけるためにクラスをつけま�
 - nth-child(first-child)
 
 ### 使用してるカラーコード
+CSSでは色の指定をする方法が複数あり、  
+ここでは16進数という英数字を使用するやり方で色を指定してます。  
+
 - headerの背景の水色: #1dace0 
 - headerの黄色の文字: #eae51f
 - 白い文字: #fff
 - 灰色の文字: #ddd
 - footerの紺色の背景: #233f51
+
+#### 参考リンク
+[色 | MDN](https://developer.mozilla.org/ja/docs/Web/Guide/CSS/Getting_started/Color)  
+[Color | MDN](https://developer.mozilla.org/ja/docs/Web/CSS/color)
 
 ### 回答
 回答となるフォルダは`answer/welcome_nexseed` です。  
