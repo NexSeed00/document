@@ -186,9 +186,9 @@
 
 	1. 以下のような画面になるよう部品を配置する
 
-		<img src="./img/Firebase22.png" />
+		<img src="./img/Firebase22.png" width="300px" />
 		
 	2. 新しい画面のViewControllerを作成する  
 	名前：HomeViewController
 	
-		<img src="./img/Firebase23.gif" />
+		<img src="./img/Firebase23.gif " />
