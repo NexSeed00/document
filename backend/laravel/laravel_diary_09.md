@@ -71,7 +71,7 @@ return redirect('/');
 Route::get('/', 'DiaryController@index')->name('diary.index');
 
 
-// 一覧以外のページはログインしていないと表示できないように変更
+// 一覧以外のページはログインしていないと表示(実行)できないように変更
 Route::group(['middleware' => 'auth'], function() {
     Route::get('diary/create', 'DiaryController@create')->name('diary.create');
     Route::post('diary/create', 'DiaryController@store')->name('diary.create');
@@ -109,9 +109,32 @@ Auth::routes();
 // resources/views/diares/create.blade.php
 // resources/views/diares/edit.blade.php
 
-- @extends('layout')
+@extends('layouts.app') // 変更
+```
 
-+ @extends('layouts.app')
+## 投稿時に投稿したユーザーのIDも保存されるように変更
+認証機能とは直接関係はないですが、  
+投稿したユーザーを保存するようにテーブルを変更してるため、  
+それに合わせて投稿処理も変更します。  
+
+```php
+
+// app/Http/Controllers/DiaryController
+
+use Illuminate\Support\Facades\Auth;
+
+public function store(CreateDiary $request)
+{
+    $diary = new Diary(); //Diaryモデルをインスタンス化
+
+    $diary->title = $request->title; //画面で入力されたタイトルを代入
+    $diary->body = $request->body; //画面で入力された本文を代入
+    $diary->user_id = Auth::user()->id; //追加 ログインしてるユーザーのidを保存
+    $diary->save(); //DBに保存
+
+    return redirect()->route('diary.index'); //一覧ページにリダイレクト
+}
+
 ```
 
 ## まとめ
