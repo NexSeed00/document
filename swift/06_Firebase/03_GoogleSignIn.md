@@ -4,7 +4,7 @@
 - Google Sign in ができるようになる
 
 ## 作成するアプリ
-<img src="./img/KolodaProject.gif" width="300px">
+<img src="./img/Firebase26.gif" width="300px">
 
 ## 開発の流れ
 1. プロジェクトを作成する
@@ -12,6 +12,7 @@
 3. ログイン画面を作成する
 4. ログイン処理を追記する
 5. ログイン後の画面を作成する
+6. ログイン後の画面遷移を設定する
 
 ## 開発しよう
 
@@ -202,3 +203,93 @@
 		|UILabel（名前）|nameLabel|
 		
 		<img src="./img/Firebase24.png" />
+		
+	4. HomeViewControllerの```viewDidLoad```に以下の処理を追記する
+
+		```
+		// ログイン中ユーザー取得
+		let user = Auth.auth().currentUser!
+		do {
+			// URLからプロフィール写真を取得・設定
+			let data = try Data(contentsOf: user.photoURL!)
+			let image = UIImage(data: data)
+			
+			// 取得したプロフィール写真を設定
+			userImageView.image = image
+			
+			// メールアドレスをラベルに設定
+			mailLabel.text = user.email
+			
+			// 名前をラベルに設定
+			nameLabel.text = user.displayName
+		} catch let err {
+			print("Error : \(err.localizedDescription)")
+		}
+		```
+		
+		追記後の```viewDidLoad```
+		
+		```
+		override func viewDidLoad() {
+			super.viewDidLoad()
+			
+			// ログイン中ユーザー取得
+			let user = Auth.auth().currentUser!
+			do {
+				// URLからプロフィール写真を取得・設定
+				let data = try Data(contentsOf: user.photoURL!)
+				let image = UIImage(data: data)
+				
+				// 取得したプロフィール写真を設定
+				userImageView.image = image
+				
+				// メールアドレスをラベルに設定
+				mailLabel.text = user.email
+				
+				// 名前をラベルに設定
+				nameLabel.text = user.displayName
+			} catch let err {
+				print("Error : \(err.localizedDescription)")
+			}
+		}
+		```
+		
+6. ログイン後の画面遷移を設定する
+
+	1. Main.storyboardでSegueを追加する。  
+	Identifierに「toHome」と設定する。
+	
+		<img src="./img/Firebase25.gif " />
+		
+	2. ViewControllerの```sign```メソッドに```performSegue```の処理を追記する。
+
+		```
+		self.performSegue(withIdentifier: "toHome", sender: nil)
+		```
+		
+		追記後の```sign```メソッド
+		
+		```
+		func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+			if let error = error {
+				print("Error: \(error.localizedDescription)")
+				return
+			}
+			let authentication = user.authentication
+			// Googleのトークンを渡し、Firebaseクレデンシャルを取得する。
+			let credential = GoogleAuthProvider.credential(withIDToken: (authentication?.idToken)!,accessToken: (authentication?.accessToken)!)
+			
+			// Firebaseにログインする。
+			Auth.auth().signIn(with: credential) { (authDataResult, error) in
+				if let err = error {
+					print(err)
+				} else {
+					print("ログイン成功")
+					self.performSegue(withIdentifier: "toHome", sender: nil)
+				}
+			}
+		}
+		```
+		
+## 実行してみよう
+<img src="./img/Firebase26.gif" width="300px">
