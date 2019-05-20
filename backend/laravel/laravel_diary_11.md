@@ -290,9 +290,100 @@ count()を使用することで、今回の場合は、
 
 ## いいね解除機能
 
+### サーバへのデータ送信
+
+```JavaScript
+// public/js/diary.js
+
+// いいね解除ボタンが押されたとき
+$(document).on('click', '.js-dislike', function() {
+  let diaryId = $(this).siblings('.diary-id').val();
+
+  let $clickedBtn = $(this);
+
+  dislike(diaryId, $clickedBtn);
+})
+
+
+// いいね解除処理
+function dislike(diaryId, $clickedBtn) {
+  $.ajax({
+      url: 'diary/' + diaryId +'/dislike',
+      type: 'POST',
+      dataTyupe: 'json',
+      headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+  })
+  .then(
+      function (data) {
+          changeLikeBtn($clickedBtn);
+
+          // いいね数を1減らす
+          let num = Number($clickedBtn.siblings('.js-like-num').text());
+          $clickedBtn.siblings('.js-like-num').text(num - 1);
+      },
+      function () {
+          console.log(error);
+      }
+  )
+}
+
+
+```
+
+### サーバでの処理
+ルートは事前に設定済みなのでコントローラーでの処理を書きます。
+
+```php
+
+// app/Http/Controllers/DiaryController
+
+public function dislike(int $id)
+{
+    $diary = Diary::where('id', $id)->with('likes')->first();
+
+    $diary->likes()->detach(Auth::user()->id);
+}
+
+```
+
+これで以下のことが確認できます。
+1. likesテーブルからデータが削除される。  
+2. いいねのハートマークから色が消えます。
+3. いいね数が減少する。
 
 ## 表示切り替え
+最後にページを表示した時にいいねされてる場合は、いいね済み、  
+いいねされてない場合はいいね、  
+となるようにボタンを切り替えます。  
 
-## 投稿削除でいいねもまとめて削除
+```php
+// resources/views/diaries/index.blade.html
+
+<div class=" mt-3 ml-3">
+   @if (Auth::check() && $diary->likes->contains(function ($user) {
+       return $user->id === Auth::user()->id;
+   }))
+       <i class="fas fa-heart fa-lg text-danger js-dislike"></i>
+   @else
+       <i class="far fa-heart fa-lg text-danger js-like"></i>
+   @endif
+   <input class="diary-id" type="hidden" value="{{ $diary->id }}">
+   <span class="js-like-num">{{ $diary->likes->count() }}</span>
+</div>
+
+```
+
+記述できたらページを表示して、いいねボタンが押されてる日記と、  
+押されていない日記でいいねボタンの表示が異なることを確認しましょう。  
+
+if文に使用している`contains`メソッドに関しては公式のドキュメントを確認してください。  
+ここでのif文の意味はログインしていて、かつ、  
+ログインユーザーのidがその日記をいいねしてるユーザーのidの中に含まれていれば。  
+といった意味になります。
+
+### 参考リンク
+[contains | コレクション](https://readouble.com/laravel/5.7/ja/collections.html#method-contains)
 
 ## まとめ
