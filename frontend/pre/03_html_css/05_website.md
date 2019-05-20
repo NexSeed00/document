@@ -27,6 +27,10 @@ Google検索などしてみてください。
 各コンテンツのレイアウトなどを変更して、  
 **オリジナルのWebサイト**作成にも挑戦してみてください！
 
+コーディングは`question/welcome_nexseed`フォルダを使用して、  
+HTMLは`index.html`に、CSSは`style.css`に記述してください。  
+`index.html`をgoogle chromeにドラッグアンドドロップすることでブラウザでの確認を行えます。  
+
 ---
 
 ## 作成の流れ(概要)

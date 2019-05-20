@@ -17,7 +17,11 @@ HTMLで作成した文章を**装飾**するための言語です。
 
 カリキュラムの内容の記述は必須ではありませんが、  
 理解を深めるために、記述することを推奨しています。  
-記述される場合は、`question/css_basic`フォルダを使用してください。
+
+記述される場合は、`question/html_css/css_basic`フォルダを使用してください。  
+HTMLは`index.html`に、CSSは`style.css`に記述してください。  
+`index.html`をgoogle chromeにドラッグアンドドロップすることでブラウザでの確認は行えます。  
+
 
 ## 書き方
 CSSの書き方は大きく分けて以下の3つがあります。
@@ -143,7 +147,7 @@ CSSの構文は以下の通りシンプルなものです。
 というパターンで、行末にセミコロン（;）を書きます。  
 また、「何を: どのようにする」という部分は必要に応じて複数追加できます。
 
-<img src="http://hackers.nexseed.net/images/curriculum_images/css_1.png" alt="Overview" style="width: 80%;">
+![Overview](/img/css/css_1.png)s
 
 ### 例
 ```
@@ -247,14 +251,14 @@ div {
 ## 要素の構造
 要素の構造は、次のようになっています。
 
-![コンテンツの構造](http://hackers.nexseed.net/images/curriculum_images/css_5.png)
+![コンテンツの構造](/img/css/css_5.png)
 
 以下のボタンの例でいうと、  
 「出席」、「学習スタート」という文字が`コンテンツ`  
 黒い線が`border`  
 「出席」と黒い線の間が`padding`  
 「出席ボタン」と「学習スタートボタン」の間が`margin`となります。  
-![ボタン](./img/css/btn.png)
+![ボタン](/img/css/btn.png)
 
 marginやpaddingは以下のように指定できます。
 
