@@ -69,17 +69,21 @@
 		![SimpleChatApp](./img/SimpleChatApp09.gif)
 
 	3. ViewController.swiftに配置した部品を接続する  
-	|部品|接続時のName|
-	|UITextField|roomNameTextField|
-	|UITableView|tableView|
-	|UIButton|didClickCreateRoomButton|
+	
+		|部品|接続時のName|
+		|---|---|
+		|UITextField|roomNameTextField|
+		|UITableView|tableView|
+		|UIButton|didClickCreateRoomButton|
 
 		![SimpleChatApp](./img/SimpleChatApp10.png)
 
 	4. RoomViewController.swiftに配置した部品を接続する  
-	|部品|接続時のName|
-	|UITextField|messageTextField|
-	|UITableView|tableView|
-	|UIButton|didClickSendButton|
+	
+		|部品|接続時のName|
+		|---|---|
+		|UITextField|messageTextField|
+		|UITableView|tableView|
+		|UIButton|didClickSendButton|
 
 		![SimpleChatApp](./img/SimpleChatApp12.png)
