@@ -53,3 +53,13 @@
 			![SimpleChatApp](./img/SimpleChatApp07.gif)
 			
 			<img src="./img/SimpleChatApp08.png" width="300px">
+
+3. 各画面のViewControllerを準備する
+	
+	1. RoomViewController.swiftを作成する	
+
+		![SimpleChatApp](./img/SimpleChatApp08.gif)
+
+	2. Controllersグループを作成し、```ViewController.swift```と```RoomViewController.swift```をグループへ移動する
+
+		![SimpleChatApp](./img/SimpleChatApp09.gif)
