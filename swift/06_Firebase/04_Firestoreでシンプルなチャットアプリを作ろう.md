@@ -28,9 +28,9 @@
 			![SimpleChatApp](./img/SimpleChatApp02.gif)
 			
 		3. TableViewとTableViewCellを追加する  
-    TableViewCellのidentifierに「cell」を設定する
-
-      ![SimpleChatApp](./img/SimpleChatApp03.gif)
+		TableViewCellのidentifierに「cell」を設定する
+		
+			![SimpleChatApp](./img/SimpleChatApp03.gif)
 
   2. チャット画面を作成する
 
