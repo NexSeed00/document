@@ -31,25 +31,25 @@
 		TableViewCellのidentifierに「cell」を設定する
 		
 			![SimpleChatApp](./img/SimpleChatApp03.gif)
-
-  2. チャット画面を作成する
-
-    1. ViewControllerを追加する
-
-      ![SimpleChatApp](./img/SimpleChatApp04.png)
-
-    2. トップ画面とチャット画面に画面遷移を定義する  
-    identifierに「toRoom」を設定する
-
-      ![SimpleChatApp](./img/SimpleChatApp05.gif)
-
+	
+	2. チャット画面を作成する
+		
+		1. ViewControllerを追加する
+			
+			![SimpleChatApp](./img/SimpleChatApp04.png)
+			
+		2. トップ画面とチャット画面に画面遷移を定義する  
+		identifierに「toRoom」を設定する
+			
+			![SimpleChatApp](./img/SimpleChatApp05.gif)
+			
 		3. Viewを画面下に配置する
 
 			![SimpleChatApp](./img/SimpleChatApp06.gif)
-
+		
 		4. 配置したView内にTextFieldとButtonを配置する  
 		（配置後、幅や背景色など好みに設定してください）
-
+		
 			![SimpleChatApp](./img/SimpleChatApp07.gif)
-
+			
 			<img src="./img/SimpleChatApp08.png" width="300px">
