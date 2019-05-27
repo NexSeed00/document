@@ -54,6 +54,10 @@
 			
 			<img src="./img/SimpleChatApp08.png" width="300px">
 
+		5. TableViewを配置する
+
+			<img src="./img/SimpleChatApp11.png" width="300px">
+
 3. 各画面のViewControllerを準備する
 	
 	1. RoomViewController.swiftを作成する	
@@ -63,3 +67,19 @@
 	2. Controllersグループを作成し、```ViewController.swift```と```RoomViewController.swift```をグループへ移動する
 
 		![SimpleChatApp](./img/SimpleChatApp09.gif)
+
+	3. ViewController.swiftに配置した部品を接続する  
+	|部品|接続時のName|
+	|UITextField|roomNameTextField|
+	|UITableView|tableView|
+	|UIButton|didClickCreateRoomButton|
+
+		![SimpleChatApp](./img/SimpleChatApp10.png)
+
+	4. RoomViewController.swiftに配置した部品を接続する  
+	|部品|接続時のName|
+	|UITextField|messageTextField|
+	|UITableView|tableView|
+	|UIButton|didClickSendButton|
+
+		![SimpleChatApp](./img/SimpleChatApp12.png)
