@@ -87,3 +87,50 @@
 		|UIButton|didClickSendButton|
 
 		![SimpleChatApp](./img/SimpleChatApp12.png)
+
+4. 必要なクラスを作成する
+
+	1. ValueObjectsグループを作成する
+
+		![SimpleChatApp](./img/SimpleChatApp13.png)
+
+	2. チャットルームのデータを保持するRoomクラスを作成する。
+
+		1. Room.swiftを作成する
+
+			![SimpleChatApp](./img/SimpleChatApp14.png)
+
+		2. Room.swiftの中身を以下のように修正する。
+
+			```
+			struct Room {
+				let name: String
+				let documentId: String
+			}
+			```
+
+			> nameはトークルームの名前を保持するための変数です。  
+			> documentIdはFirestoreのドキュメントIDを保持するための変数です。
+
+			![SimpleChatApp](./img/SimpleChatApp15.png)
+
+	3. メッセージのデータを保持するMessageクラスを作成する。
+
+		1. Message.swiftを作成する
+
+			![SimpleChatApp](./img/SimpleChatApp16.png)
+
+		2. Message.swiftの中身を以下のように修正する。
+
+			```
+			struct Message {
+    		let documentId: String
+    		let text: String
+			}
+
+			```
+
+			> documentIdはFirestoreのドキュメントIDを保持するための変数です。  
+			> textはメッセージのテキストを保持するための変数です。  
+
+			![SimpleChatApp](./img/SimpleChatApp17.png)
