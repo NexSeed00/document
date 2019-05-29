@@ -20,10 +20,9 @@
 
 		```swift
 		class ViewController: UIViewController {
-
-    	@IBOutlet weak var roomNameTextField: UITextField!
-    
-    	@IBOutlet weak var tableView: UITableView!
-    
-    	var rooms: [Room] = []
+			@IBOutlet weak var roomNameTextField: UITextField!
+			
+			@IBOutlet weak var tableView: UITableView!
+			
+			var rooms: [Room] = []
 		```
