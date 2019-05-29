@@ -85,3 +85,35 @@
 			return rooms.count
 		}
 		```
+
+	4. `cellForRowAt`メソッドを、チャットルーム名を表示するよう修正する。
+
+		追記後の`cellForRowAt`メソッド
+
+		```swift
+		func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+			let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+			
+			let room = rooms[indexPath.row]
+			
+			cell.textLabel?.text = room.name
+			
+			cell.accessoryType = .disclosureIndicator
+			
+			return cell
+		}
+		```
+
+	5. `@IBOutlet weak var tableView: UITableView!`にここまでの設定を反映させる  
+	`viewDidLoad`メソッドを以下のように修正する。
+
+		修正後の`viewDidLoad`メソッド
+
+		```swift
+		override func viewDidLoad() {
+			super.viewDidLoad()
+			
+			tableView.dataSource = self
+			tableView.delegate = self
+		}
+		```
