@@ -118,6 +118,14 @@
 		}
 		```
 
+3. Firestoreを有効化する
+
+	1. 作成中アプリのFirebaseプロジェクトのコンソールを表示する
+
+	2. コンソールの「Database」を選択し、「データベースを作成」をクリックする
+
+		![SimpleChatApp](./img/SimpleChatApp18.png)
+
 3. チャットルーム作成機能を追加する
 
 	1. 作成ボタンがクリックされた時、ルーム名の空文字チェックをし、  
@@ -147,7 +155,7 @@
 		class ViewController: UIViewController {
 		```
 
-	3. チャットルームをFirestoreに登録処理を追記する
+	3. チャットルームをFirestoreに登録する処理を追記する
 
 		修正後の`didClickCreateRoomButton`メソッド
 
@@ -173,6 +181,8 @@
 					print("チャットルームを作成しました：\(roomName)")
 				}
 			}
+
+			roomNameTextField.text = ""
 		}
 
 		```
