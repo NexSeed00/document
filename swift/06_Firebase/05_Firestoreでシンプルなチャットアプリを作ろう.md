@@ -127,11 +127,51 @@
 
 		```swift
 		@IBAction func didClickCreateRoomButton(_ sender: UIButton) {
-			if roomNameTextField.text?.isEmpty {
+			if roomNameTextField.text!.isEmpty {
 				// 空文字の場合は処理を中断する
 				return
 			}
 			
-			let roomName = roomNameTextField.text
+			let roomName = roomNameTextField.text!
+		}
+		```
+
+	2. Firebaseのimport文をViewController.swiftに追記する。
+
+		追記後のViewController.swift
+
+		```swift
+		import UIKit
+		import Firebase
+		
+		class ViewController: UIViewController {
+		```
+
+	3. チャットルームをFirestoreに登録処理を追記する
+
+		修正後の`didClickCreateRoomButton`メソッド
+
+		```swift
+		@IBAction func didClickCreateRoomButton(_ sender: UIButton) {
+			
+			if roomNameTextField.text!.isEmpty {
+				// 空文字の場合は処理を中断する
+				return
+			}
+			
+			let roomName = roomNameTextField.text!
+			
+			let db = Firestore.firestore()
+			
+			db.collection("room").addDocument(data: [
+				"name": roomName,
+				"createdAt": FieldValue.serverTimestamp()
+			]) {err in
+				if let err = err {
+					print("チャットルーム作成に失敗しました: \(err)")
+				} else {
+					print("チャットルームを作成しました：\(roomName)")
+				}
+      }
 		}
 		```
