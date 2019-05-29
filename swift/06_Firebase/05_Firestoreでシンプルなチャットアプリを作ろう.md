@@ -26,3 +26,62 @@
 			
 			var rooms: [Room] = []
 		```
+
+	2. 作成した変数`rooms`の値が更新された時、TableViewをリロードするよう変数`rooms`に`didSet`を設定する
+
+		編集後の変数`rooms`
+
+		```swift
+		var rooms: [Room] = [] {
+			didSet {
+				tableView.reloadData()
+			}
+		}
+		```
+
+2. TableViewを設定する
+
+	1. `extension ViewController: UITableViewDataSource, UITableViewDelegate`をViewController.swiftに追記する。
+
+		追記後のViewController.swift
+
+		```swift
+		class ViewController: UIViewController {
+			@IBOutlet weak var roomNameTextField: UITextField!
+			
+			@IBOutlet weak var tableView: UITableView!
+			
+			// 省略
+		}
+
+		extension ViewController: UITableViewDataSource, UITableViewDelegate {
+
+		}
+		```
+
+	2. 追記したextensionにTableViewの設定に必要なメソッドを追記する。
+
+		追記後のextension
+
+		```swift
+		extension ViewController: UITableViewDataSource, UITableViewDelegate {
+			
+			func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+				<#code#>
+			}
+			
+			func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+				<#code#>
+			}
+		}
+		```
+
+	3. `numberOfRowsInSection`メソッドを、チャットルーム数を返すよう修正する。
+
+		追記後の`numberOfRowsInSection`メソッド
+
+		```swift
+		func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+			return rooms.count
+		}
+		```
