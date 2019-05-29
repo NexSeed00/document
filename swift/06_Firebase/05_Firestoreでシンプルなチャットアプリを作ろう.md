@@ -117,3 +117,21 @@
 			tableView.delegate = self
 		}
 		```
+
+3. チャットルーム作成機能を追加する
+
+	1. 作成ボタンがクリックされた時、ルーム名の空文字チェックをし、  
+	空でない場合、ルーム名を変数に入れる処理を追記する。
+
+		修正後の`didClickCreateRoomButton`メソッド
+
+		```swift
+		@IBAction func didClickCreateRoomButton(_ sender: UIButton) {
+			if roomNameTextField.text?.isEmpty {
+				// 空文字の場合は処理を中断する
+				return
+			}
+			
+			let roomName = roomNameTextField.text
+		}
+		```
