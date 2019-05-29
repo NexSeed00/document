@@ -126,6 +126,10 @@
 
 		![SimpleChatApp](./img/SimpleChatApp18.png)
 
+	3. 「テストモードで開始」を選択し、「有効にする」をクリックする
+
+		![SimpleChatApp](./img/SimpleChatApp19.png)
+
 3. チャットルーム作成機能を追加する
 
 	1. 作成ボタンがクリックされた時、ルーム名の空文字チェックをし、  
