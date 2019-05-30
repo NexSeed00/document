@@ -194,3 +194,44 @@
 5. 実行してみる
 
 	![SimpleChatApp](./img/SimpleChatApp20.gif)
+
+6. Firestoreに保存されているチャットルームを画面に表示する。
+
+	1. ViewController.swiftにFirebaseのimport文を追記する
+
+		修正後のViewController.swift
+
+		```swift
+		import UIKit
+		import Firebase
+
+		class ViewController: UIViewController {
+		```
+
+	2. Firestoreのroomコレクションの変更を検知し、コレクションが変更されるたびに実行されるイベントリスナーを定義する  
+	`viewDidLoad`メソッドに以下の処理を追記する
+
+		```swift
+		let db = Firestore.firestore()
+		db.collection("room").addSnapshotListener { (querySnapshot, error) in
+			print("変更されました")
+		}
+		```
+
+		追記後の`viewDidLoad`メソッド
+
+		```swift
+		override func viewDidLoad() {
+			super.viewDidLoad()
+			
+			tableView.dataSource = self
+			tableView.delegate = self
+
+			let db = Firestore.firestore()
+			db.collection("room").addSnapshotListener { (querySnapshot, error) in
+				print("変更されました")
+			}
+		}
+		```
+
+		![SimpleChatApp](./img/SimpleChatApp21.gif)
