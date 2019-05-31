@@ -235,3 +235,68 @@
 		```
 
 		![SimpleChatApp](./img/SimpleChatApp21.gif)
+
+		> 1回の「作成」ボタンクリックで、2回「変更されました」と出力されているのは、  
+		> iPhone本体のローカルでの変更のイベントと、リモートのFirestoreでの変更イベント2つを検知しているためです。
+
+	3. 追加したリスナー内で、チャットルームの一覧を画面に表示する処理を追記する  
+
+		以下の処理を追記する
+
+		```swift
+		guard let documents = querySnapshot?.documents else {
+			// ルームコレクション内のドキュメントが空の場合処理を中断
+			return
+		}
+		
+		var results: [Room] = []
+		for document in documents {
+			if let roomName = document.get("name") as? String {
+				let room = Room(name: roomName, documentId: document.documentID)
+				results.append(room)
+			}
+		}
+
+		self.rooms = results
+		```
+
+		追記後の`viewDidLoad`メソッド
+
+		```swift
+		override func viewDidLoad() {
+			super.viewDidLoad()
+			
+			tableView.dataSource = self
+			tableView.delegate = self
+
+			let db = Firestore.firestore()
+			db.collection("room").addSnapshotListener { (querySnapshot, error) in
+				guard let documents = querySnapshot?.documents else {
+					return
+				}
+
+				var results: [Room] = []
+				for document in documents {
+					if let roomName = document.get("name") as? String {
+						let room = Room(name: roomName, documentId: document.documentID)
+						results.append(room)
+					}
+				}
+				
+				self.rooms = results
+			}
+		}
+		```
+
+		```swift
+		guard let documents = querySnapshot?.documents else {
+			return
+		}
+		```
+
+		> `guard`文は、条件を*満たさない場合*の処理を記述する構文です。  
+		> roomコレクション内からドキュメントを取得しようとし、nilが返ってきた場合、  
+		> 処理を中断するため、`guard`文を使用しています。
+
+7. 実行してみる
+	<img src="./img/SimpleChatApp22.gif" width="300px">
