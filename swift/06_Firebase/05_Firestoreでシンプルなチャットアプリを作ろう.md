@@ -295,8 +295,8 @@
 		```
 
 		> `guard`文は、条件を*満たさない場合*の処理を記述する構文です。  
-		> roomコレクション内からドキュメントを取得しようとし、nilが返ってきた場合、  
+		> roomコレクション内からドキュメントを取得しようとし、nilが返ってきた場合、  
 		> 処理を中断するため、`guard`文を使用しています。
 
 7. 実行してみる
-	<img src="./img/SimpleChatApp22.gif" width="300px">
+<img src="./img/SimpleChatApp22.gif" width="300px">
