@@ -46,13 +46,35 @@
 		以下の処理を追記する
 
 		```swift
-		performSegue(withIdentifier: "toRoom", sender: nil)
+		let room = rooms[indexPath.row]
+		performSegue(withIdentifier: "toRoom", sender: room.documentId)
 		```
 
 		追記後の`didSelectRowAt`メソッド
 
 		```swift
 		func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-			performSegue(withIdentifier: "toRoom", sender: nil)
+			let room = rooms[indexPath.row]
+			performSegue(withIdentifier: "toRoom", sender: room.documentId)
+		}
+		```
+
+	3. 実行してみる
+		<img src="./img/SimpleChatApp23.gif" width="300px;">
+
+	4. 選択された行のフォーカスを解除する処理を追記する。  
+	`didSelectRowAt`メソッドに以下の処理を追記する。
+
+		```swift
+		tableView.deselectRow(at: indexPath, animated: true)
+		```
+
+		追記後の`didSelectRowAt`メソッド
+
+		```swift
+		func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+			let room = rooms[indexPath.row]
+			tableView.deselectRow(at: indexPath, animated: true)
+			performSegue(withIdentifier: "toRoom", sender: room.documentId)
 		}
 		```
