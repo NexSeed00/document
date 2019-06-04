@@ -255,4 +255,4 @@
 		```
 
 	4. 実行してみる
-		![SimpleChatApp](./img/SimpleChatApp24.png)
+	![SimpleChatApp](./img/SimpleChatApp24.png)
