@@ -256,3 +256,26 @@
 
 	4. 実行してみる
 	![SimpleChatApp](./img/SimpleChatApp24.gif)
+
+6. Firestoreに保存されているメッセージを画面に表示する。
+
+	1. Firestoreのmessagesコレクションの変更を検知し、  
+	コレクションが変更されるたびに実行されるイベントリスナーを定義する
+
+		`viewWillAppear`メソッドに以下の処理を追記する
+
+		```swift
+		override func viewWillAppear(_ animated: Bool) {
+			let db = Firestore.firestore()
+			
+			db.collection("room").document(documentId).collection("messages").order(by: "createdAt").addSnapshotListener { (querySnapshot, error) in
+				print("送信されました")
+			}
+		}
+		```
+
+		![SimpleChatApp](./img/SimpleChatApp25.gif)
+
+	2. 追加したリスナー内で、メッセージの一覧を画面に表示する処理を追記する
+
+		追記後の`viewWillAppear`メソッド

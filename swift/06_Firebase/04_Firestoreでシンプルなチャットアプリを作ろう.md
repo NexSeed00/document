@@ -58,6 +58,11 @@
 
 			<img src="./img/SimpleChatApp11.png" width="300px">
 
+		6. TableViewCellを配置する  
+		TableViewCellのidentifierに「cell」を設定する
+
+			![SimpleChatApp](./img/SimpleChatApp26.png)
+
 3. 各画面のViewControllerを準備する
 	
 	1. RoomViewController.swiftを作成する	
