@@ -60,7 +60,7 @@
 		```
 
 	3. 実行してみる
-		<img src="./img/SimpleChatApp23.gif" width="300px;">
+	<img src="./img/SimpleChatApp23.gif" width="300px;">
 
 	4. 選択された行のフォーカスを解除する処理を追記する。  
 	`didSelectRowAt`メソッドに以下の処理を追記する。
@@ -78,3 +78,5 @@
 			performSegue(withIdentifier: "toRoom", sender: room.documentId)
 		}
 		```
+
+3. 
