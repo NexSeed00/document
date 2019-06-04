@@ -251,7 +251,7 @@
 					}
 			}
 			messageTextField.text = ""
-    }
+		}
 		```
 
 	4. 実行してみる
