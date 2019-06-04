@@ -253,3 +253,6 @@
 			messageTextField.text = ""
     }
 		```
+
+	4. 実行してみる
+		![SimpleChatApp](./img/SimpleChatApp24.png)
