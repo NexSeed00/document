@@ -20,11 +20,11 @@ AmazonのTOPページが表示されます。
 ②ページの表示  
 の間に何が起こっているのか説明します。  
   
-![amazon](./img/amazon.png)
+![amazon](/img/amazon.png)
 
 以下のようなことが行われています。  
 
-![amazon](./img/amazon2.png)
+![amazon](/img/amazon2.png)
 
 簡単に説明すると、  
 ①クライアントでURLを入力して、  
@@ -228,7 +228,7 @@ AmazonのTOPページが表示されます。
 ### データのやりとりが行われる流れ
 最初の図では単純化するためにDNSを抜いてましたが、  
 実際には以下のような順番でやりとりが行われています。  
-![amazon](./img/amazon3.png)
+![amazon](/img/amazon3.png)
 
 1. URLを入力 例:amazon.co.jpと入力
 2. DNSがamazon.co.jpに対応するIPアドレスを調べて変換

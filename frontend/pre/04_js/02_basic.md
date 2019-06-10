@@ -16,19 +16,20 @@
 
 `question/js/basic`が基本構文のフォルダです。  
 `question/js/basic/app.js`にサンプルとして記述しているコードを書きましょう。  
-結果は`question/js/basic/index.html`をgoogle chromeのdeveloper toolの
-consoleパネルで確認します。
+
+結果は`question/js/basic/index.html`をgoogle chromeで開き、  
+developer toolのconsoleパネルで確認できます。
 
 #### ファイルの変更手順
 1. Sublime Textに変更対象のフォルダ(`question/js/`)をドラック&ドロップして開く
 2. basicフォルダ内の`app.js`を編集する。
-![確認手順](./img/open_dir.gif)
+![確認手順](/img/open_dir.gif)
 
 #### 変更内容確認手順
 1. Google chromeで`question/js/basic/index.html`を開く
 2. 右クリック→検証をクリック
 3. 表示されたメニュー(developer tool)のconsoleパネルを開く
-![確認手順](./img/open_console.gif)
+![確認手順](/img/open_console.gif)
 
 #### console.logとは
 JavaScriptでプログラミングする際にデータの
@@ -49,7 +50,7 @@ developer toolを起動し,consoleパネルを開いて、
 developer toolは画面を右クリックして検証ボタンをクリックすることで開けます。
 
 出力結果  
-![出力結果](./img/console.png)
+![出力結果](/img/console.png)
 
 #### コメントアウト
 コメントアウトとは、入力されてる文字をプログラムとして実行されないようにすることです。
@@ -275,7 +276,7 @@ console.log(student_list);
 ```
 
 出力結果
-![出力結果](./img/array.png)
+![出力結果](/img/array.png)
 
 ##### 配列の中身の表示
 配列はタンスのようなものというのは前述の通りです。  
@@ -348,7 +349,7 @@ console.log(user);
 ```
 
 出力結果  
-![出力結果](./img/object.png)
+![出力結果](/img/object.png)
 
 ##### 連想配列の中身の表示
 連想配列はタンスです。また引き出しには名前がついています。<br>
@@ -757,7 +758,7 @@ for (let i = 1; i <= 10; i++) {
 ```
 
 出力結果  
-![出力結果](./img/loop.png)
+![出力結果](/img/loop.png)
 
 この**条件式**や**変化式**がおかしいと**無限ループ**になります。
 例えば、上の例ですと、  
@@ -809,7 +810,7 @@ while (j <= 10) {
 ```
 
 出力結果  
-![出力結果](./img/loop.png)
+![出力結果](/img/loop.png)
 
 上の処理はfor文のサンプルをwhile文で書いたものです。<br>
 繰り返す回数が決まっていない場合に主に使用すると記述しましたが、
@@ -873,7 +874,7 @@ for (let value of hobbies) {
 ```
 
 出力結果  
-![出力結果](./img/for_of.png)
+![出力結果](/img/for_of.png)
 
 ##### 練習問題
 1. 変数`sports`を作成して、配列`['basketball', 'soccer', 'baseball']`を代入してください。
@@ -924,7 +925,7 @@ for (let key in prices) {
 ```
 
 出力結果  
-![出力結果](./img/for_in.png)
+![出力結果](/img/for_in.png)
 
 ##### 練習問題
 1. 変数`heights`を作成して、連想配列`{ skyTree : 634, tokyoTower: 333 }`を代入してください。

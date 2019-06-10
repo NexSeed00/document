@@ -28,7 +28,7 @@ MacにはSafari、WindowsにはIEまたはEdgeがデフォルトのブラウザ�
 
 ### ・Sublime Text
 
-[![chrome](https://img.youtube.com/vi/aDpcuZ18q20/0.jpg)](https://www.youtube.com/watch?v=aDpcuZ18q20)  
+[![sublime](https://img.youtube.com/vi/aDpcuZ18q20/0.jpg)](https://www.youtube.com/watch?v=aDpcuZ18q20)  
 
 コードを書くためには、テキストエディタというプログラムのソースコードを編集するためのツールが必要です。  
 現役のエンジニアやデザイナーが現場でよくつかっている**SublimeText**を利用してプログラミングを進めていきます。  
@@ -47,7 +47,7 @@ MacにはSafari、WindowsにはIEまたはEdgeがデフォルトのブラウザ�
 
 ### ・Xcode(iOSコース受講予定の方のみ)
 <br>
-<img src="http://hackers.nexseed.net/images/curriculum_images/before_learning7.png" style="width: 60%"><br>
+![Xcode](/img/before_learning7.png)
 <br>
 Xcodeは、iOSアプリやmacOSアプリなど、Apple製品のアプリを開発のためのツールです。
 

@@ -16,16 +16,16 @@
 > インストールしたXcodeを立ち上げてください。  
 **Xcodeの見つけ方がわからない方は下の画像を参照**
 
-![Swiftロゴ](./img/launchpad.png)
+![Swiftロゴ](/img/launchpad.png)
 
 #### Playgroundプロジェクトを作成する
 1. 下の画像を参考にPlaygroundプロジェクト選択
 	
-	![Swiftロゴ](./img/welcome_to_xcode_menu.png)
+	![Swiftロゴ](/img/welcome_to_xcode_menu.png)
 
 2. 「Blank」を選択し、「Next」ボタンをクリック
 
-	![Swiftロゴ](./img/select_blank_project.png)
+	![Swiftロゴ](/img/select_blank_project.png)
 
 3. プロジェクトの保存先を選択し、「Create」ボタンをクリック
 	> プロジェクト名に「HelloWorld」と入力してください  
@@ -33,11 +33,11 @@
 	**本記事ではデスクトップに「Swift」というフォルダを作り、その中にプロジェクトを保存しています**
 	
 	
-	![Swiftロゴ](./img/create_project.png)
+	![Swiftロゴ](/img/create_project.png)
 	
 4. 下記画像と同じような画面になれば、Playgroundプロジェクト作成完了です
 	
-	![Swiftロゴ](./img/finish_create_project.png) 
+	![Swiftロゴ](/img/finish_create_project.png) 
 
 
 #### Hello Worldを出力するプログラムを書こう
@@ -47,7 +47,7 @@
 
 	> 下記画像のようになっていればOKです
 	
-	![Swiftロゴ](./img/empty_project.png) 
+	![Swiftロゴ](/img/empty_project.png) 
 	
 2. 以下のプログラムを書いてください
 	
@@ -57,8 +57,8 @@
 	
 3. 左下にある実行ボタンをクリック
 
-	![Swiftロゴ](./img/click_execute_button.png) 
+	![Swiftロゴ](/img/click_execute_button.png) 
 	
 4. Hello Worldと出力されたら成功です
 
-	![Swiftロゴ](./img/printed_hello_world.png) 
+	![Swiftロゴ](/img/printed_hello_world.png) 

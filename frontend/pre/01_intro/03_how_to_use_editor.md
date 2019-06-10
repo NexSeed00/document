@@ -20,14 +20,14 @@ Sublime Textはエンジニアに人気な便利なエディタです。
 ## ◆ファイルの開き方
 Sublime Textでは、編集したいファイルをSublime Textの黒い画面にドラッグ＆ドロップすることでそのファイルを開くことができます。
 
-<img src="http://hackers.nexseed.net/images/curriculum_images/sublime_1.png" class="img-responsive" alt="">  
+![sublime](/img/sublime_1.png)
 
-<img src="http://hackers.nexseed.net/images/curriculum_images/sublime_2.png" class="img-responsive" alt="">  
+![sublime](/img/sublime_2.png)
 
 また、ファイルではなくディレクトリ(フォルダ)をドラッグ＆ドロップすると、左サイドにディレクトリ階層が表示されます。
 プログラミングをする場合、一度に複数のファイルを使用することが多いため、
 基本的にこちらの使い方をしましょう。
 
-<img src="http://hackers.nexseed.net/images/curriculum_images/sublime_3.png" class="img-responsive" alt="">  
+![sublime](/img/sublime_3.png)
 
-<img src="http://hackers.nexseed.net/images/curriculum_images/sublime_4.png" class="img-responsive" alt="">  
+![sublime](/img/sublime_4.png)

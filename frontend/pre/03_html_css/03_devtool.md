@@ -36,9 +36,9 @@ developer toolsを表示してる範囲によってかわる場合があるた�
 以下の画像とレイアウトが異なる可能性がありますが、特に問題ありません。    
 
 
-![devtool右](./img/devtool/right.png)
+![devtool右](/img/devtool/right.png)
 
-![devtool右](./img/devtool/right2.png)
+![devtool右](/img/devtool/right2.png)
 
 ## メニューの説明
 developer toolsの起動はできたので、  
@@ -53,7 +53,7 @@ developer toolsの起動はできたので、
 選択されてるメニューの下には青いバーが表示されます。
 
 
-![devtool右](./img/devtool/right3.png)
+![devtool右](/img/devtool/right3.png)
 ### Elements
 ElementsにはそのページのHTMLが全て表示されます。  
 
@@ -68,7 +68,7 @@ StylesにはCSSが表示されます。
 ③が①のHTMLを画面で表示した時の結果です。  
 ③の要素には青い部分と、緑、黄色、オレンジの部分がありますが、  
 `青 = コンテンツ`、 `緑 = padding`、 `黄色 = border`、  `オレンジ = margin`を表しています。  
-![devtool右](./img/devtool/right4.png)
+![devtool右](/img/devtool/right4.png)
 
 ### Console
 Consoleからは多くの情報を得ることができますが、    
@@ -81,7 +81,7 @@ HTTPリクエストとメソッド、
 HTTPレスポンスのステータスコードなどを確認することができます。  
 ※Networkタブの内容を確認する場合、developer toolsを起動した状態で画面を表示する必要があります。
 
-![devtool右](./img/devtool/right7.png)
+![devtool右](/img/devtool/right7.png)
 
 ①ではリクエスト、レスポンスの詳細が確認できます。  
 表示されている各メニューは、①の枠内を右クリックすることで、変更できます。 
@@ -134,7 +134,7 @@ Elementsの中の要素を選択することで、
 Elementsが③のように青くなり、  
 Stylesに使用されているCSS(④)が表示されます。   
 
-![devtool右](./img/devtool/right5.png)
+![devtool右](/img/devtool/right5.png)
 
 ### Webサイトを作成するときに自分が思った通りに変更されない原因を調べる
 次に自分がWebサイトを作成してる時にdeveloper toolsを使うケースを紹介します。  
@@ -161,7 +161,7 @@ Stylesに使用されているCSSが表示(③)されます。
 そこを修正することで問題を解決できます。  
 
 
-![devtool右](./img/devtool/right6.png)
+![devtool右](/img/devtool/right6.png)
 
 
 ## まとめ

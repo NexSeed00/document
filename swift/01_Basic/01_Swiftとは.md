@@ -1,5 +1,5 @@
 # Swiftとは
-![Swiftロゴ](./img/swift_logo.jpg)
+![Swiftロゴ](/img/swift_logo.jpg)
 ## このカリキュラムの目標
 1. Swiftがどんなものかを知る
 

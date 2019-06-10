@@ -28,11 +28,12 @@ console.logにてご確認ください。
 ### 練習問題
 1. 偶数と奇数の判定
 
-<details><summary>回答例</summary>
+<details>
+<summary>回答例</summary>
 <div>
 
 ```JavaScript
-//if文
+// if文
 let i = 2;
 if (i % 2 === 0) {
     console.log(`${i}は偶数です`);
@@ -40,7 +41,7 @@ if (i % 2 === 0) {
     console.log(`${i}は奇数です`);
 }
 
-//Switch文
+// Switch文
 switch (i % 2 === 0) {
     case true:
         console.log(i + 'は偶数です');

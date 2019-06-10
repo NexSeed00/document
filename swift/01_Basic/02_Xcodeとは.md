@@ -1,5 +1,5 @@
 # Xcodeとは
-![Swiftロゴ](./img/welcome_to_xcode.png)
+![Swiftロゴ](/img/welcome_to_xcode.png)
 
 ## このカリキュラムの目標
 1. Xcodeをインストールする
@@ -10,7 +10,7 @@
 2. 検索ボックスに「Xcode」と入力して検索してください。
 3. 検索結果に「Xcode」が表示されると思います。「インストール」ボタンをクリックしてインストールしてください。
 
-![Swiftロゴ](./img/install_xcode.png)
+![Swiftロゴ](/img/install_xcode.png)
 
 > インストールが完了したら、Xcodeが起動することを確認してください。  
 > **既にインストールされている方でもバージョンが最新になってることを確認してください。**
@@ -24,15 +24,15 @@ Xcodeのインストールは少し通信が重くなるため、時間に余裕
 
 ### Xcodeの最新バージョン確認方法
 1. Xcodeを開いてください。
-	![Swiftロゴ](./img/launchpad.png)
+	![Swiftロゴ](/img/launchpad.png)
 	
 2. Welcome To Xcodeの下にあるVersionを確認してください。
-	![Swiftロゴ](./img/check_version.png)
+	![Swiftロゴ](/img/check_version.png)
 	
 3. 以下のリンクのページを開き、GMsチェックボックスをオンにしてください。  
 「2」で確認したVersionとXcode Releaseページに表示されているトップのVersionが同じであればOKです。  
 	https://xcodereleases.com/
-	![Swiftロゴ](./img/xcodereleases.png)
+	![Swiftロゴ](/img/xcodereleases.png)
 	
 > Xcodeのバージョンによっては、MacOSのアップデートが必要になる場合があります。  
 > **OSアップデートでデータが無くなることが稀にあります。事前にバックアップを取ると安心です。**  

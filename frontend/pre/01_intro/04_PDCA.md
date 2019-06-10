@@ -1,5 +1,6 @@
 ## プログラミングPDCAサイクル
-<img src="http://hackers.nexseed.net/images/curriculum_images/pdca.jpeg" class="img-responsive" alt="rule">  
+![PDCA](/img/pdca.jpeg)
+
 プログラミング学習でもっとも意識すべき点は、「自己解決能力」。  
 プログラマが普段こなす業務はすべてこの能力次第。
 
