@@ -115,12 +115,3 @@
 
 #### 参考リンク
 [Heroku](https://drive.google.com/drive/u/0/folders/1V3I57d_GIOaU6OSVlzh9iWvqZXDUkI8C)
-
-mysql://bf0cb4bbca9c16:34b1e348@us-cdbr-iron-east-02.cleardb.net/heroku_9f04bebf73fcad8?reconnect=true
-
-
-HOST_NAME us-cdbr-iron-east-02.cleardb.net
-USER_NAME bf0cb4bbca9c16:34b1e348
-
-
-us-cdbr-iron-east-04.cleardb.net
