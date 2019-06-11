@@ -44,9 +44,6 @@
   - スケールアウト = サーバの数を増やす
 - 料金はVPSより高い
 - IaaS, PaaS, SaaSがある
-  - Iaas - 土地
-  - Paas - 家
-  - Saas - 部屋
 - 有名なサービス(IaaS)
   - AWS
   - GCP
@@ -89,7 +86,70 @@
 - Heroku
   - 設定が不要もしくは簡単
 
+### インストールするソフト
+- Heroku CLI
+- Sequel Pro (Mac)
+- Mysql workbench(Windows)
+  - MySQLの中身を確認、SQL文を実行したりする必要がある場合のみ
+  - phpMyAdminみたいなもの
+
 ### 手順
+#### 最初の1回のみ
+- Herokuアカウントの作成
+- クレカ登録
+- Heroku CLIのインストール
+- Herokuにログイン
+  - heroku login
+
+#### アプリごとに実施
+- Heroku App作成
+  - heroku create {app-name} --buildpack heroku/php
+- MySQLのインストール
+  - heroku addons:add cleardb
+- その他設定
+  - 後述
+- GitHubと連携
+- デプロイ
+  - git push heroku master
+  - GitHubと連携することでGitHubにpushした時点で更新することも可能
+- 確認
+  - heroku open
+
+### その他設定
+- heroku config | grep CLEARDB_DATABASE_URL
+```
+mysql://(--username--):(--password--)@(--hostname--)/(--dbname--)?reconnect=true
+```
+- heroku config:set DB_DATABASE=heroku_eb8bcc43c831953
+- heroku config:set DB_HOST=us-cdbr-iron-east-02.cleardb.net
+- heroku config:set DB_USERNAME=bb1f4444553427
+- heroku config:set DB_PASSWORD=50fbf934
+- heroku config:set APP_KEY=$(php artisan key:generate --show)
+- heroku config:set APP_ENV=heroku
+- heroku run php artisan migrate
+- heroku run php artisan storage:link
+  - 画像を扱う場合のみ
+
+#### Laravelのコードを修正
+- `Procfile` という名前のファイルをルートディレクトリに作成
+  - `web: vendor/bin/heroku-php-apache2 public/` を記述して保存
+
+- AppServiceProviderに以下記述(https対応)
+```php
+// AppServiceProvider
+
+public function boot()
+{
+    if (\App::environment('heroku')) {
+        \URL::forceScheme('https');
+    }
+
+    Schema::defaultStringLength(191);
+}
+```
+
+
+## おまけ
 #### MySQLを使用しない場合
 - Herokuのアカウント作成
 - GitHubのアカウントと連携
@@ -98,20 +158,27 @@
   - .htmlだけの場合でも拡張子を.phpに変更する必要がある
 - デプロイ
 
-#### MySQLを使用する場合
-- MySQLのインストール
-  - 実施前にクレジットカードの登録が必要
-    - account settings -> Bilingから実施
-- 環境変数の設定(Heroku)
-- ソースコードのMySQLの設定を変更
-  - Herokuにアップする用のブランチを作成(例: release)
-  - 指定してるDBを変更
-    - HOST_NAME
-    - DB_NAME
-    - USER_NAME
-    - PASSWORD
-  - get_env
+ 
+### MySQLを使用する場合(例: PHP)
+- 上記 + MySQLの設定が必要
+- DBの接続先のみ変更
+
+#### Herokuの環境変数を設定
+- HOST_NAME: us-cdbr-iron-east-02.cleardb.net
+- DB_NAME: heroku_hogefugahoge1234
+- USER_NAME: hoge12345
+- PASSWORD: fuga12345
+
+#### ソースコードのMySQLの設定を変更
+```php
+  $host = getenv(HOST_NAME);
+  $dbname = getenv(DB_NAME);
+  $user = getenv(USER_NAME);
+  $password = getenv(PASSWORD);
+```
 
 
 #### 参考リンク
 [Heroku](https://drive.google.com/drive/u/0/folders/1V3I57d_GIOaU6OSVlzh9iWvqZXDUkI8C)
+
+[Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)
