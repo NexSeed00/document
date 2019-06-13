@@ -303,3 +303,4 @@
 		```
 
 ## 実行してみる
+<img src="./img/SimpleChatApp27.gif" width="300px">
