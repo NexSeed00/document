@@ -268,7 +268,7 @@
 		override func viewWillAppear(_ animated: Bool) {
 			let db = Firestore.firestore()
 			
-			db.collection("room").document(documentId).collection("messages").order(by: "createdAt").addSnapshotListener { (querySnapshot, error) in
+			db.collection("room").document(documentId).collection("messages").order(by: "createdAt", descending: true).addSnapshotListener { (querySnapshot, error) in
 				print("送信されました")
 			}
 		}
@@ -279,3 +279,28 @@
 	2. 追加したリスナー内で、メッセージの一覧を画面に表示する処理を追記する
 
 		追記後の`viewWillAppear`メソッド
+
+		```swift
+		override func viewWillAppear(_ animated: Bool) {
+			let db = Firestore.firestore()
+			db.collection("room").document(documentId).collection("messages").order(by: "createdAt", descending: true).addSnapshotListener { (querySnapshot, error) in
+				guard let documents = querySnapshot?.documents else {
+					return
+				}
+				
+				var messages:[Message] = []
+				for document in documents {
+					let documentId = document.documentID
+					let text = document.get("text") as! String
+					let message = Message(documentId: documentId, text: text)
+					
+					messages.append(message)
+				}
+				
+				self.messages = messages
+			}
+		}
+		```
+
+## 実行してみる
+<img src="./img/SimpleChatApp27.gif" width="300px">
