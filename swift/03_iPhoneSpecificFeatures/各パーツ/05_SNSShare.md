@@ -83,4 +83,5 @@
         ```
 
 ## 実行してみる  
+※シミュレーターにはSNSアプリなどインストールされていないため、実機で実行する。  
 <img src="./img/SNSShareProject02.gif" width="300px">
