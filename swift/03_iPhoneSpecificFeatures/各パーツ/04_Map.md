@@ -92,7 +92,7 @@
         myPin.coordinate = center
 
         // タイトルを設定.
-        myPin.title = "自由の女神"
+        myPin.title = "自由の女神"
 
         // サブタイトルを設定.
         myPin.subtitle = "いつか見てみたい自由の女神"
