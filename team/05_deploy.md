@@ -104,6 +104,7 @@
 #### アプリごとに実施
 - Heroku App作成
   - heroku create {app-name} --buildpack heroku/php
+    - heroku buildpacks:set heroku/php
 - MySQLのインストール
   - heroku addons:add cleardb
 - その他設定
@@ -112,6 +113,7 @@
 - デプロイ
   - git push heroku master
   - GitHubと連携することでGitHubにpushした時点で更新することも可能
+- Laravelの必要なコマンドを実施
 - 確認
   - heroku open
 
@@ -126,9 +128,6 @@ mysql://(--username--):(--password--)@(--hostname--)/(--dbname--)?reconnect=true
 - heroku config:set DB_PASSWORD=50fbf934
 - heroku config:set APP_KEY=$(php artisan key:generate --show)
 - heroku config:set APP_ENV=heroku
-- heroku run php artisan migrate
-- heroku run php artisan storage:link
-  - 画像を扱う場合のみ
 
 #### Laravelのコードを修正
 - `Procfile` という名前のファイルをルートディレクトリに作成
@@ -148,6 +147,28 @@ public function boot()
 }
 ```
 
+※編集後はgit commitまで実施する
+
+#### Laravelの必要なコマンドを実施
+- heroku run composer install
+- heroku run php artisan migrate
+
+## 画像を保存する場合
+### 画像の保存先(AWSでS3)の準備と各種設定
+- AWSアカウント作成
+- s3バケット作成
+- IAMでユーザー作成
+
+### Laravelの設定
+`composer require league/flysystem-aws-s3-v3`
+
+```
+heroku config :set AWS_ACCESS_KEY_ID=
+heroku config :set AWS_SECRET_ACCESS_KEY=
+heroku config :set AWS_DEFAULT_REGION=ap-northeast-1
+heroku config :set AWS_BUCKET=
+
+```
 
 ## おまけ
 #### MySQLを使用しない場合
