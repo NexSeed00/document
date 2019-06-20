@@ -65,6 +65,7 @@ Laravelではコントローラーの作成をコマンド1つで行えます。
 
 class DiaryController extends Controller
 {
+    // 追加
     public function index()
     {
         return 'Hello World';
@@ -182,33 +183,49 @@ DBを確認してテーブルが作成されているか確認してみましょ
 ```php
 // database/seeds/DatabaseSeeder
 
-use Carbon\Carbon;
-use Illuminate\Support\Facades\DB;
+<?php
 
-public function run()
+use Illuminate\Database\Seeder;
+use Carbon\Carbon; // 追加
+use Illuminate\Support\Facades\DB; // 追加
+
+class DiariesTableSeeder extends Seeder
 {
-    $diaries = [
-        [
-            'title' => 'セブでプログラミング',
-            'body'  => '気づけばもうすぐ2ヶ月',
-        ],
-        [
-            'title' => '週末は旅行',
-            'body'  => 'オスロブに行ってジンベエザメと泳ぎました',
-        ],
-        [
-            'title' => '英語授業',
-            'body'  => '楽しい',
-        ],
-    ];
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        // 追加
+        $user = DB::table('users')->first();
 
-    foreach ($diaries as $diary) {
-        DB::table('diaries')->insert([
-            'title' => $diary['title'],
-            'body' => $diary['body'],
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-        ]);
+        $diaries = [
+            [
+                'title' => 'セブでプログラミング',
+                'body'  => '気づけばもうすぐ2ヶ月',
+            ],
+            [
+                'title' => '週末は旅行',
+                'body'  => 'オスロブに行ってジンベエザメと泳ぎました',
+            ],
+            [
+                'title' => '英語授業',
+                'body'  => '楽しい',
+            ],
+        ];
+
+        foreach ($diaries as $diary) {
+
+            DB::table('diaries')->insert([
+                'title' => $diary['title'],
+                'body' => $diary['body'],
+                'user_id' => $user->id,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]);
+        }
     }
 }
 ```
@@ -251,7 +268,7 @@ class DiaryController extends Controller
     public function index()
     {
         //diariesテーブルのデータを全件取得
-        //useしてるDiaryモデルのallメソッドを実施
+        //useしてるDiaryのallメソッドを実施
         //all()はテーブルのデータを全て取得するメソッド
         $diaries = Diary::all(); 
 
