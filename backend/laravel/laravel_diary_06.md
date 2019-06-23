@@ -12,8 +12,8 @@
 今回は編集画面と、更新処理を作成します。  
 
 ```php
-Route::get('diary/edit', 'DiaryController@edit')->name('diary.edit'); // 編集画面
-Route::put('diary/update', 'DiaryController@update')->name('diary.update'); //更新処理
+Route::get('diary/{id}/edit', 'DiaryController@edit')->name('diary.edit'); // 編集画面
+Route::put('diary/{id}/update', 'DiaryController@update')->name('diary.update'); //更新処理
 ```
 
 ## 一覧画面に編集ボタンを追加
