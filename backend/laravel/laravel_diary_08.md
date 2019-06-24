@@ -15,15 +15,45 @@
 
 
 ## diariesテーブルにuser_idカラムを追加
+カラムを追加する場合の手順も基本的にテーブルの作成と同じです。
+1. マイグレーションファイルの作成
+2. マイグレーションファイルの編集
+3. マイグレーションの実行
+
 どのユーザーが日記を投稿したかわかるようにします。
 
+### マイグレーションファイルの作成
 以下のコマンドを実行してください。
-
 ```php
 // user_idをdiariesテーブルに追加するためのマイグレーションファイルを作成
 php artisan make:migration add_user_id_to_diaries --table=diaries
+```
 
-// マイグレーションの実行
+`database`ディレクトリに`yyyy_mm_dd_hhmmii_add_user_id_to_diaries.php`というファイルが作成されます。  
+
+今回は、diariesテーブルにidを追加するファイルのため、  
+`add_user_id_to_diaries`という名前にしてます。 
+
+### マイグレーションファイルの編集
+`up` メソッドを以下の通り編集します。  
+
+```php
+// yyyy_mm_dd_hhiiss_add_user_id_to_diaries
+
+ public function up()
+ {
+     Schema::table('diaries', function (Blueprint $table) {
+         $table->integer('user_id')->unsigned();
+
+         //外部キーに設定
+         $table->foreign('user_id')->references('id')->on('users');
+     });
+ }
+
+```
+
+### マイグレーションの実行
+```php
 php artisan migrate:fresh
 ```
 
@@ -31,6 +61,8 @@ php artisan migrate:fresh
 新たにカラムを追加する場合、追加したカラムの値は`NULL`になります。  
 しかし、`user_id`には投稿したユーザーのidを入れるため、NULLを許可しないように設定します。  
 そのため、普通に`php artisan migrate`をしてしまうと、`user_id`カラムには`NULL`が許可されていないということでエラーになります。  
+
+`php artisan migrate:fresh` は一旦全てのテーブルを削除して新たに作成します。    
 
 
 ## UserとDiaryのリレーションの定義
@@ -51,7 +83,7 @@ public function diaries()
 [1対多のリレーション](https://readouble.com/laravel/5.7/ja/eloquent-relationships.html#one-to-many)
 
 
-3. usersテーブルにテストデータを作成する準備
+1. usersテーブルにテストデータを作成する準備
 ## usersテーブルにデータを挿入するSeederの作成
 
 以下のコマンドでテストデータ作成用のファイルを作成します。  
