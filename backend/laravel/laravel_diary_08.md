@@ -58,9 +58,10 @@ php artisan migrate:fresh
 ```
 
 マイグレーションの際に`php artisan migrate`ではなく、`php artisan migrate:fresh`理由を説明します。    
-新たにカラムを追加する場合、追加したカラムの値は`NULL`になります。  
+新たにカラムを追加する場合、すでに保存されているデータの、追加したカラムの値は`NULL`になります。  
 しかし、`user_id`には投稿したユーザーのidを入れるため、NULLを許可しないように設定します。  
-そのため、普通に`php artisan migrate`をしてしまうと、`user_id`カラムには`NULL`が許可されていないということでエラーになります。  
+そのため、普通に`php artisan migrate`をしてしまうと、  
+`user_id`カラムには`NULL`が許可されていないということでエラーになります。  
 
 `php artisan migrate:fresh` は一旦全てのテーブルを削除して新たに作成します。    
 
