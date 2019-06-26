@@ -214,5 +214,40 @@ protected $fillable = [
 同じ要領でDiaryにも画像を投稿できます。  
 余裕がある人は復習もかねて試してみましょう。
 
+### テストデータの挿入
+
+#### 画像の用意
+任意の画像を以下のディレクトリに保存
+※ディレクトリがない場合は作成
+`storage/images/profilePicture/`
+
+ここでは`default.jpg`という名前のファイルを保存した前提で進めます。  
+
+#### マイグレーションファイルに画像ファイルのpathを追加
+
+先ほど保存した画像のpathをDBに保存
+```php
+// UsersTableSeeder
+
+ public function run()
+ {
+     DB::table('users')->insert([
+         'name' => 'pikopoko',
+         'email' => 'pikopoko@gmail.com',
+         'picture_path' => 'storage/images/profilePicture/default.jpg', // 追加
+         'password' => bcrypt('123456'),
+         'created_at' => Carbon::now(),
+         'updated_at' => Carbon::now(),
+     ]);
+ }
+```
+
+#### マイグレーションの実行
+```php
+php artisan migrate:fresh --seed
+``` 
+ログインしたアカウントで画像が表示されているか確認
+
+
 ## 参考リンク
 [ファイルストレージ](https://readouble.com/laravel/5.7/ja/filesystem.html)
