@@ -205,7 +205,7 @@ protected $fillable = [
 // app.blade.php
 
 <li class="nav-item">
-  <img height="40px" src="{{ Auth::user()->picture_path }}" >
+  <img height="40px" src="{{ asset(Auth::user()->picture_path) }}" >
 </li>
 
 ```
