@@ -198,8 +198,6 @@ class DiariesTableSeeder extends Seeder
      */
     public function run()
     {
-        // 追加
-        $user = DB::table('users')->first();
 
         $diaries = [
             [
