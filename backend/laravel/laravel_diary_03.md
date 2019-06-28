@@ -181,7 +181,7 @@ DBを確認してテーブルが作成されているか確認してみましょ
 ### テストデータ作成用ファイルの編集
 
 ```php
-// database/seeds/DatabaseSeeder
+// database/seeds/DiariesTableSeeder
 
 <?php
 
