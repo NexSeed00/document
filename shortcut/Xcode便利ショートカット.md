@@ -85,3 +85,15 @@
     <details><summary>実行例</summary><div>
       <img src="./img/xcode/debugWindow.gif">
 	  </div></details>
+
+### ファイル操作系
+
+7. 名前を入力してファイルを開く
+
+    |PC|キー|
+    |---|---|
+    |Mac|Command + Shift + o|
+
+    <details><summary>実行例</summary><div>
+      <img src="./img/xcode/debugWindow.gif">
+	  </div></details>
