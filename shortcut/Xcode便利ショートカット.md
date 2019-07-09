@@ -33,7 +33,7 @@
 
     <details><summary>実行例</summary><div>
       <img src="./img/xcode/newXcodeProject.gif">
-	  </div></details> 
+	  </div></details>
 
 ## <a id="closeWindow"></a>
 2. ウィンドウを閉じる
@@ -44,7 +44,7 @@
 
     <details><summary>実行例</summary><div>
       <img src="./img/xcode/closeWindow.gif">
-	  </div></details> 
+	  </div></details>
 
 3. Welcom to Xcode(起動画面)の表示
 
@@ -54,7 +54,7 @@
 
     <details><summary>実行例</summary><div>
       <img src="./img/xcode/welcomeXcode.gif">
-	  </div></details> 
+	  </div></details>
 
 4. 左ペイン表示/非表示
 
@@ -63,15 +63,25 @@
     |Mac|Command + 0|
 
     <details><summary>実行例</summary><div>
-      <img src="./img/xcode/welcomeXcode.gif">
-	  </div></details> 
+      <img src="./img/xcode/leftWindow.gif">
+	  </div></details>
 
-5. 左ペイン表示/非表示
+5. 右ペイン表示/非表示
 
     |PC|キー|
     |---|---|
-    |Mac|Command + Shift + 1|
+    |Mac|Command + option + 0|
 
     <details><summary>実行例</summary><div>
-      <img src="./img/xcode/welcomeXcode.gif">
-	  </div></details> 
+      <img src="./img/xcode/rightWindow.gif">
+	  </div></details>
+
+6. デバッグエリア表示/非表示
+
+    |PC|キー|
+    |---|---|
+    |Mac|Command + Shift + Y|
+
+    <details><summary>実行例</summary><div>
+      <img src="./img/xcode/debugWindow.gif">
+	  </div></details>
