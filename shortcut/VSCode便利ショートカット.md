@@ -32,7 +32,7 @@
     |Mac|Ctrl + Shift + N|
 
     <details><summary>実行例</summary><div>
-      <img src="./img/newWindow.gif">
+      <img src="./img/vscode/newWindow.gif">
 	  </div></details> 
 
 ## <a id="closeWindow"></a>
@@ -44,7 +44,7 @@
     |Mac|Ctrl + Shift + W|
 
     <details><summary>実行例</summary><div>
-      <img src="./img/closeWindow.gif">
+      <img src="./img/vscode/closeWindow.gif">
 	  </div></details> 
 
 ## <a id="closeEditor"></a>
@@ -56,7 +56,7 @@
     |Mac|Ctrl + W|
 
     <details><summary>実行例</summary><div>
-      <img src="./img/closeEditor.gif">
+      <img src="./img/vscode/closeEditor.gif">
 	  </div></details>
 
 ## <a id="divideEditor"></a>
@@ -68,7 +68,7 @@
     |Mac|Ctrl + \|
 
     <details><summary>実行例</summary><div>
-      <img src="./img/divideEditor.gif">
+      <img src="./img/vscode/divideEditor.gif">
 	  </div></details>
 
 ## ファイル操作系
@@ -82,7 +82,7 @@
     |Mac|Ctrl + \|
 
     <details><summary>実行例</summary><div>
-      <img src="./img/newFile.gif">
+      <img src="./img/vscode/newFile.gif">
 	  </div></details>
 
 ## <a id="save"></a>
@@ -102,7 +102,7 @@
     |Mac|Ctrl + P|
 
     <details><summary>実行例</summary><div>
-      <img src="./img/quickOpen.gif">
+      <img src="./img/vscode/quickOpen.gif">
 	  </div></details>
 
 # 編集系
@@ -125,7 +125,7 @@
     |Mac|Ctrl + V|
 
     <details><summary>実行例</summary><div>
-      <img src="./img/copy_paste.gif">
+      <img src="./img/vscode/copy_paste.gif">
 	  </div></details>
 
 ## <a id="copy_paste_row"></a>
@@ -146,7 +146,7 @@
     |Mac|Ctrl + V|
 
     <details><summary>実行例</summary><div>
-      <img src="./img/copy_paste_row.gif">
+      <img src="./img/vscode/copy_paste_row.gif">
 	  </div></details>
 
 ## <a id="copy_row"></a>
@@ -158,7 +158,7 @@
     |Mac|Ctrl + option + ↓|
 
     <details><summary>実行例</summary><div>
-      <img src="./img/copy_row.gif">
+      <img src="./img/vscode/copy_row.gif">
 	  </div></details>
 
 ## <a id="cut"></a>
@@ -170,7 +170,7 @@
     |Mac|Ctrl + X|
 
     <details><summary>実行例</summary><div>
-      <img src="./img/cut.gif">
+      <img src="./img/vscode/cut.gif">
 	  </div></details>
 
 ## <a id="cut_row"></a>
@@ -182,7 +182,7 @@
     |Mac|Ctrl + X|
 
     <details><summary>実行例</summary><div>
-      <img src="./img/cut_row.gif">
+      <img src="./img/vscode/cut_row.gif">
 	  </div></details>
 
 ## <a id="multiSelect"></a>
@@ -194,7 +194,7 @@
     |Mac|Ctrl + D|
 
     <details><summary>実行例</summary><div>
-      <img src="./img/multiSelect.gif">
+      <img src="./img/vscode/multiSelect.gif">
 	  </div></details>
 
 ## <a id="allSelect"></a>
@@ -206,7 +206,7 @@
     |Mac|Ctrl + F2|
 
     <details><summary>実行例</summary><div>
-      <img src="./img/allSelect.gif">
+      <img src="./img/vscode/allSelect.gif">
 	  </div></details>
 	  
 	  
