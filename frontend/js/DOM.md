@@ -14,7 +14,6 @@
 
 ### 参考サイト
 - https://developer.mozilla.org/ja/docs/DOM/About_the_Document_Object_Model
-- https://qiita.com/hththt/items/cc047e326994f440a17a
 
 ## イベント
 - アプリなどで起きる出来事のこと
