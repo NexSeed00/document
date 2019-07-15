@@ -8,9 +8,10 @@
   - プラグイン
 - 右
   - 編集中のファイル
-- 下(ctrl + `で表示/非表示切り替え)
+- 下
   - ターミナル
-    - JIS なら`は shift + @
+    - Mac -> ctrl + `
+    - Windows -> ctrl + @
 - 上
   - 各種メニュー
 
@@ -57,8 +58,8 @@ cmd + k -> cmd + f -> インデントを揃える
 
 - Bracket Pair Colorizer
 - Auto Rename Tag
-- GitLens
 - open in browser
+- GitLens
 - php Intelephense
 
 ### 使用するフォントの変更
@@ -97,13 +98,3 @@ cmd + k -> cmd + f -> インデントを揃える
 - cmd + ,で設定を開く
 - search settings で `font` と検索
 - tab size の欄の数字を変更
-
-### 参考リンク
-
-windows
-https://qiita.com/TakahiRoyte/items/cdab6fca64da386a690b
-
-mac
-https://qiita.com/naru0504/items/99495c4482cd158ddca8
-
-https://qiita.com/12345/items/64f4372fbca041e949d0
