@@ -98,3 +98,8 @@ cmd + k -> cmd + f -> インデントを揃える
 - cmd + ,で設定を開く
 - search settings で `font` と検索
 - tab size の欄の数字を変更
+
+#### 不可視文字の表示
+- VS Codeの設定
+- 不可視文字の表示
+- cmd + , -> editor.renderControlCharactersで検索 -> editor: renderControlCharactersにチェック
