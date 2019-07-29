@@ -104,7 +104,6 @@
 #### アプリごとに実施
 - Heroku App作成
   - heroku create {app-name} --buildpack heroku/php
-    - heroku buildpacks:set heroku/php
 - MySQLのインストール
   - heroku addons:add cleardb
 - その他設定
@@ -122,12 +121,14 @@
 ```
 mysql://(--username--):(--password--)@(--hostname--)/(--dbname--)?reconnect=true
 ```
-- heroku config:set DB_DATABASE=heroku_eb8bcc43c831953
-- heroku config:set DB_HOST=us-cdbr-iron-east-02.cleardb.net
-- heroku config:set DB_USERNAME=bb1f4444553427
-- heroku config:set DB_PASSWORD=50fbf934
-- heroku config:set APP_KEY=$(php artisan key:generate --show)
-- heroku config:set APP_ENV=heroku
+mysql://:@/?reconnect=true
+
+heroku config:set DB_DATABASE=heroku_eb8bcc43c831953
+heroku config:set DB_HOST=us-cdbr-iron-east-02.cleardb.net
+heroku config:set DB_USERNAME=bb1f4444553427
+heroku config:set DB_PASSWORD=50fbf934
+heroku config:set APP_KEY=$(php artisan key:generate --show)
+heroku config:set APP_ENV=heroku
 
 #### Laravelのコードを修正
 - `Procfile` という名前のファイルをルートディレクトリに作成
@@ -151,7 +152,7 @@ public function boot()
 
 #### Laravelの必要なコマンドを実施
 - heroku run composer install
-- heroku run php artisan migrate
+- heroku run php artisan migrate --seed
 
 ## 画像を保存する場合
 ### 画像の保存先(AWSでS3)の準備と各種設定
@@ -203,3 +204,11 @@ heroku config :set AWS_BUCKET=
 [Heroku](https://drive.google.com/drive/u/0/folders/1V3I57d_GIOaU6OSVlzh9iWvqZXDUkI8C)
 
 [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)
+
+git init
+    - ローカルリポジトリ作成
+git add .
+git commit -m ''
+git push origin master
+git remote -v
+    - remoteのリポジトリを確認
