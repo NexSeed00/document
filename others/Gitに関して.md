@@ -26,8 +26,11 @@
 ## Gitの基本
 - 以下の3つから構成されてます
   - working directory
+    - 作業場
   - staging area
-  - git directory(repository)
+    - コミット待ち(addされた)のファイルたちを置く場所
+  - git directory(repository) 
+    - commitされたファイルたちを置く場所
 
 ## 重要なキーワード
 - repositories
