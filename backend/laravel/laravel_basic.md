@@ -70,7 +70,7 @@ Windowsの方は[公式サイト](https://getcomposer.org/)から
 ファイルをダウンロードしてインストールします。
 
 1. Composerコマンドを使用できるようにファイルを移動する(PATHを通すと言います)  
-`mv composer.phar /usr/local/bin/composer`
+`sudo mv composer.phar /usr/local/bin/composer`
 
 3. Comopserコマンドが使用できるか確認する  
 `composer`
