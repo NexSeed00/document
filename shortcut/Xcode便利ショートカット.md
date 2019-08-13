@@ -7,20 +7,6 @@
 - [Welcom to Xcode(起動画面)の表示](#closeEditor)
 - [エディタを分割する](#divideEditor)
 
-### ファイル操作系
-- [新しいファイルを作成](#newFile)
-- [保存](#save)
-- [ファイル名からファイルを開く](#quickOpen)
-
-### 編集系
-- [コピー＆貼り付け　（選択範囲）](#copy_paste)
-- [コピー＆貼り付け　（行）](#copy_paste_row)
-- [行コピー](#copy_row)
-- [切り取り　（選択範囲）](#cut)
-- [切り取り　（行）](#cut_row)
-- [次の同じ値を選択に追加](#multiSelect)
-- [選択値と同じ値を全て選択](#allSelect)
-
 
 ## ウィンドウ・エディタ操作系
 
@@ -95,5 +81,15 @@
     |Mac|Command + Shift + o|
 
     <details><summary>実行例</summary><div>
-      <img src="./img/xcode/debugWindow.gif">
+      <img src="./img/xcode/openFileByName.gif">
+	  </div></details>
+
+8. 名前を入力してファイルを開く
+
+    |PC|キー|
+    |---|---|
+    |Mac|Command + Shift + o|
+
+    <details><summary>実行例</summary><div>
+      <img src="./img/xcode/openFileByName.gif">
 	  </div></details>
