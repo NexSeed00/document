@@ -61,16 +61,23 @@ Composerはここからライブラリなどをインストールします。
 #### Composerのインストール
 非常に便利なComposerですが、使用するためにはまずComposer自体をインストールする必要があります。  
 
-インストールは非常に簡単で以下の手順を順番に実施するだけで自分のPCにインストールできます。  
+インストールは非常に簡単で、以下の手順を順番に実施するだけで自分のPCにインストールできます。  
+##### Mac
 1. Composerのインストール  
-Macの方は以下のコマンドでインストールできます。
+以下のコマンドでインストールできます。
 `sudo curl -sS https://getcomposer.org/installer | php`
 
-Windowsの方は[公式サイト](https://getcomposer.org/)から  
-ファイルをダウンロードしてインストールします。
-
-1. Composerコマンドを使用できるようにファイルを移動する(PATHを通すと言います)  
+2. Composerコマンドを使用できるようにファイルを移動する(PATHを通すと言います)  
 `sudo mv composer.phar /usr/local/bin/composer`
 
-3. Comopserコマンドが使用できるか確認する  
-`composer`
+##### Windows
+[公式サイト](https://getcomposer.org/)からファイルをダウンロードしてインストールします。
+
+#### Composerの動作確認
+以下のコマンドでバージョンが表示されればOK
+`composer --version`
+
+```
+出力例
+Composer version 1.8.5 2019-04-09 17:46:47
+```
