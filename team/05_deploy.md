@@ -121,14 +121,15 @@
 ```
 mysql://(--username--):(--password--)@(--hostname--)/(--dbname--)?reconnect=true
 ```
-mysql://:@/?reconnect=true
 
-heroku config:set DB_DATABASE=heroku_eb8bcc43c831953
-heroku config:set DB_HOST=us-cdbr-iron-east-02.cleardb.net
-heroku config:set DB_USERNAME=bb1f4444553427
-heroku config:set DB_PASSWORD=50fbf934
-heroku config:set APP_KEY=$(php artisan key:generate --show)
-heroku config:set APP_ENV=heroku
+```
+heroku config:set DB_DATABASE=(--dbname--)  
+heroku config:set DB_HOST=(--hostname--)  
+heroku config:set DB_USERNAME=(--username--)  
+heroku config:set DB_PASSWORD=(--password--)  
+heroku config:set APP_KEY=$(php artisan key:generate --show)  
+heroku config:set APP_ENV=heroku  
+```
 
 #### Laravelのコードを修正
 - `Procfile` という名前のファイルをルートディレクトリに作成
