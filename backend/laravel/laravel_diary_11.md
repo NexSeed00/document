@@ -201,7 +201,7 @@ function like(diaryId, $clickedBtn) {
     $.ajax({
         url: 'diary/' + diaryId +'/like', 
         type: 'POST', 
-        dataTyupe: 'json',
+        dataType: 'json',
         // LaravelではCSRF対策として、tokenを送信しないとエラーが発生します。
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -309,7 +309,7 @@ function dislike(diaryId, $clickedBtn) {
   $.ajax({
       url: 'diary/' + diaryId +'/dislike',
       type: 'POST',
-      dataTyupe: 'json',
+      dataType: 'json',
       headers: {
           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
       }
