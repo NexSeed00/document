@@ -63,7 +63,7 @@ createメソッドを追加します。
     <section class="container m-5">
         <div class="row justify-content-center">
             <div class="col-8">
-                <form action="{{ route('diary.create') }}" method="POST">
+                <form action="{{ route('diary.store') }}" method="POST">
                     @csrf
                     <div class="form-group">
                         <label for="title">タイトル</label>
@@ -97,7 +97,7 @@ URLを入力して画面が表示されるまでの流れは、
 
 画面は正しく表示されましたが、  
 今回のビューには2箇所新しい書き方があるので簡単に紹介します。  
-1. `<form action="{{ route('diary.create') }}" method="POST">`
+1. `<form action="{{ route('diary.store') }}" method="POST">`
 2. `@csrf`
 
 ### フォームのactionに関して
@@ -105,15 +105,15 @@ URLを入力して画面が表示されるまでの流れは、
 フォームのアクションには、遷移先のページのURLを入力することは  
 既に認識されているかと思います。  
 
-`action="{{ route('diary.create') }}" `も遷移先を指定してます。  
-`route('diary.create')`と書くことこで、ルートに指定した`name`のURLに変換されます。  
+`action="{{ route('diary.store') }}" `も遷移先を指定してます。  
+`route('diary.store')`と書くことこで、ルートに指定した`name`のURLに変換されます。  
 
 ```php
 // routes/web.php
 Route::get('/', 'DiaryController@index')->name('diary.index');
 
 Route::get('diary/create', 'DiaryController@create')->name('diary.create'); // 投稿画面
-Route::post('diary/create', 'DiaryController@store')->name('diary.create'); // 保存処理
+Route::post('diary/create', 'DiaryController@store')->name('diary.store'); // 保存処理
 ```
 
 上記が現在のルートです。  
@@ -121,7 +121,7 @@ Route::post('diary/create', 'DiaryController@store')->name('diary.create'); // �
 Laravelでは`<form>`や`<a>`で遷移先を指定するときに、`route('xxx.yyy')`とすることで、  
 リンクが対応したURLになります。  
 
-今回の場合は、`{{ route('diary.create') }}`なので、URLは`diary/create`となります。  
+今回の場合は、`{{ route('diary.store') }}`なので、URLは`diary/create`となります。  
 また、formに指定されているメソッドは`POST`のため、  
 投稿ボタンを押した場合は保存処理が実行されることになります。
 
